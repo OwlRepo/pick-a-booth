@@ -1,0 +1,14 @@
+name = "fastapi-backend-dev"
+file_prefix = "09"
+description = "Implements the locked contract in Python: FastAPI routers, services and camera backends, pluggy plugins, utils, and the Pydantic schemas it owns. Never touches models.py/migrations or src/web."
+owned_globs = ["src/photobooth/routers/**", "src/photobooth/services/**", "src/photobooth/plugins/**", "src/photobooth/utils/**", "src/photobooth/database/schemas.py"]
+
+[claude]
+tools = ["Read", "Grep", "Glob", "Edit", "Write", "Bash"]
+model = "sonnet"
+
+[codex]
+model = "gpt-5.6-sol"
+model_reasoning_effort = "high"
+sandbox_mode = "workspace-write"
+mcp_servers = []

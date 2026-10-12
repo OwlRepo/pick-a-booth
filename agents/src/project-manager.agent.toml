@@ -1,0 +1,14 @@
+name = "project-manager"
+file_prefix = "01"
+description = "Default entry point for every feature or bug fix (AGENTS.md agent routing). Turns a request into a testable spec, locks the FastAPI contract, and dispatches db-architect, test-engineer, fastapi-backend-dev, web-frontend-dev and the QA fan-out in the right order."
+owned_globs = []
+
+[claude]
+tools = ["Read", "Grep", "Glob", "Edit", "Write", "Bash", "TodoWrite"]
+model = "sonnet"
+
+[codex]
+model = "gpt-5.6-sol"
+model_reasoning_effort = "high"
+sandbox_mode = "workspace-write"
+mcp_servers = []

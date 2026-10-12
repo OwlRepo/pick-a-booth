@@ -1,0 +1,14 @@
+name = "web-frontend-dev"
+file_prefix = "03"
+description = "Use for the web assets served by the app: dropping a rebuilt photobooth-frontend bundle into src/web/frontend, the sharepage, and the PHP shareondemand endpoint. Consumes /api only; never edits Python."
+owned_globs = ["src/web/frontend/**", "src/web/sharepage/**", "src/web/shareondemand/**"]
+
+[claude]
+tools = ["Read", "Grep", "Glob", "Edit", "Write", "Bash"]
+model = "sonnet"
+
+[codex]
+model = "gpt-5.6-sol"
+model_reasoning_effort = "medium"
+sandbox_mode = "workspace-write"
+mcp_servers = []

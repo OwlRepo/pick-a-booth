@@ -1,0 +1,14 @@
+name = "ui-ux-designer"
+file_prefix = "04"
+description = "Use for UX copy and visual polish reviews of the photobooth UI (kiosk touch screen and admin pages). Plain-English microcopy, empty/loading/error states, touch targets."
+owned_globs = []
+
+[claude]
+tools = ["Read", "Grep", "Glob", "Edit", "Write"]
+model = "sonnet"
+
+[codex]
+model = "gpt-5.6-sol"
+model_reasoning_effort = "medium"
+sandbox_mode = "workspace-write"
+mcp_servers = []

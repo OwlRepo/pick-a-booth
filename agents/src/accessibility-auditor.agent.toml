@@ -1,0 +1,14 @@
+name = "accessibility-auditor"
+file_prefix = "08"
+description = "Use when user-visible web assets change (src/web/**, or a new photobooth-frontend bundle). Read-only WCAG 2.1 AA audit; reports WCAG_AA_PASS or WCAG_AA_FAIL."
+owned_globs = []
+
+[claude]
+tools = ["Read", "Grep", "Glob", "Bash"]
+model = "sonnet"
+
+[codex]
+model = "gpt-5.6-sol"
+model_reasoning_effort = "medium"
+sandbox_mode = "read-only"
+mcp_servers = []

@@ -1,0 +1,14 @@
+name = "security-auditor"
+file_prefix = "06"
+description = "Use for every change touching auth, the admin API, config persistence, file serving, plugins, share/sync or anything reachable from the network. Read-only; reports SAFE_TO_MERGE or BLOCKED."
+owned_globs = []
+
+[claude]
+tools = ["Read", "Grep", "Glob", "Bash"]
+model = "sonnet"
+
+[codex]
+model = "gpt-5.6-sol"
+model_reasoning_effort = "high"
+sandbox_mode = "read-only"
+mcp_servers = []

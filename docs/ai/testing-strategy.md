@@ -38,7 +38,8 @@ Enforcement:
 |---|---|---|
 | Claude session | `.claude/settings.json` PreToolUse hook `scripts/hooks/tdd_red_guard.py` blocks Edit/Write (and Bash `sed -i`, `>`, `tee`, `cp`/`mv`) on `src/photobooth/**/*.py` logic until a valid RED marker exists for the current branch | `uv run poe tdd:red --waiver "<reason>"`, which then must appear in the PR as `TDD-Waiver:` |
 | Human edits (no hook) | `uv run poe tdd:red` is a mandatory step in `AGENTS.md` | CI gate below |
-| Every PR | `uv run poe tdd:gate` (`scripts/ci/tdd_gate.py`, workflow `.github/workflows/ai-gates.yml`): tests present for changed logic; migration test for changed migrations; names prefixed and ordered; **the PR's tests run against the merge-base code and must fail** (`TDD-Waiver: refactor ...` inverts this: they must pass there) | `TDD-Waiver:` / `Migration-Waiver:` lines in the PR body, all listed in the CI job summary |
+| Every commit (push and PR) | `uv run poe ci:layers <base> HEAD` (`scripts/ci/check_test_layers.py`, first step of `.github/workflows/ci.yml` job `gate`): each commit that changes `src/photobooth` code also changes a test in the matching area of `src/tests/tests/` (services → `services/`, routers → `router/`, backends → `backends/`, plugins → `plugins/`, utils → `utils/`, migrations → `test_*migration*.py`) | `Test-Layers-Skip: <reason>` as a git trailer in that commit's final paragraph (a line in the body does not count) |
+| Every PR | `uv run poe tdd:gate` (`scripts/ci/tdd_gate.py`, workflow `.github/workflows/ci.yml` job `gate`): tests present for changed logic; migration test for changed migrations; names prefixed and ordered; **the PR's tests run against the merge-base code and must fail** (`TDD-Waiver: refactor ...` inverts this: they must pass there) | `TDD-Waiver:` / `Migration-Waiver:` lines in the PR body, all listed in the CI job summary |
 
 Known limits:
 

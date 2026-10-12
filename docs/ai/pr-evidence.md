@@ -53,28 +53,7 @@ The fields required by `docs/ai/task-router.md` `PERFORMANCE`: measured baseline
 
 ## Required PR structure
 
-PR title and body are in English, in plain language a non-technical reviewer can follow, with no AI co-author trailer in the PR text. Fill the existing sections of `.github/pull_request_template.md` (Motivation, Changes, Testing, Checklist, focus areas, "AI used to create this Pull Request?") and append:
-
-```
-## Change Type
-- <one or more from the list above>
-
-## Evidence
-<the evidence required for this Change Type>
-
-## TDD evidence
-- Test Matrix (layer | required / not required | file)
-- RED run: the `uv run poe tdd:red` output from before implementing
-- Waiver lines, if any, each on its own line, e.g. `TDD-Waiver: <reason>`, `Migration-Waiver: <reason>` (the CI `tdd:gate` reads them from here)
-
-## Risk
-- Possible regressions
-- Backward-compatibility concerns (API, config files, databases on installed photobooths)
-- Security impact
-
-## Rollback
-- Exact steps to safely revert the change
-```
+PR title and body are in English, in plain language a non-technical reviewer can follow, with no AI co-author trailer in the PR text. Fill every section of `.github/pull_request_template.md`: Summary, What changes, How to test, Change Type, Evidence (from the section above), Testing, TDD evidence (Test Matrix, the `uv run poe tdd:red` RED output, and any `TDD-Waiver:` / `Migration-Waiver:` lines, each on its own line — the CI `tdd:gate` reads them from the body), Risk, and Rollback. Delete a section's placeholder comment once it is filled; never delete the section.
 
 ## Mandatory rules
 

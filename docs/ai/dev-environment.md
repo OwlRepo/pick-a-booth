@@ -18,7 +18,7 @@ uv sync                          # installs the locked dependencies incl. the de
 ```
 
 Source: `CONTRIBUTING.md` "Setting Up the Repo". System libraries used by CI:
-`libturbojpeg`, `libgl1`, `libcap-dev`, `ffmpeg`, `rclone` (`.github/workflows/pytests.yml`).
+`libturbojpeg`, `libgl1`, `libcap-dev`, `ffmpeg`, `rclone` (`.github/workflows/ci.yml`).
 On macOS, `linuxpy` (V4L) and the Raspberry Pi camera stack are unavailable, so those
 backends and their type checks do not resolve locally.
 
@@ -40,7 +40,7 @@ SQLite at `./database/database.sqlite`; `create_db_and_tables()` applies Alembic
 
 ## Hardware
 
-Hardware tests self-skip without the device (`src/tests/tests/backends/`, `src/tests/tests/plugins/test_wled.py`). The upstream project runs them on a self-hosted Raspberry Pi runner that does not run for this fork (`.github/workflows/pytests.yml` `tests-hardware-rpi`). Hardware checks for this fork are manual: name the device and what was verified.
+Hardware tests self-skip without the device (`src/tests/tests/backends/`, `src/tests/tests/plugins/test_wled.py`). CI runs on GitHub-hosted Linux, Windows and macOS runners with no camera attached (`.github/workflows/ci.yml` `desktop-tests`). Hardware checks are manual: name the device and what was verified.
 
 ## Mock data
 

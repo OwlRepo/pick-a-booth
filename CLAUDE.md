@@ -22,12 +22,14 @@ source lives in the separate photobooth-frontend repository
 (`CONTRIBUTING.md` "Running & Testing Locally"). There is no JS/TS source and no
 Node tooling in this repository.
 
-Upstream sync matters: keep additive changes in new files where possible so
-merging upstream `main` stays conflict-free.
+Direction: pick-a-booth is being built into **our own desktop app** on top of the
+fork (repo owner, 2026-10-13). There is no server deployment; CI is a quality
+gate only (`.github/workflows/ci.yml`). Upstream photobooth-app changes are
+merged by choice, not by default.
 
 ## Tech stack
 
-- **Python ≥3.11** (`pyproject.toml` `requires-python`), CI matrix 3.11–3.14 (`.github/workflows/pytests.yml`).
+- **Python ≥3.11** (`pyproject.toml` `requires-python`), CI desktop matrix Linux 3.11/3.14, Windows 3.12/3.14, macOS 3.13/3.14 (`.github/workflows/ci.yml` `desktop-tests`).
 - **uv** for environments and builds (`uv_build` backend, `uv.lock`); tasks via **poethepoet** (`[tool.poe.tasks]`).
 - **FastAPI** + **uvicorn**, **pydantic** v2 + **pydantic-settings** for config.
 - **SQLAlchemy 2** + **Alembic** on **SQLite** (`src/photobooth/database/database.py`).
@@ -36,7 +38,7 @@ merging upstream `main` stays conflict-free.
 - Hardware: gphoto2, linuxpy (V4L), gpiozero, pyserial (WLED), wigglecam (`pyproject.toml` `dependencies`).
 - Tests: pytest + pytest-asyncio + pytest-httpserver + pytest-benchmark + pytest-cov (`[dependency-groups] dev`).
 - Quality: **ruff** (line length 150; rules E, W, F, B, UP, I) and **basedpyright** standard mode (`[tool.ruff]`, `[tool.basedpyright]`).
-- Packaging: PyPI publish and the self-hosted Raspberry Pi test runner exist in CI but only run for the upstream owner (`.github/workflows/cicd.yml`, `pytests.yml` `if: github.repository_owner == 'photobooth-app'`). Docker image: `Dockerfile` (`uv run photobooth`, port 8000).
+- CI: one workflow, `.github/workflows/ci.yml` — job `gate` (test-layer guard, TDD gate, script tests, agent lint, basedpyright, ruff, unit tests), then job `desktop-tests` (OS matrix). No deploy, no PyPI publish. Desktop packaging/installers: not built yet. Docker image (inherited): `Dockerfile` (`uv run photobooth`, port 8000).
 
 ## Layers
 
@@ -76,7 +78,7 @@ merging upstream `main` stays conflict-free.
 - Worktree per task: `scripts/new-task-worktree.sh <fix|feat|enhancement|refactor|perf|infra> <short-name>` (branch `<type>/no-ticket-<short-name>` from `origin/main`; the worktree lands in the gitignored .claude/worktrees folder). Then `uv venv --system-site-packages && uv sync` inside it.
 - **Never commit to `main`. Always a PR.** The only long-lived branch is `main` (`git ls-remote --heads origin`). Open PRs with `gh pr create --repo OwlRepo/pick-a-booth --base main` — without `--repo`, `gh` targets the upstream parent of a fork. Merge with "Create a merge commit". Full rules: `docs/ai/handoff.md`.
 - Branch protection is **not** enabled on `main` (GitHub API: "Branch not protected"). Check CI by hand with `gh pr checks <number>` before any merge.
-- PR titles and bodies are English, plain language for a non-technical reviewer, filled into `.github/pull_request_template.md` plus the evidence in `docs/ai/pr-evidence.md`.
+- PR titles and bodies are English, plain language for a non-technical reviewer, filled into `.github/pull_request_template.md` (our own template) with the evidence in `docs/ai/pr-evidence.md`.
 - Persona definitions: edit `agents/src/`, then `uv run poe agents:generate`; never edit `.claude/agents/` by hand. Claude Code is the only agent runtime used in this repository.
 
 ## Don't
@@ -85,5 +87,5 @@ merging upstream `main` stays conflict-free.
 - Don't add import-time side effects or new global singletons.
 - Don't hand-edit the hashed files in `src/web/frontend/assets/`; replace the bundle from a photobooth-frontend build.
 - Don't commit credentials: `.env*` is gitignored, `src/web/shareondemand/api.php` ships a placeholder key, and `.vscode/sftp.json` must never gain secrets.
-- Don't edit the upstream-owner-gated CI jobs (PyPI publish, Raspberry Pi runner, codecov) — they are inert on this fork and conflict on upstream sync.
+- Don't add workflows besides `.github/workflows/ci.yml` without a plan; keep one gate so a green run has one meaning.
 - Don't reimplement helpers that exist in `src/photobooth/utils/` or a service — search with graphify first (`/graphify query`), grep only if graphify cannot answer.

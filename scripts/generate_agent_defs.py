@@ -1,6 +1,6 @@
 """Persona single source of truth: agents/src/<name>.agent.toml + agents/src/prompts/<name>.md
 generate .claude/agents/<prefix>-<name>.md for Claude Code (the only agent runtime used here).
-Never hand-edit the generated files. `--check` fails on drift (CI: ai-gates.yml)."""
+Never hand-edit the generated files. `--check` fails on drift (CI: .github/workflows/ci.yml)."""
 
 from __future__ import annotations
 

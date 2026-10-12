@@ -23,3 +23,15 @@ Context: the repo owner's instruction — the team works with Claude only.
 Tradeoffs: dispatch rounds stay as explicit boundaries (`docs/ai/agent-orchestration.md` "Dispatch Round Structure") even though Claude Code could run them inside one session, so RED is always recorded before implementers start.
 
 Result: `scripts/generate_agent_defs.py`, `agents/src/*.agent.toml`.
+
+## ADR-0003 — Desktop app; our own CI, no server deploy (2026-10-13)
+
+Decision: pick-a-booth becomes our own desktop app built on the fork. All CI and GitHub config inherited from upstream photobooth-app (lint, test matrix, benchmarks, PyPI publish, dependabot, issue templates, funding, PR template) is replaced by one workflow, `.github/workflows/ci.yml`, modeled on optra's quality gate: per-commit test-layer guard, TDD gate, script tests, agent lint, type-check, lint, unit tests, then a Windows/macOS/Linux test matrix.
+
+Context: the repo owner's instruction; optra's CI is the house pattern, minus its VPS deploy and backup jobs because a desktop app has no server.
+
+Alternatives: keep upstream CI and add ours (rejected: two gates, upstream-only jobs inert on the fork); host on a VPS (rejected for now: the app drives local cameras/GPIO, a VPS cannot reach them).
+
+Tradeoffs: upstream merges now conflict in `.github/`; dependency bumps are manual without dependabot; desktop packaging and releases are still to be built.
+
+Result: `docs/plans/desktop-ci.md`, `.github/workflows/ci.yml`, `scripts/ci/check_test_layers.py`.

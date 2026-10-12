@@ -129,6 +129,7 @@ ignore = [
 [tool.ruff.lint.per-file-ignores]
 "src/photobooth/services/config/*" = ["E501"]
 "src/photobooth/plugins/*/config.py" = ["E501"]
+"scripts/generate_agent_defs.py" = ["E501"] # GLOBAL_POLICY prose lines are emitted verbatim into persona files
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"

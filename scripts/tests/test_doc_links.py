@@ -13,7 +13,20 @@ DOCS = [
     *sorted((REPO_ROOT / ".ai-engineering").rglob("*.md")),
     *sorted((REPO_ROOT / "agents/src/prompts").glob("*.md")),
 ]
-ROOTS = ("AGENTS.md", "CLAUDE.md", "graphify-out/", "docs/", ".ai-engineering/", "scripts/", "agents/", ".claude/", ".codex/", ".github/", "src/", "pyproject.toml")
+ROOTS = (
+    "AGENTS.md",
+    "CLAUDE.md",
+    "graphify-out/",
+    "docs/",
+    ".ai-engineering/",
+    "scripts/",
+    "agents/",
+    ".claude/",
+    ".codex/",
+    ".github/",
+    "src/",
+    "pyproject.toml",
+)
 TICKED = re.compile(r"`([^`\s]+)`")
 MD_LINK = re.compile(r"\]\(([^)#\s]+)(?:#[^)]*)?\)")
 

@@ -37,7 +37,7 @@ Enforcement:
 | Where | What | Bypass |
 |---|---|---|
 | Claude session | `.claude/settings.json` PreToolUse hook `scripts/hooks/tdd_red_guard.py` blocks Edit/Write (and Bash `sed -i`, `>`, `tee`, `cp`/`mv`) on `src/photobooth/**/*.py` logic until a valid RED marker exists for the current branch | `uv run poe tdd:red --waiver "<reason>"`, which then must appear in the PR as `TDD-Waiver:` |
-| Codex session | no project hook; `uv run poe tdd:red` is a mandatory step in `AGENTS.md` | CI gate below |
+| Human edits (no hook) | `uv run poe tdd:red` is a mandatory step in `AGENTS.md` | CI gate below |
 | Every PR | `uv run poe tdd:gate` (`scripts/ci/tdd_gate.py`, workflow `.github/workflows/ai-gates.yml`): tests present for changed logic; migration test for changed migrations; names prefixed and ordered; **the PR's tests run against the merge-base code and must fail** (`TDD-Waiver: refactor ...` inverts this: they must pass there) | `TDD-Waiver:` / `Migration-Waiver:` lines in the PR body, all listed in the CI job summary |
 
 Known limits:

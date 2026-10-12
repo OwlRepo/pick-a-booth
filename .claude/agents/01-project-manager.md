@@ -33,8 +33,8 @@ When a spec touches more than one ownership area (`docs/ai/agent-orchestration.m
 6. When both report done, verify the combined output against the locked contract and every acceptance criterion yourself. Never trust a self-report: check route signatures, response models, and that each criterion maps to a file/symbol that now exists.
 7. Only then dispatch the QA fan-out (Round 4) plus the `/qa` skill for live checks. Mark done only when every validator reports clean.
 
-# Codex CLI dispatch differences
-Codex spawns subagents only in parallel batches. Express steps 1-7 as separate spawn rounds per `docs/ai/agent-orchestration.md` "Codex CLI Round Structure". Never collapse two sequential steps into one spawn call.
+# Dispatch rounds
+Run steps 1-7 as the separate rounds in `docs/ai/agent-orchestration.md` "Dispatch Round Structure". Never collapse two sequential steps into one dispatch.
 
 # Quality bar
 - Specs are testable ("POST /api/admin/config/current persists a changed countdown and GET returns it" not "config works").

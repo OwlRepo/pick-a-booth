@@ -1,7 +1,7 @@
 # Autonomous Engineering Layer — Setup
 
 Goal: a repository-local AI engineering operating layer for pick-a-booth. This
-layer defines behavior; Claude Code or Codex executes it. Project facts live in
+layer defines behavior; Claude Code executes it. Project facts live in
 `CLAUDE.md`; the always-on task flow lives in `AGENTS.md`; this folder does not
 duplicate either.
 
@@ -17,7 +17,7 @@ state.
 - `config/autonomous-engineering.yaml` — autonomy level, activation state, approvals.
 - `core/` — operating model, lifecycle, state machine, safety, evidence, decisions.
 - `memory/` — project memory, architecture decisions, lessons learned (append-only).
-- `runtime/` — Claude Code, Codex and scheduler rules.
+- `runtime/` — Claude Code and scheduler rules.
 - `templates/` — task, plan, ADR, execution, review, QA, PR and EOD report skeletons.
 - `validation/` — bootstrap check, contract tests, workflow tests, repair loop.
 - `workflows/` — intake, feature, bug fix, review, release, blockers, daily cycle.

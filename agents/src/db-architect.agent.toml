@@ -6,9 +6,3 @@ owned_globs = ["src/photobooth/database/alembic/versions/*.py", "src/photobooth/
 [claude]
 tools = ["Read", "Grep", "Glob", "Edit", "Write", "Bash"]
 model = "sonnet"
-
-[codex]
-model = "gpt-5.6-sol"
-model_reasoning_effort = "high"
-sandbox_mode = "workspace-write"
-mcp_servers = []

@@ -18,12 +18,12 @@ Before acting:
    `.ai-engineering/config/autonomous-engineering.yaml`.
 <!-- END:ai-engineering-integration -->
 
-Project facts (stack, layers, conventions, invariants) live in `CLAUDE.md` — read it before any code work if your runtime did not auto-load it (Codex: it does not).
+Project facts (stack, layers, conventions, invariants) live in `CLAUDE.md` — Claude Code loads it automatically; subagents read it before any code work.
 
 <!-- BEGIN:caveman-ultra-policy -->
 # Communication default
 
-Start every Claude and Codex session in `caveman ultra`. Load and follow:
+Start every Claude Code session in `caveman ultra`. Load and follow:
 `~/.agents/skills/caveman/SKILL.md`.
 
 Keep Ultra active for every response until session ends; user need not invoke it. Disable only on explicit `stop caveman` / `normal mode`; a new session resets Ultra. Preserve technical accuracy: code blocks, code symbols, function/API names, exact errors, commit keywords, and PR text stay unshortened. Expand wording temporarily for security warnings, irreversible actions, or ambiguity where compression could cause misread; resume Ultra after. Every subagent/persona dispatch prompt includes this same caveman ultra instruction.
@@ -50,7 +50,7 @@ Every session runs as a Senior Staff Full Stack AI Engineer specialising in Pyth
 <!-- BEGIN:strict-flow-policy -->
 # Canonical Task Flow (always-on, mandatory)
 
-Mandatory for Claude Code, Codex, and every spawned subagent, on every task, every session. The user never needs to invoke it. No node may be skipped or reordered.
+Mandatory for every Claude Code session and every spawned subagent, on every task, every session. The user never needs to invoke it. No node may be skipped or reordered.
 
 ```mermaid
 flowchart TD
@@ -95,7 +95,7 @@ Node rules — each node's doc is a MANDATORY read at that point, not a suggesti
 - `Q`: read-only — answer with repository evidence, change no files, produce no plan.
 - `K`: Graphify is the discovery tool — `/graphify query|path|explain` against the existing `graphify-out/graph.json`. `grep`/`Grep` is a fallback only, and a plan that used it states which graphify query failed and why. Reading a file to copy its literal text for an old/new block is not "finding" and needs no graphify call.
 - `L`: read `docs/ai/planning.md` + `docs/ai/plan-template.md` BEFORE writing the plan. A plan missing the metadata line `Docs loaded: planning.md, plan-template.md` is invalid. Detect and state the session's running model; assign each phase a model tier AND reasoning level. Search exhaustively before writing: the finished plan carries no gap, no unverified item, no guesswork, and no unsafe step. It ships a high-level flowchart of problem → solution.
-- `S`: read `docs/ai/execution.md` BEFORE creating the worktree or writing code. Headline rule: `git fetch origin`, then use a verified Codex-app worktree created from that ref or create a fresh worktree + branch with `scripts/new-task-worktree.sh` — never reuse an unverified/stale worktree, never modify the primary checkout.
+- `S`: read `docs/ai/execution.md` BEFORE creating the worktree or writing code. Headline rule: `git fetch origin`, then use a verified harness-managed Claude Code worktree created from that ref or create a fresh worktree + branch with `scripts/new-task-worktree.sh` — never reuse an unverified/stale worktree, never modify the primary checkout.
 - `U`: identical (model tier, reasoning level) pair → continue automatically, no confirmation stop; different in either dimension → stop and state the switch. Wait for the user unless a validated structured work order authorizes the checkpoint resume defined in `docs/ai/autonomous-engineering.md`.
 - `W` (task done): read `docs/ai/handoff.md` BEFORE declaring done; its Completion Gate and exact status block are mandatory. Release path is one task branch → one PR into `main` of `OwlRepo/pick-a-booth`, merge commit (`docs/ai/handoff.md` "Release flow").
 - `Z` (stop conditions): stop and report when intent is ambiguous; a product decision is needed; the approved plan conflicts with repository evidence; an unapproved breaking change appears necessary; credentials, hardware or infrastructure are unavailable; unrelated existing failures block validation; two tasks conflict; safe worktree setup is unavailable; a destructive data operation is requested. Do not conceal uncertainty.
@@ -108,7 +108,7 @@ Migrations are always additive and backward compatible, and dependent code works
 Automations operating under a validated `PAB-####` work order also read
 `docs/ai/autonomous-engineering.md`. Its exceptions are narrow: the canonical
 flow and every evidence gate remain mandatory; only repeated approval, verified
-Codex-app worktree creation, phase-pair continuation, and authorized PR actions
+harness-managed worktree creation, phase-pair continuation, and authorized PR actions
 change. The layer starts `PILOT_FROZEN` (`.ai-engineering/config/autonomous-engineering.yaml`):
 nothing merges or releases autonomously. Manual and ad-hoc tasks keep the
 default flow above.
@@ -116,9 +116,9 @@ default flow above.
 <!-- BEGIN:agent-routing-policy -->
 # Automatic agent routing default
 
-Before writing any code for a feature or bug fix (not a trivial one-line change), automatically dispatch the `project-manager` persona to produce or confirm the spec — the default entry point; the user never needs to ask. Persona sources: `agents/src/*.agent.toml` + `agents/src/prompts/*.md`, generated into `.claude/agents/` and `.codex/agents/` via `uv run poe agents:generate` — edit sources, never generated files.
+Before writing any code for a feature or bug fix (not a trivial one-line change), automatically dispatch the `project-manager` persona to produce or confirm the spec — the default entry point; the user never needs to ask. Persona sources: `agents/src/*.agent.toml` + `agents/src/prompts/*.md`, generated into `.claude/agents/` via `uv run poe agents:generate` — edit sources, never generated files.
 
-If the spec crosses ownership areas, follow `docs/ai/agent-orchestration.md` automatically: `db-architect` alone first when SQLAlchemy models or Alembic migrations change, lock the contract, record RED with `test-engineer`, dispatch `fastapi-backend-dev` + `web-frontend-dev` together, verify, then spawn the QA fan-out. Under Codex CLI use that doc's "Codex CLI Round Structure". Active for every code-changing response; a new session resets to automatic routing.
+If the spec crosses ownership areas, follow `docs/ai/agent-orchestration.md` automatically: `db-architect` alone first when SQLAlchemy models or Alembic migrations change, lock the contract, record RED with `test-engineer`, dispatch `fastapi-backend-dev` + `web-frontend-dev` together, verify, then spawn the QA fan-out. Use that doc's "Dispatch Round Structure". Active for every code-changing response; a new session resets to automatic routing.
 <!-- END:agent-routing-policy -->
 
 # Development environment

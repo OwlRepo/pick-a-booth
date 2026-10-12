@@ -22,7 +22,6 @@ ROOTS = (
     "scripts/",
     "agents/",
     ".claude/",
-    ".codex/",
     ".github/",
     "src/",
     "pyproject.toml",

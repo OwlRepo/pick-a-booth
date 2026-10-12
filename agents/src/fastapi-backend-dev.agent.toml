@@ -6,9 +6,3 @@ owned_globs = ["src/photobooth/routers/**", "src/photobooth/services/**", "src/p
 [claude]
 tools = ["Read", "Grep", "Glob", "Edit", "Write", "Bash"]
 model = "sonnet"
-
-[codex]
-model = "gpt-5.6-sol"
-model_reasoning_effort = "high"
-sandbox_mode = "workspace-write"
-mcp_servers = []

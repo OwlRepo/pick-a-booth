@@ -77,7 +77,7 @@ merging upstream `main` stays conflict-free.
 - **Never commit to `main`. Always a PR.** The only long-lived branch is `main` (`git ls-remote --heads origin`). Open PRs with `gh pr create --repo OwlRepo/pick-a-booth --base main` — without `--repo`, `gh` targets the upstream parent of a fork. Merge with "Create a merge commit". Full rules: `docs/ai/handoff.md`.
 - Branch protection is **not** enabled on `main` (GitHub API: "Branch not protected"). Check CI by hand with `gh pr checks <number>` before any merge.
 - PR titles and bodies are English, plain language for a non-technical reviewer, filled into `.github/pull_request_template.md` plus the evidence in `docs/ai/pr-evidence.md`.
-- Persona definitions: edit `agents/src/`, then `uv run poe agents:generate`; never edit `.claude/agents/` or `.codex/agents/` by hand.
+- Persona definitions: edit `agents/src/`, then `uv run poe agents:generate`; never edit `.claude/agents/` by hand. Claude Code is the only agent runtime used in this repository.
 
 ## Don't
 

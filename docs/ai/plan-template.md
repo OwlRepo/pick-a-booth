@@ -40,7 +40,7 @@ non-technical reviewer can scan in seconds.>
 - Branch: `<type>/<ticket-id|no-ticket>-<short-name>` (from `origin/main`)
 - Release path: one branch → one PR into `main` of `OwlRepo/pick-a-booth`, merge commit (`docs/ai/handoff.md` "Release flow").
 - Required skills: </investigate, ecc:model-route, /qa, ecc:code-review, ...>
-- Execution preflight: `git fetch origin`; verify/reuse a Codex-app worktree created from that `origin/main`, otherwise create one with `scripts/new-task-worktree.sh <type> <short-name>`, then `uv venv --system-site-packages && uv sync`.
+- Execution preflight: `git fetch origin`; verify/reuse a harness-managed Claude Code worktree created from that `origin/main`, otherwise create one with `scripts/new-task-worktree.sh <type> <short-name>`, then `uv venv --system-site-packages && uv sync`.
 
 ### Phase 1 — RED (`<model>`, <reasoning>)
 

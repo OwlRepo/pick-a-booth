@@ -2,11 +2,11 @@
 
 > Purpose: how `project-manager` dispatches the implementer personas for one feature, what each may touch, and the module knowledge injected into that dispatch.
 > Load rule: read when a spec crosses ownership areas, before dispatching anyone.
-> Source of truth: `agents/src/*.agent.toml` + `agents/src/prompts/*.md` (generated into `.claude/agents/*.md` and `.codex/agents/*.toml` via `uv run poe agents:generate`). If this doc and a generated agent file disagree, the generated file wins — fix this doc in the same change. `scripts/tests/test_generate_agent_defs.py` fails when an ownership glob below is missing from this doc.
+> Source of truth: `agents/src/*.agent.toml` + `agents/src/prompts/*.md` (generated into `.claude/agents/*.md` via `uv run poe agents:generate`; Claude Code is the only agent runtime). If this doc and a generated agent file disagree, the generated file wins — fix this doc in the same change. `scripts/tests/test_generate_agent_defs.py` fails when an ownership glob below is missing from this doc.
 
 ## Runtime Model Matrix
 
-All nine Codex personas use `gpt-5.6-sol`. project-manager, db-architect, security-auditor, and fastapi-backend-dev use `high` reasoning; the other five use `medium`. All Claude personas use the `sonnet` alias. Model selection lives only in `agents/src/*.agent.toml`; regenerate with `uv run poe agents:generate` after changing it. UNVERIFIED: the Codex model id is carried over from the reference workflow and has not been validated against a Codex install on this machine.
+All nine personas use the Claude `sonnet` alias. Model selection lives only in `agents/src/*.agent.toml`; regenerate with `uv run poe agents:generate` after changing it.
 
 ## File Ownership Rule (implementers in the same worktree)
 
@@ -43,9 +43,9 @@ SQLite via SQLAlchemy 2; Alembic runs unattended at every app start on every ins
 
 If a spec touches an area not listed here, do not invent a briefing — escalate to the repo owner instead.
 
-## Codex CLI Round Structure
+## Dispatch Round Structure
 
-Codex subagents dispatch in parallel only — one spawn call runs N subagents concurrently and waits for all. Express the contract-first flow (`agents/src/prompts/project-manager.md` "Contract-First Dispatch") as separate spawn rounds:
+The contract-first flow (`agents/src/prompts/project-manager.md` "Contract-First Dispatch") runs as separate dispatch rounds; agents inside one round run in parallel:
 
 - **Round 0** (only if models or migrations change): spawn `db-architect` alone. Wait for completion before Round 1.
 - **Round 1:** the orchestrator (top-level session, following the `project-manager` persona) locks the contract itself — not a subagent spawn.
@@ -54,8 +54,8 @@ Codex subagents dispatch in parallel only — one spawn call runs N subagents co
 - **Round 3:** the orchestrator verifies the output against the locked contract and acceptance criteria itself — not a subagent spawn.
 - **Round 4:** spawn `test-engineer`, `code-reviewer`, `security-auditor` together in one call — always, on every feature. Add `accessibility-auditor` when the diff touches user-visible web assets; add `ui-ux-designer` when it touches user-facing copy or UX. This is the ONE canonical QA fan-out roster. The `/qa` skill is invoked directly, not as a persona.
 
-Never collapse Round 0/1, Round 2, or Round 3 into one Codex spawn call. Claude Code can dispatch sequentially within one session, but for parity between the two runtimes it uses the same round boundaries; under Claude Code this structure is mandatory whenever a spec crosses ownership areas ("Automatic agent routing default" in `AGENTS.md`).
+Never collapse Round 0/1, Round 2, or Round 3 into one dispatch. This structure is mandatory whenever a spec crosses ownership areas ("Automatic agent routing default" in `AGENTS.md`).
 
 ## Global Policy block
 
-`scripts/generate_agent_defs.py` appends a shared `GLOBAL_POLICY` block to every persona on both runtimes: caveman ultra replies, the persona line, graphify-first discovery, AGENTS.md Canonical Task Flow with the `docs/ai/planning.md` / `docs/ai/execution.md` phase loads, Strict TDD, the `.ai-engineering` reads, and the migration rule pointer. Edit the policy in the generator, never in the generated files, then run `uv run poe agents:generate`.
+`scripts/generate_agent_defs.py` appends a shared `GLOBAL_POLICY` block to every persona: caveman ultra replies, the persona line, graphify-first discovery, AGENTS.md Canonical Task Flow with the `docs/ai/planning.md` / `docs/ai/execution.md` phase loads, Strict TDD, the `.ai-engineering` reads, and the migration rule pointer. Edit the policy in the generator, never in the generated files, then run `uv run poe agents:generate`.

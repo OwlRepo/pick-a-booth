@@ -8,7 +8,6 @@ src/tests/assets/
 src/web/frontend/
 # Generated from agents/src/ (scripts/generate_agent_defs.py); indexing the source is enough.
 .claude/agents/
-.codex/agents/
 # Editor settings.
 .vscode/
 src/web/sharepage/

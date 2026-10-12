@@ -16,7 +16,7 @@ Run checks:
    - no instruction bypasses approvals; no workflow allows destructive actions; no workflow exposes secrets.
    - `config/autonomous-engineering.yaml` `activation` is one of `PILOT_FROZEN`, `ACTIVE`, `RELEASE_FROZEN`.
 5. Runtime validation
-   - Claude Code and Codex instructions exist; scheduler behavior is defined; manual execution is supported.
+   - Claude Code instructions exist (`runtime/claude.md`), no other agent runtime is configured; scheduler behavior is defined; manual execution is supported.
 
 Output:
 

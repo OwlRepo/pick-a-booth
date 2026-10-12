@@ -13,3 +13,13 @@ Alternatives: Node scripts plus a package.json (rejected: second toolchain in a 
 Tradeoffs: the scripts are rewrites, not copies; `verified-tree` caching and git pre-commit hooks were not ported (no persistent CI runner, no npm `prepare`).
 
 Result: `docs/plans/ai-workflow-port.md`.
+
+## ADR-0002 — Claude Code is the only agent runtime (2026-10-13)
+
+Decision: drop Codex support. Personas generate only `.claude/agents/`; `uv run poe agents:lint` fails if a `.codex` directory reappears.
+
+Context: the repo owner's instruction — the team works with Claude only.
+
+Tradeoffs: dispatch rounds stay as explicit boundaries (`docs/ai/agent-orchestration.md` "Dispatch Round Structure") even though Claude Code could run them inside one session, so RED is always recorded before implementers start.
+
+Result: `scripts/generate_agent_defs.py`, `agents/src/*.agent.toml`.

@@ -1,7 +1,7 @@
 # Autonomous Engineering Orchestration
 
 > Purpose: canonical contract for structured work orders executed by automations
-> (Claude Code or Codex). This document adds narrow automation exceptions to the
+> (Claude Code). This document adds narrow automation exceptions to the
 > `AGENTS.md` flow; it never weakens repository planning, testing, review, QA,
 > handoff, migration, or CI gates.
 > Scope: the `OwlRepo/pick-a-booth` repository only.
@@ -117,10 +117,10 @@ Before each task starts:
 
 1. Fetch `origin` again.
 2. Verify the planned base still equals `origin/main`.
-3. Create the worktree from that ref (Codex app worktree mode, or `scripts/new-task-worktree.sh`).
+3. Create the worktree from that ref (a harness-managed Claude Code worktree, or `scripts/new-task-worktree.sh`).
 4. Record worktree path, branch, `base_sha`, and `last_synced_sha`.
 
-A worker in a Codex-managed worktree verifies it is not the primary checkout and that no other task owns the branch; it must not run `scripts/new-task-worktree.sh` again. Fetch and compare with `origin/main` before implementation, final QA, PR creation, and merge. If upstream invalidates code facts but not the approved outcome, increment the plan version and regenerate the plan. Scope or product-behavior changes stop for a decision.
+A worker in a harness-managed worktree verifies it is not the primary checkout and that no other task owns the branch; it must not run `scripts/new-task-worktree.sh` again. Fetch and compare with `origin/main` before implementation, final QA, PR creation, and merge. If upstream invalidates code facts but not the approved outcome, increment the plan version and regenerate the plan. Scope or product-behavior changes stop for a decision.
 
 ## Phase and model routing
 

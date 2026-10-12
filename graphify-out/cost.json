@@ -6,8 +6,15 @@
       "output_tokens": 0,
       "files": 356,
       "note": "subagent token counter is combined input+output (304,559 across 5 semantic agents); split unavailable"
+    },
+    {
+      "date": "2026-10-12T19:34:19.189323+00:00",
+      "input_tokens": 80272,
+      "output_tokens": 0,
+      "files": 16,
+      "note": "incremental update after Codex removal; combined input+output subagent counter"
     }
   ],
-  "total_input_tokens": 304559,
+  "total_input_tokens": 384831,
   "total_output_tokens": 0
 }

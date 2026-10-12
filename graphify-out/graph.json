@@ -1296,7 +1296,7 @@
       "label": "cited_paths()",
       "file_type": "code",
       "source_file": "scripts/tests/test_doc_links.py",
-      "source_location": "L21",
+      "source_location": "L34",
       "_callable": true,
       "_origin": "ast",
       "id": "scripts_tests_test_doc_links_cited_paths",
@@ -1319,7 +1319,7 @@
       "label": "test_error_workflow_docs_exist()",
       "file_type": "code",
       "source_file": "scripts/tests/test_doc_links.py",
-      "source_location": "L34",
+      "source_location": "L47",
       "_callable": true,
       "_origin": "ast",
       "id": "scripts_tests_test_doc_links_test_error_workflow_docs_exist",
@@ -1331,7 +1331,7 @@
       "label": "test_edge_no_cited_path_dangles()",
       "file_type": "code",
       "source_file": "scripts/tests/test_doc_links.py",
-      "source_location": "L40",
+      "source_location": "L53",
       "_callable": true,
       "_origin": "ast",
       "id": "scripts_tests_test_doc_links_test_edge_no_cited_path_dangles",
@@ -1343,7 +1343,7 @@
       "label": "test_edge_no_absolute_home_paths_in_public_docs()",
       "file_type": "code",
       "source_file": "scripts/tests/test_doc_links.py",
-      "source_location": "L51",
+      "source_location": "L64",
       "_callable": true,
       "_origin": "ast",
       "id": "scripts_tests_test_doc_links_test_edge_no_absolute_home_paths_in_public_docs",
@@ -1355,7 +1355,7 @@
       "label": "test_happy_claude_md_imports_agents_md_first()",
       "file_type": "code",
       "source_file": "scripts/tests/test_doc_links.py",
-      "source_location": "L56",
+      "source_location": "L69",
       "_callable": true,
       "_origin": "ast",
       "id": "scripts_tests_test_doc_links_test_happy_claude_md_imports_agents_md_first",
@@ -29989,10 +29989,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_SETUP",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "autonomous engineering layer setup"
+      "norm_label": "autonomous engineering layer setup",
+      "_origin": "semantic",
+      "id": "ai_engineering_SETUP"
     },
     {
       "label": "architect",
@@ -30003,10 +30004,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_agents_architect",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "architect"
+      "norm_label": "architect",
+      "_origin": "semantic",
+      "id": "ai_engineering_agents_architect"
     },
     {
       "label": "coordinator",
@@ -30017,10 +30019,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_agents_coordinator",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "coordinator"
+      "norm_label": "coordinator",
+      "_origin": "semantic",
+      "id": "ai_engineering_agents_coordinator"
     },
     {
       "label": "implementer",
@@ -30031,10 +30034,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_agents_implementer",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "implementer"
+      "norm_label": "implementer",
+      "_origin": "semantic",
+      "id": "ai_engineering_agents_implementer"
     },
     {
       "label": "product-manager",
@@ -30045,10 +30049,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_agents_product_manager",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "product-manager"
+      "norm_label": "product-manager",
+      "_origin": "semantic",
+      "id": "ai_engineering_agents_product_manager"
     },
     {
       "label": "qa",
@@ -30059,10 +30064,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_agents_qa",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "qa"
+      "norm_label": "qa",
+      "_origin": "semantic",
+      "id": "ai_engineering_agents_qa"
     },
     {
       "label": "reporter",
@@ -30073,10 +30079,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_agents_reporter",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "reporter"
+      "norm_label": "reporter",
+      "_origin": "semantic",
+      "id": "ai_engineering_agents_reporter"
     },
     {
       "label": "reviewer",
@@ -30087,10 +30094,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_agents_reviewer",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "reviewer"
+      "norm_label": "reviewer",
+      "_origin": "semantic",
+      "id": "ai_engineering_agents_reviewer"
     },
     {
       "label": "autonomous-engineering.yaml",
@@ -30101,10 +30109,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_config_autonomous_engineering",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "autonomous-engineering.yaml"
+      "norm_label": "autonomous-engineering.yaml",
+      "_origin": "semantic",
+      "id": "ai_engineering_config_autonomous_engineering"
     },
     {
       "label": "autonomy-levels",
@@ -30115,10 +30124,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_core_autonomy_levels",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "autonomy-levels"
+      "norm_label": "autonomy-levels",
+      "_origin": "semantic",
+      "id": "ai_engineering_core_autonomy_levels"
     },
     {
       "label": "constitution",
@@ -30129,10 +30139,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_core_constitution",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "constitution"
+      "norm_label": "constitution",
+      "_origin": "semantic",
+      "id": "ai_engineering_core_constitution"
     },
     {
       "label": "decision-framework",
@@ -30143,10 +30154,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_core_decision_framework",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "decision-framework"
+      "norm_label": "decision-framework",
+      "_origin": "semantic",
+      "id": "ai_engineering_core_decision_framework"
     },
     {
       "label": "engineering-rules",
@@ -30157,10 +30169,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_core_engineering_rules",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "engineering-rules"
+      "norm_label": "engineering-rules",
+      "_origin": "semantic",
+      "id": "ai_engineering_core_engineering_rules"
     },
     {
       "label": "evidence-policy",
@@ -30171,10 +30184,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_core_evidence_policy",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "evidence-policy"
+      "norm_label": "evidence-policy",
+      "_origin": "semantic",
+      "id": "ai_engineering_core_evidence_policy"
     },
     {
       "label": "operating-model",
@@ -30185,10 +30199,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_core_operating_model",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "operating-model"
+      "norm_label": "operating-model",
+      "_origin": "semantic",
+      "id": "ai_engineering_core_operating_model"
     },
     {
       "label": "safety",
@@ -30199,10 +30214,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_core_safety",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "safety"
+      "norm_label": "safety",
+      "_origin": "semantic",
+      "id": "ai_engineering_core_safety"
     },
     {
       "label": "task-lifecycle",
@@ -30213,10 +30229,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_core_task_lifecycle",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "task-lifecycle"
+      "norm_label": "task-lifecycle",
+      "_origin": "semantic",
+      "id": "ai_engineering_core_task_lifecycle"
     },
     {
       "label": "task-state-machine",
@@ -30227,10 +30244,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_core_task_state_machine",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "task-state-machine"
+      "norm_label": "task-state-machine",
+      "_origin": "semantic",
+      "id": "ai_engineering_core_task_state_machine"
     },
     {
       "label": "architecture-decisions",
@@ -30241,10 +30259,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_memory_architecture_decisions",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "architecture-decisions"
+      "norm_label": "architecture-decisions",
+      "_origin": "semantic",
+      "id": "ai_engineering_memory_architecture_decisions"
     },
     {
       "label": "PILOT_FROZEN activation",
@@ -30255,10 +30274,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_config_autonomous_engineering_pilot_frozen",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "pilot_frozen activation"
+      "norm_label": "pilot_frozen activation",
+      "_origin": "semantic",
+      "id": "ai_engineering_config_autonomous_engineering_pilot_frozen"
     },
     {
       "label": "Autonomy Level 2",
@@ -30269,10 +30289,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_core_autonomy_levels_level_2",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "autonomy level 2"
+      "norm_label": "autonomy level 2",
+      "_origin": "semantic",
+      "id": "ai_engineering_core_autonomy_levels_level_2"
     },
     {
       "label": "SKIPPED_ALREADY_IMPLEMENTED state",
@@ -30283,10 +30304,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_core_task_state_machine_skipped_already_implemented",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "skipped_already_implemented state"
+      "norm_label": "skipped_already_implemented state",
+      "_origin": "semantic",
+      "id": "ai_engineering_core_task_state_machine_skipped_already_implemented"
     },
     {
       "label": "Canonical task state transition",
@@ -30297,10 +30319,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_core_task_state_machine_canonical_transition",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "canonical task state transition"
+      "norm_label": "canonical task state transition",
+      "_origin": "semantic",
+      "id": "ai_engineering_core_task_state_machine_canonical_transition"
     },
     {
       "label": "Blocked states",
@@ -30311,10 +30334,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_core_task_state_machine_blocked_states",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "blocked states"
+      "norm_label": "blocked states",
+      "_origin": "semantic",
+      "id": "ai_engineering_core_task_state_machine_blocked_states"
     },
     {
       "label": "WAITING_APPROVAL state",
@@ -30325,10 +30349,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_core_task_state_machine_waiting_approval",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "waiting_approval state"
+      "norm_label": "waiting_approval state",
+      "_origin": "semantic",
+      "id": "ai_engineering_core_task_state_machine_waiting_approval"
     },
     {
       "label": "Strict TDD RED-first",
@@ -30340,10 +30365,11 @@
       "author": null,
       "contributor": null,
       "rationale": "Write failing tests first via uv run poe tdd:red",
-      "id": "ai_engineering_core_engineering_rules_strict_tdd_red_first",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "strict tdd red-first"
+      "norm_label": "strict tdd red-first",
+      "_origin": "semantic",
+      "id": "ai_engineering_core_engineering_rules_strict_tdd_red_first"
     },
     {
       "label": "No completion without evidence",
@@ -30354,10 +30380,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_core_evidence_policy_evidence_required",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "no completion without evidence"
+      "norm_label": "no completion without evidence",
+      "_origin": "semantic",
+      "id": "ai_engineering_core_evidence_policy_evidence_required"
     },
     {
       "label": "Primary loop Human Request to Report",
@@ -30368,10 +30395,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_core_operating_model_primary_loop",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "primary loop human request to report"
+      "norm_label": "primary loop human request to report",
+      "_origin": "semantic",
+      "id": "ai_engineering_core_operating_model_primary_loop"
     },
     {
       "label": "ADR-0001 AI workflow port",
@@ -30383,10 +30411,11 @@
       "author": null,
       "contributor": null,
       "rationale": "Chose Python stdlib tooling via poe over Node scripts (second toolchain rejected); rewrites not copies; verified-tree caching and git pre-commit hooks not ported.",
-      "id": "ai_engineering_memory_architecture_decisions_adr_0001",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "adr-0001 ai workflow port"
+      "norm_label": "adr-0001 ai workflow port",
+      "_origin": "semantic",
+      "id": "ai_engineering_memory_architecture_decisions_adr_0001"
     },
     {
       "label": "Decision priority order",
@@ -30397,10 +30426,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_core_decision_framework_priority_order",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "decision priority order"
+      "norm_label": "decision priority order",
+      "_origin": "semantic",
+      "id": "ai_engineering_core_decision_framework_priority_order"
     },
     {
       "label": "Constitution principles",
@@ -30411,10 +30441,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_core_constitution_principles",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "constitution principles"
+      "norm_label": "constitution principles",
+      "_origin": "semantic",
+      "id": "ai_engineering_core_constitution_principles"
     },
     {
       "label": "Isolated worktree rule",
@@ -30425,10 +30456,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_core_safety_isolated_worktrees",
       "community": 23,
       "community_name": "AI Engineering Agents",
-      "norm_label": "isolated worktree rule"
+      "norm_label": "isolated worktree rule",
+      "_origin": "semantic",
+      "id": "ai_engineering_core_safety_isolated_worktrees"
     },
     {
       "label": "Lessons Learned",
@@ -30439,10 +30471,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_memory_lessons_learned_doc",
       "community": 62,
       "community_name": "project-memory cluster",
-      "norm_label": "lessons learned"
+      "norm_label": "lessons learned",
+      "_origin": "semantic",
+      "id": "ai_engineering_memory_lessons_learned_doc"
     },
     {
       "label": "Project Memory",
@@ -30453,10 +30486,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_memory_project_memory_doc",
       "community": 62,
       "community_name": "project-memory cluster",
-      "norm_label": "project memory"
+      "norm_label": "project memory",
+      "_origin": "semantic",
+      "id": "ai_engineering_memory_project_memory_doc"
     },
     {
       "label": "Claude Code Runtime Rules",
@@ -30467,10 +30501,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_runtime_claude_doc",
       "community": 47,
       "community_name": "AI Runtime Rules & Templates",
-      "norm_label": "claude code runtime rules"
+      "norm_label": "claude code runtime rules",
+      "_origin": "semantic",
+      "id": "ai_engineering_runtime_claude_doc"
     },
     {
       "label": "Codex Runtime Rules",
@@ -30481,10 +30516,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_runtime_codex_doc",
       "community": 47,
       "community_name": "AI Runtime Rules & Templates",
-      "norm_label": "codex runtime rules"
+      "norm_label": "codex runtime rules",
+      "_origin": "semantic",
+      "id": "ai_engineering_runtime_codex_doc"
     },
     {
       "label": "Scheduler Rules",
@@ -30495,10 +30531,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_runtime_scheduler_doc",
       "community": 62,
       "community_name": "project-memory cluster",
-      "norm_label": "scheduler rules"
+      "norm_label": "scheduler rules",
+      "_origin": "semantic",
+      "id": "ai_engineering_runtime_scheduler_doc"
     },
     {
       "label": "Work Orders (Tasks.md)",
@@ -30509,10 +30546,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_tasks_tasks_doc",
       "community": 62,
       "community_name": "project-memory cluster",
-      "norm_label": "work orders (tasks.md)"
+      "norm_label": "work orders (tasks.md)",
+      "_origin": "semantic",
+      "id": "ai_engineering_tasks_tasks_doc"
     },
     {
       "label": "ADR Template",
@@ -30523,10 +30561,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_templates_adr_doc",
       "community": 47,
       "community_name": "AI Runtime Rules & Templates",
-      "norm_label": "adr template"
+      "norm_label": "adr template",
+      "_origin": "semantic",
+      "id": "ai_engineering_templates_adr_doc"
     },
     {
       "label": "EOD Report Template",
@@ -30537,10 +30576,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_templates_eod_report_doc",
       "community": 123,
       "community_name": "eod-report cluster",
-      "norm_label": "eod report template"
+      "norm_label": "eod report template",
+      "_origin": "semantic",
+      "id": "ai_engineering_templates_eod_report_doc"
     },
     {
       "label": "Execution Report Template",
@@ -30551,10 +30591,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_templates_execution_report_doc",
       "community": 47,
       "community_name": "AI Runtime Rules & Templates",
-      "norm_label": "execution report template"
+      "norm_label": "execution report template",
+      "_origin": "semantic",
+      "id": "ai_engineering_templates_execution_report_doc"
     },
     {
       "label": "Plan Template (short form)",
@@ -30565,10 +30606,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_templates_plan_doc",
       "community": 47,
       "community_name": "AI Runtime Rules & Templates",
-      "norm_label": "plan template (short form)"
+      "norm_label": "plan template (short form)",
+      "_origin": "semantic",
+      "id": "ai_engineering_templates_plan_doc"
     },
     {
       "label": "PR Report Template",
@@ -30579,10 +30621,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_templates_pr_report_doc",
       "community": 123,
       "community_name": "eod-report cluster",
-      "norm_label": "pr report template"
+      "norm_label": "pr report template",
+      "_origin": "semantic",
+      "id": "ai_engineering_templates_pr_report_doc"
     },
     {
       "label": "QA Report Template",
@@ -30593,10 +30636,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_templates_qa_report_doc",
       "community": 47,
       "community_name": "AI Runtime Rules & Templates",
-      "norm_label": "qa report template"
+      "norm_label": "qa report template",
+      "_origin": "semantic",
+      "id": "ai_engineering_templates_qa_report_doc"
     },
     {
       "label": "Review Report Template",
@@ -30607,10 +30651,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_templates_review_report_doc",
       "community": 47,
       "community_name": "AI Runtime Rules & Templates",
-      "norm_label": "review report template"
+      "norm_label": "review report template",
+      "_origin": "semantic",
+      "id": "ai_engineering_templates_review_report_doc"
     },
     {
       "label": "Task Template",
@@ -30621,10 +30666,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_templates_task_doc",
       "community": 62,
       "community_name": "project-memory cluster",
-      "norm_label": "task template"
+      "norm_label": "task template",
+      "_origin": "semantic",
+      "id": "ai_engineering_templates_task_doc"
     },
     {
       "label": "Agent Contract Validation",
@@ -30635,10 +30681,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_validation_agent_contract_tests_doc",
       "community": 47,
       "community_name": "AI Runtime Rules & Templates",
-      "norm_label": "agent contract validation"
+      "norm_label": "agent contract validation",
+      "_origin": "semantic",
+      "id": "ai_engineering_validation_agent_contract_tests_doc"
     },
     {
       "label": "Validation Auto-Fix Prompt",
@@ -30649,10 +30696,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_validation_auto_fix_prompt_doc",
       "community": 62,
       "community_name": "project-memory cluster",
-      "norm_label": "validation auto-fix prompt"
+      "norm_label": "validation auto-fix prompt",
+      "_origin": "semantic",
+      "id": "ai_engineering_validation_auto_fix_prompt_doc"
     },
     {
       "label": "Bootstrap Validation Workflow",
@@ -30663,10 +30711,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_validation_bootstrap_check_doc",
       "community": 62,
       "community_name": "project-memory cluster",
-      "norm_label": "bootstrap validation workflow"
+      "norm_label": "bootstrap validation workflow",
+      "_origin": "semantic",
+      "id": "ai_engineering_validation_bootstrap_check_doc"
     },
     {
       "label": "Bootstrap Repair Loop",
@@ -30677,10 +30726,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_validation_repair_loop_doc",
       "community": 62,
       "community_name": "project-memory cluster",
-      "norm_label": "bootstrap repair loop"
+      "norm_label": "bootstrap repair loop",
+      "_origin": "semantic",
+      "id": "ai_engineering_validation_repair_loop_doc"
     },
     {
       "label": "Workflow Test Cases",
@@ -30691,10 +30741,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_validation_workflow_tests_doc",
       "community": 62,
       "community_name": "project-memory cluster",
-      "norm_label": "workflow test cases"
+      "norm_label": "workflow test cases",
+      "_origin": "semantic",
+      "id": "ai_engineering_validation_workflow_tests_doc"
     },
     {
       "label": "PILOT_FROZEN activation state",
@@ -30705,10 +30756,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_memory_project_memory_pilot_frozen",
       "community": 62,
       "community_name": "project-memory cluster",
-      "norm_label": "pilot_frozen activation state"
+      "norm_label": "pilot_frozen activation state",
+      "_origin": "semantic",
+      "id": "ai_engineering_memory_project_memory_pilot_frozen"
     },
     {
       "label": "tdd_red_guard.py PreToolUse hook",
@@ -30719,10 +30771,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_runtime_claude_tdd_red_guard",
       "community": 47,
       "community_name": "AI Runtime Rules & Templates",
-      "norm_label": "tdd_red_guard.py pretooluse hook"
+      "norm_label": "tdd_red_guard.py pretooluse hook",
+      "_origin": "semantic",
+      "id": "ai_engineering_runtime_claude_tdd_red_guard"
     },
     {
       "label": "uv run poe tdd:red",
@@ -30733,10 +30786,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_runtime_codex_poe_tdd_red",
       "community": 47,
       "community_name": "AI Runtime Rules & Templates",
-      "norm_label": "uv run poe tdd:red"
+      "norm_label": "uv run poe tdd:red",
+      "_origin": "semantic",
+      "id": "ai_engineering_runtime_codex_poe_tdd_red"
     },
     {
       "label": "CI tdd:gate backstop",
@@ -30747,10 +30801,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_runtime_codex_tdd_gate",
       "community": 47,
       "community_name": "AI Runtime Rules & Templates",
-      "norm_label": "ci tdd:gate backstop"
+      "norm_label": "ci tdd:gate backstop",
+      "_origin": "semantic",
+      "id": "ai_engineering_runtime_codex_tdd_gate"
     },
     {
       "label": "uv run poe agents:lint",
@@ -30761,10 +30816,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_validation_agent_contract_tests_agents_lint",
       "community": 47,
       "community_name": "AI Runtime Rules & Templates",
-      "norm_label": "uv run poe agents:lint"
+      "norm_label": "uv run poe agents:lint",
+      "_origin": "semantic",
+      "id": "ai_engineering_validation_agent_contract_tests_agents_lint"
     },
     {
       "label": "uv run poe test:scripts / test_doc_links.py",
@@ -30775,10 +30831,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_validation_bootstrap_check_test_scripts",
       "community": 62,
       "community_name": "project-memory cluster",
-      "norm_label": "uv run poe test:scripts / test_doc_links.py"
+      "norm_label": "uv run poe test:scripts / test_doc_links.py",
+      "_origin": "semantic",
+      "id": "ai_engineering_validation_bootstrap_check_test_scripts"
     },
     {
       "label": "config/autonomous-engineering.yaml",
@@ -30789,10 +30846,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_runtime_scheduler_autonomous_config",
       "community": 62,
       "community_name": "project-memory cluster",
-      "norm_label": "config/autonomous-engineering.yaml"
+      "norm_label": "config/autonomous-engineering.yaml",
+      "_origin": "semantic",
+      "id": "ai_engineering_runtime_scheduler_autonomous_config"
     },
     {
       "label": "docs/ai/autonomous-engineering.md",
@@ -30803,10 +30861,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_tasks_tasks_autonomous_engineering_doc",
       "community": 62,
       "community_name": "project-memory cluster",
-      "norm_label": "docs/ai/autonomous-engineering.md"
+      "norm_label": "docs/ai/autonomous-engineering.md",
+      "_origin": "semantic",
+      "id": "ai_engineering_tasks_tasks_autonomous_engineering_doc"
     },
     {
       "label": "BLOCKED_HUMAN state",
@@ -30817,10 +30876,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_validation_repair_loop_blocked_human",
       "community": 62,
       "community_name": "project-memory cluster",
-      "norm_label": "blocked_human state"
+      "norm_label": "blocked_human state",
+      "_origin": "semantic",
+      "id": "ai_engineering_validation_repair_loop_blocked_human"
     },
     {
       "label": "docs/ai/plan-template.md",
@@ -30831,10 +30891,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_templates_plan_canonical_plan",
       "community": 47,
       "community_name": "AI Runtime Rules & Templates",
-      "norm_label": "docs/ai/plan-template.md"
+      "norm_label": "docs/ai/plan-template.md",
+      "_origin": "semantic",
+      "id": "ai_engineering_templates_plan_canonical_plan"
     },
     {
       "label": "Lifecycle states (NEW to WAITING_APPROVAL)",
@@ -30845,10 +30906,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_validation_workflow_tests_lifecycle_states",
       "community": 62,
       "community_name": "project-memory cluster",
-      "norm_label": "lifecycle states (new to waiting_approval)"
+      "norm_label": "lifecycle states (new to waiting_approval)",
+      "_origin": "semantic",
+      "id": "ai_engineering_validation_workflow_tests_lifecycle_states"
     },
     {
       "label": "Agent role: Product Manager",
@@ -30859,10 +30921,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_validation_agent_contract_tests_role_product_manager",
       "community": 47,
       "community_name": "AI Runtime Rules & Templates",
-      "norm_label": "agent role: product manager"
+      "norm_label": "agent role: product manager",
+      "_origin": "semantic",
+      "id": "ai_engineering_validation_agent_contract_tests_role_product_manager"
     },
     {
       "label": "Agent role: Architect",
@@ -30873,10 +30936,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_validation_agent_contract_tests_role_architect",
       "community": 47,
       "community_name": "AI Runtime Rules & Templates",
-      "norm_label": "agent role: architect"
+      "norm_label": "agent role: architect",
+      "_origin": "semantic",
+      "id": "ai_engineering_validation_agent_contract_tests_role_architect"
     },
     {
       "label": "Agent role: Coordinator",
@@ -30887,10 +30951,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_validation_agent_contract_tests_role_coordinator",
       "community": 47,
       "community_name": "AI Runtime Rules & Templates",
-      "norm_label": "agent role: coordinator"
+      "norm_label": "agent role: coordinator",
+      "_origin": "semantic",
+      "id": "ai_engineering_validation_agent_contract_tests_role_coordinator"
     },
     {
       "label": "Agent role: Implementer",
@@ -30901,10 +30966,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_validation_agent_contract_tests_role_implementer",
       "community": 47,
       "community_name": "AI Runtime Rules & Templates",
-      "norm_label": "agent role: implementer"
+      "norm_label": "agent role: implementer",
+      "_origin": "semantic",
+      "id": "ai_engineering_validation_agent_contract_tests_role_implementer"
     },
     {
       "label": "Agent role: Reviewer",
@@ -30915,10 +30981,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_validation_agent_contract_tests_role_reviewer",
       "community": 47,
       "community_name": "AI Runtime Rules & Templates",
-      "norm_label": "agent role: reviewer"
+      "norm_label": "agent role: reviewer",
+      "_origin": "semantic",
+      "id": "ai_engineering_validation_agent_contract_tests_role_reviewer"
     },
     {
       "label": "Agent role: QA",
@@ -30929,10 +30996,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_validation_agent_contract_tests_role_qa",
       "community": 47,
       "community_name": "AI Runtime Rules & Templates",
-      "norm_label": "agent role: qa"
+      "norm_label": "agent role: qa",
+      "_origin": "semantic",
+      "id": "ai_engineering_validation_agent_contract_tests_role_qa"
     },
     {
       "label": "Agent role: Reporter",
@@ -30943,10 +31011,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_engineering_validation_agent_contract_tests_role_reporter",
       "community": 47,
       "community_name": "AI Runtime Rules & Templates",
-      "norm_label": "agent role: reporter"
+      "norm_label": "agent role: reporter",
+      "_origin": "semantic",
+      "id": "ai_engineering_validation_agent_contract_tests_role_reporter"
     },
     {
       "label": "Blocker Handling workflow",
@@ -30957,10 +31026,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "_ai_engineering_workflows_blocker_handling",
       "community": 35,
       "community_name": "AI Engineering Workflows",
-      "norm_label": "blocker handling workflow"
+      "norm_label": "blocker handling workflow",
+      "_origin": "semantic",
+      "id": "_ai_engineering_workflows_blocker_handling"
     },
     {
       "label": "Bug Fix workflow",
@@ -30971,10 +31041,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "_ai_engineering_workflows_bug_fix",
       "community": 35,
       "community_name": "AI Engineering Workflows",
-      "norm_label": "bug fix workflow"
+      "norm_label": "bug fix workflow",
+      "_origin": "semantic",
+      "id": "_ai_engineering_workflows_bug_fix"
     },
     {
       "label": "Daily Cycle workflow",
@@ -30985,10 +31056,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "_ai_engineering_workflows_daily_cycle",
       "community": 35,
       "community_name": "AI Engineering Workflows",
-      "norm_label": "daily cycle workflow"
+      "norm_label": "daily cycle workflow",
+      "_origin": "semantic",
+      "id": "_ai_engineering_workflows_daily_cycle"
     },
     {
       "label": "Feature Development workflow",
@@ -30999,10 +31071,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "_ai_engineering_workflows_feature_development",
       "community": 35,
       "community_name": "AI Engineering Workflows",
-      "norm_label": "feature development workflow"
+      "norm_label": "feature development workflow",
+      "_origin": "semantic",
+      "id": "_ai_engineering_workflows_feature_development"
     },
     {
       "label": "Release Process workflow",
@@ -31013,10 +31086,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "_ai_engineering_workflows_release_process",
       "community": 35,
       "community_name": "AI Engineering Workflows",
-      "norm_label": "release process workflow"
+      "norm_label": "release process workflow",
+      "_origin": "semantic",
+      "id": "_ai_engineering_workflows_release_process"
     },
     {
       "label": "Review Process workflow",
@@ -31027,10 +31101,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "_ai_engineering_workflows_review_process",
       "community": 35,
       "community_name": "AI Engineering Workflows",
-      "norm_label": "review process workflow"
+      "norm_label": "review process workflow",
+      "_origin": "semantic",
+      "id": "_ai_engineering_workflows_review_process"
     },
     {
       "label": "Task Intake workflow",
@@ -31041,10 +31116,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "_ai_engineering_workflows_task_intake",
       "community": 35,
       "community_name": "AI Engineering Workflows",
-      "norm_label": "task intake workflow"
+      "norm_label": "task intake workflow",
+      "_origin": "semantic",
+      "id": "_ai_engineering_workflows_task_intake"
     },
     {
       "label": "Bug report issue template",
@@ -31055,10 +31131,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "_github_issue_template_bug_report",
       "community": 128,
       "community_name": "bug_report cluster",
-      "norm_label": "bug report issue template"
+      "norm_label": "bug report issue template",
+      "_origin": "semantic",
+      "id": "_github_issue_template_bug_report"
     },
     {
       "label": "Feature request issue template",
@@ -31069,10 +31146,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "_github_issue_template_feature_request",
       "community": 129,
       "community_name": "feature_request cluster",
-      "norm_label": "feature request issue template"
+      "norm_label": "feature request issue template",
+      "_origin": "semantic",
+      "id": "_github_issue_template_feature_request"
     },
     {
       "label": "Dependabot config (pip + github-actions, target dev)",
@@ -31083,10 +31161,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "_github_dependabot",
       "community": 35,
       "community_name": "AI Engineering Workflows",
-      "norm_label": "dependabot config (pip + github-actions, target dev)"
+      "norm_label": "dependabot config (pip + github-actions, target dev)",
+      "_origin": "semantic",
+      "id": "_github_dependabot"
     },
     {
       "label": "Pull request template",
@@ -31097,10 +31176,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "_github_pull_request_template",
       "community": 35,
       "community_name": "AI Engineering Workflows",
-      "norm_label": "pull request template"
+      "norm_label": "pull request template",
+      "_origin": "semantic",
+      "id": "_github_pull_request_template"
     },
     {
       "label": "ai-gates CI workflow",
@@ -31111,10 +31191,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "_github_workflows_ai_gates",
       "community": 35,
       "community_name": "AI Engineering Workflows",
-      "norm_label": "ai-gates ci workflow"
+      "norm_label": "ai-gates ci workflow",
+      "_origin": "semantic",
+      "id": "_github_workflows_ai_gates"
     },
     {
       "label": "benchmarks CI workflow",
@@ -31125,10 +31206,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "_github_workflows_benchmarks",
       "community": 35,
       "community_name": "AI Engineering Workflows",
-      "norm_label": "benchmarks ci workflow"
+      "norm_label": "benchmarks ci workflow",
+      "_origin": "semantic",
+      "id": "_github_workflows_benchmarks"
     },
     {
       "label": "cicd PyPI publish workflow",
@@ -31139,10 +31221,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "_github_workflows_cicd",
       "community": 35,
       "community_name": "AI Engineering Workflows",
-      "norm_label": "cicd pypi publish workflow"
+      "norm_label": "cicd pypi publish workflow",
+      "_origin": "semantic",
+      "id": "_github_workflows_cicd"
     },
     {
       "label": "lint CI workflow",
@@ -31153,10 +31236,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "_github_workflows_linter",
       "community": 35,
       "community_name": "AI Engineering Workflows",
-      "norm_label": "lint ci workflow"
+      "norm_label": "lint ci workflow",
+      "_origin": "semantic",
+      "id": "_github_workflows_linter"
     },
     {
       "label": "tests CI workflow (Python matrix)",
@@ -31167,10 +31251,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "_github_workflows_pytests",
       "community": 35,
       "community_name": "AI Engineering Workflows",
-      "norm_label": "tests ci workflow (python matrix)"
+      "norm_label": "tests ci workflow (python matrix)",
+      "_origin": "semantic",
+      "id": "_github_workflows_pytests"
     },
     {
       "label": "AGENTS.md (core principles, canonical task flow, persona)",
@@ -31181,10 +31266,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "agents",
       "community": 35,
       "community_name": "AI Engineering Workflows",
-      "norm_label": "agents.md (core principles, canonical task flow, persona)"
+      "norm_label": "agents.md (core principles, canonical task flow, persona)",
+      "_origin": "semantic",
+      "id": "agents"
     },
     {
       "label": "AI_WORKFLOW.md pointer",
@@ -31195,10 +31281,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ai_workflow",
       "community": 35,
       "community_name": "AI Engineering Workflows",
-      "norm_label": "ai_workflow.md pointer"
+      "norm_label": "ai_workflow.md pointer",
+      "_origin": "semantic",
+      "id": "ai_workflow"
     },
     {
       "label": "CLAUDE.md project context",
@@ -31209,10 +31296,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "claude",
       "community": 35,
       "community_name": "AI Engineering Workflows",
-      "norm_label": "claude.md project context"
+      "norm_label": "claude.md project context",
+      "_origin": "semantic",
+      "id": "claude"
     },
     {
       "label": "Strict TDD (tdd:red, tdd:gate)",
@@ -31223,10 +31311,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "concept_strict_tdd",
       "community": 35,
       "community_name": "AI Engineering Workflows",
-      "norm_label": "strict tdd (tdd:red, tdd:gate)"
+      "norm_label": "strict tdd (tdd:red, tdd:gate)",
+      "_origin": "semantic",
+      "id": "concept_strict_tdd"
     },
     {
       "label": "Task state machine (NEW to REPORTED)",
@@ -31237,10 +31326,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "concept_task_state_machine",
       "community": 35,
       "community_name": "AI Engineering Workflows",
-      "norm_label": "task state machine (new to reported)"
+      "norm_label": "task state machine (new to reported)",
+      "_origin": "semantic",
+      "id": "concept_task_state_machine"
     },
     {
       "label": "Human approval gate (WAITING_APPROVAL, PILOT_FROZEN)",
@@ -31251,10 +31341,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "concept_human_approval_gate",
       "community": 35,
       "community_name": "AI Engineering Workflows",
-      "norm_label": "human approval gate (waiting_approval, pilot_frozen)"
+      "norm_label": "human approval gate (waiting_approval, pilot_frozen)",
+      "_origin": "semantic",
+      "id": "concept_human_approval_gate"
     },
     {
       "label": ".ai-engineering repository-local AI workflow layer",
@@ -31265,10 +31356,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "concept_ai_engineering_layer",
       "community": 35,
       "community_name": "AI Engineering Workflows",
-      "norm_label": ".ai-engineering repository-local ai workflow layer"
+      "norm_label": ".ai-engineering repository-local ai workflow layer",
+      "_origin": "semantic",
+      "id": "concept_ai_engineering_layer"
     },
     {
       "label": "Caveman ultra communication policy",
@@ -31279,10 +31371,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "concept_caveman_ultra_policy",
       "community": 35,
       "community_name": "AI Engineering Workflows",
-      "norm_label": "caveman ultra communication policy"
+      "norm_label": "caveman ultra communication policy",
+      "_origin": "semantic",
+      "id": "concept_caveman_ultra_policy"
     },
     {
       "label": "Upstream fork sync (additive changes, separate files)",
@@ -31293,10 +31386,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "concept_upstream_fork_sync",
       "community": 35,
       "community_name": "AI Engineering Workflows",
-      "norm_label": "upstream fork sync (additive changes, separate files)"
+      "norm_label": "upstream fork sync (additive changes, separate files)",
+      "_origin": "semantic",
+      "id": "concept_upstream_fork_sync"
     },
     {
       "label": "pick-a-booth (fork of photobooth-app)",
@@ -31307,10 +31401,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "concept_photobooth_app_fork",
       "community": 35,
       "community_name": "AI Engineering Workflows",
-      "norm_label": "pick-a-booth (fork of photobooth-app)"
+      "norm_label": "pick-a-booth (fork of photobooth-app)",
+      "_origin": "semantic",
+      "id": "concept_photobooth_app_fork"
     },
     {
       "label": "Agent roles (PM, Architect, Coordinator, Implementer, Reviewer, QA, Reporter)",
@@ -31321,10 +31416,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "concept_agent_roles",
       "community": 35,
       "community_name": "AI Engineering Workflows",
-      "norm_label": "agent roles (pm, architect, coordinator, implementer, reviewer, qa, reporter)"
+      "norm_label": "agent roles (pm, architect, coordinator, implementer, reviewer, qa, reporter)",
+      "_origin": "semantic",
+      "id": "concept_agent_roles"
     },
     {
       "label": "CONTRIBUTING.md",
@@ -31335,10 +31431,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "contributing",
       "community": 117,
       "community_name": "CONTRIBUTING cluster",
-      "norm_label": "contributing.md"
+      "norm_label": "contributing.md",
+      "_origin": "semantic",
+      "id": "contributing"
     },
     {
       "label": "FUNDING.yml",
@@ -31349,10 +31446,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "funding",
       "community": 130,
       "community_name": "FUNDING cluster",
-      "norm_label": "funding.yml"
+      "norm_label": "funding.yml",
+      "_origin": "semantic",
+      "id": "funding"
     },
     {
       "label": "LICENSE.md (MIT)",
@@ -31363,10 +31461,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "license",
       "community": 117,
       "community_name": "CONTRIBUTING cluster",
-      "norm_label": "license.md (mit)"
+      "norm_label": "license.md (mit)",
+      "_origin": "semantic",
+      "id": "license"
     },
     {
       "label": "PLANNING_STANDARDS.md",
@@ -31377,10 +31476,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "planning_standards",
       "community": 42,
       "community_name": "Persona Prompts",
-      "norm_label": "planning_standards.md"
+      "norm_label": "planning_standards.md",
+      "_origin": "semantic",
+      "id": "planning_standards"
     },
     {
       "label": "README.md photobooth-app",
@@ -31391,10 +31491,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme",
       "community": 117,
       "community_name": "CONTRIBUTING cluster",
-      "norm_label": "readme.md photobooth-app"
+      "norm_label": "readme.md photobooth-app",
+      "_origin": "semantic",
+      "id": "readme"
     },
     {
       "label": "accessibility-auditor persona prompt",
@@ -31405,10 +31506,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "agents_src_prompts_accessibility_auditor",
       "community": 42,
       "community_name": "Persona Prompts",
-      "norm_label": "accessibility-auditor persona prompt"
+      "norm_label": "accessibility-auditor persona prompt",
+      "_origin": "semantic",
+      "id": "agents_src_prompts_accessibility_auditor"
     },
     {
       "label": "code-reviewer persona prompt",
@@ -31419,10 +31521,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "agents_src_prompts_code_reviewer",
       "community": 42,
       "community_name": "Persona Prompts",
-      "norm_label": "code-reviewer persona prompt"
+      "norm_label": "code-reviewer persona prompt",
+      "_origin": "semantic",
+      "id": "agents_src_prompts_code_reviewer"
     },
     {
       "label": "db-architect persona prompt",
@@ -31433,10 +31536,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "agents_src_prompts_db_architect",
       "community": 42,
       "community_name": "Persona Prompts",
-      "norm_label": "db-architect persona prompt"
+      "norm_label": "db-architect persona prompt",
+      "_origin": "semantic",
+      "id": "agents_src_prompts_db_architect"
     },
     {
       "label": "fastapi-backend-dev persona prompt",
@@ -31447,10 +31551,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "agents_src_prompts_fastapi_backend_dev",
       "community": 42,
       "community_name": "Persona Prompts",
-      "norm_label": "fastapi-backend-dev persona prompt"
+      "norm_label": "fastapi-backend-dev persona prompt",
+      "_origin": "semantic",
+      "id": "agents_src_prompts_fastapi_backend_dev"
     },
     {
       "label": "project-manager persona prompt",
@@ -31461,10 +31566,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "agents_src_prompts_project_manager",
       "community": 42,
       "community_name": "Persona Prompts",
-      "norm_label": "project-manager persona prompt"
+      "norm_label": "project-manager persona prompt",
+      "_origin": "semantic",
+      "id": "agents_src_prompts_project_manager"
     },
     {
       "label": "security-auditor persona prompt",
@@ -31475,10 +31581,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "agents_src_prompts_security_auditor",
       "community": 42,
       "community_name": "Persona Prompts",
-      "norm_label": "security-auditor persona prompt"
+      "norm_label": "security-auditor persona prompt",
+      "_origin": "semantic",
+      "id": "agents_src_prompts_security_auditor"
     },
     {
       "label": "test-engineer persona prompt",
@@ -31489,10 +31596,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "agents_src_prompts_test_engineer",
       "community": 42,
       "community_name": "Persona Prompts",
-      "norm_label": "test-engineer persona prompt"
+      "norm_label": "test-engineer persona prompt",
+      "_origin": "semantic",
+      "id": "agents_src_prompts_test_engineer"
     },
     {
       "label": "ui-ux-designer persona prompt",
@@ -31503,10 +31611,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "agents_src_prompts_ui_ux_designer",
       "community": 42,
       "community_name": "Persona Prompts",
-      "norm_label": "ui-ux-designer persona prompt"
+      "norm_label": "ui-ux-designer persona prompt",
+      "_origin": "semantic",
+      "id": "agents_src_prompts_ui_ux_designer"
     },
     {
       "label": "web-frontend-dev persona prompt",
@@ -31517,10 +31626,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "agents_src_prompts_web_frontend_dev",
       "community": 42,
       "community_name": "Persona Prompts",
-      "norm_label": "web-frontend-dev persona prompt"
+      "norm_label": "web-frontend-dev persona prompt",
+      "_origin": "semantic",
+      "id": "agents_src_prompts_web_frontend_dev"
     },
     {
       "label": "agent-orchestration doc",
@@ -31531,10 +31641,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_agent_orchestration",
       "community": 42,
       "community_name": "Persona Prompts",
-      "norm_label": "agent-orchestration doc"
+      "norm_label": "agent-orchestration doc",
+      "_origin": "semantic",
+      "id": "docs_ai_agent_orchestration"
     },
     {
       "label": "architecture-manifest doc",
@@ -31545,10 +31656,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_architecture_manifest",
       "community": 42,
       "community_name": "Persona Prompts",
-      "norm_label": "architecture-manifest doc"
+      "norm_label": "architecture-manifest doc",
+      "_origin": "semantic",
+      "id": "docs_ai_architecture_manifest"
     },
     {
       "label": "autonomous-engineering doc",
@@ -31559,10 +31671,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_autonomous_engineering",
       "community": 42,
       "community_name": "Persona Prompts",
-      "norm_label": "autonomous-engineering doc"
+      "norm_label": "autonomous-engineering doc",
+      "_origin": "semantic",
+      "id": "docs_ai_autonomous_engineering"
     },
     {
       "label": "context-refresh doc",
@@ -31573,10 +31686,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_context_refresh",
       "community": 42,
       "community_name": "Persona Prompts",
-      "norm_label": "context-refresh doc"
+      "norm_label": "context-refresh doc",
+      "_origin": "semantic",
+      "id": "docs_ai_context_refresh"
     },
     {
       "label": "api-contracts doc",
@@ -31587,10 +31701,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_contracts_api_contracts",
       "community": 42,
       "community_name": "Persona Prompts",
-      "norm_label": "api-contracts doc"
+      "norm_label": "api-contracts doc",
+      "_origin": "semantic",
+      "id": "docs_ai_contracts_api_contracts"
     },
     {
       "label": "Non-bypassable evidence gate",
@@ -31602,10 +31717,11 @@
       "author": null,
       "contributor": null,
       "rationale": "Plan may not assert a cause it has not tried to disprove; unfalsifiable claims labelled hypothesis.",
-      "id": "planning_evidence_gate",
       "community": 42,
       "community_name": "Persona Prompts",
-      "norm_label": "non-bypassable evidence gate"
+      "norm_label": "non-bypassable evidence gate",
+      "_origin": "semantic",
+      "id": "planning_evidence_gate"
     },
     {
       "label": "Non-bypassable Graphify gate",
@@ -31616,10 +31732,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "planning_graphify_gate",
       "community": 42,
       "community_name": "Persona Prompts",
-      "norm_label": "non-bypassable graphify gate"
+      "norm_label": "non-bypassable graphify gate",
+      "_origin": "semantic",
+      "id": "planning_graphify_gate"
     },
     {
       "label": "File Ownership Rule",
@@ -31631,10 +31748,11 @@
       "author": null,
       "contributor": null,
       "rationale": "Prevents concurrent writes to same file when backend and frontend implementers share a worktree.",
-      "id": "file_ownership_rule",
       "community": 42,
       "community_name": "Persona Prompts",
-      "norm_label": "file ownership rule"
+      "norm_label": "file ownership rule",
+      "_origin": "semantic",
+      "id": "file_ownership_rule"
     },
     {
       "label": "PILOT_FROZEN autonomous state",
@@ -31645,10 +31763,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "pilot_frozen_state",
       "community": 42,
       "community_name": "Persona Prompts",
-      "norm_label": "pilot_frozen autonomous state"
+      "norm_label": "pilot_frozen autonomous state",
+      "_origin": "semantic",
+      "id": "pilot_frozen_state"
     },
     {
       "label": "Work-order schema (Tasks.md)",
@@ -31659,10 +31778,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "work_order_schema",
       "community": 42,
       "community_name": "Persona Prompts",
-      "norm_label": "work-order schema (tasks.md)"
+      "norm_label": "work-order schema (tasks.md)",
+      "_origin": "semantic",
+      "id": "work_order_schema"
     },
     {
       "label": "Strict TDD RED-first",
@@ -31673,10 +31793,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "strict_tdd_red_first",
       "community": 42,
       "community_name": "Persona Prompts",
-      "norm_label": "strict tdd red-first"
+      "norm_label": "strict tdd red-first",
+      "_origin": "semantic",
+      "id": "strict_tdd_red_first"
     },
     {
       "label": "API auth model (/api open, /api/admin JWT)",
@@ -31687,10 +31808,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "api_auth_model",
       "community": 42,
       "community_name": "Persona Prompts",
-      "norm_label": "api auth model (/api open, /api/admin jwt)"
+      "norm_label": "api auth model (/api open, /api/admin jwt)",
+      "_origin": "semantic",
+      "id": "api_auth_model"
     },
     {
       "label": "db-contracts.md",
@@ -31701,10 +31823,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_contracts_db_contracts",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "db-contracts.md"
+      "norm_label": "db-contracts.md",
+      "_origin": "semantic",
+      "id": "docs_ai_contracts_db_contracts"
     },
     {
       "label": "dev-environment.md",
@@ -31715,10 +31838,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_dev_environment",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "dev-environment.md"
+      "norm_label": "dev-environment.md",
+      "_origin": "semantic",
+      "id": "docs_ai_dev_environment"
     },
     {
       "label": "entry-point.md",
@@ -31729,10 +31853,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_entry_point",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "entry-point.md"
+      "norm_label": "entry-point.md",
+      "_origin": "semantic",
+      "id": "docs_ai_entry_point"
     },
     {
       "label": "execution.md",
@@ -31743,10 +31868,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_execution",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "execution.md"
+      "norm_label": "execution.md",
+      "_origin": "semantic",
+      "id": "docs_ai_execution"
     },
     {
       "label": "repository-map.md",
@@ -31757,10 +31883,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_file_index_repository_map",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "repository-map.md"
+      "norm_label": "repository-map.md",
+      "_origin": "semantic",
+      "id": "docs_ai_file_index_repository_map"
     },
     {
       "label": "handoff.md",
@@ -31771,10 +31898,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_handoff",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "handoff.md"
+      "norm_label": "handoff.md",
+      "_origin": "semantic",
+      "id": "docs_ai_handoff"
     },
     {
       "label": "module-ownership-map.md",
@@ -31785,10 +31913,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_module_ownership_map",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "module-ownership-map.md"
+      "norm_label": "module-ownership-map.md",
+      "_origin": "semantic",
+      "id": "docs_ai_module_ownership_map"
     },
     {
       "label": "operating-contract.md",
@@ -31799,10 +31928,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_operating_contract",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "operating-contract.md"
+      "norm_label": "operating-contract.md",
+      "_origin": "semantic",
+      "id": "docs_ai_operating_contract"
     },
     {
       "label": "plan-template.md",
@@ -31813,10 +31943,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_plan_template",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "plan-template.md"
+      "norm_label": "plan-template.md",
+      "_origin": "semantic",
+      "id": "docs_ai_plan_template"
     },
     {
       "label": "planning.md",
@@ -31827,10 +31958,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_planning",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "planning.md"
+      "norm_label": "planning.md",
+      "_origin": "semantic",
+      "id": "docs_ai_planning"
     },
     {
       "label": "pr-evidence.md",
@@ -31841,10 +31973,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_pr_evidence",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "pr-evidence.md"
+      "norm_label": "pr-evidence.md",
+      "_origin": "semantic",
+      "id": "docs_ai_pr_evidence"
     },
     {
       "label": "bugfix-plan.md",
@@ -31855,10 +31988,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_prompts_bugfix_plan",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "bugfix-plan.md"
+      "norm_label": "bugfix-plan.md",
+      "_origin": "semantic",
+      "id": "docs_ai_prompts_bugfix_plan"
     },
     {
       "label": "bugfix-rca.md",
@@ -31869,10 +32003,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_prompts_bugfix_rca",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "bugfix-rca.md"
+      "norm_label": "bugfix-rca.md",
+      "_origin": "semantic",
+      "id": "docs_ai_prompts_bugfix_rca"
     },
     {
       "label": "feature-plan.md",
@@ -31883,10 +32018,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_prompts_feature_plan",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "feature-plan.md"
+      "norm_label": "feature-plan.md",
+      "_origin": "semantic",
+      "id": "docs_ai_prompts_feature_plan"
     },
     {
       "label": "refactor-plan.md",
@@ -31897,10 +32033,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_prompts_refactor_plan",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "refactor-plan.md"
+      "norm_label": "refactor-plan.md",
+      "_origin": "semantic",
+      "id": "docs_ai_prompts_refactor_plan"
     },
     {
       "label": "risk-register.md",
@@ -31911,10 +32048,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_risk_register",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "risk-register.md"
+      "norm_label": "risk-register.md",
+      "_origin": "semantic",
+      "id": "docs_ai_risk_register"
     },
     {
       "label": "task-router.md",
@@ -31925,10 +32063,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_task_router",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "task-router.md"
+      "norm_label": "task-router.md",
+      "_origin": "semantic",
+      "id": "docs_ai_task_router"
     },
     {
       "label": "testing-strategy.md",
@@ -31939,10 +32078,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_testing_strategy",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "testing-strategy.md"
+      "norm_label": "testing-strategy.md",
+      "_origin": "semantic",
+      "id": "docs_ai_testing_strategy"
     },
     {
       "label": "ai-workflow-port.md",
@@ -31953,10 +32093,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_plans_ai_workflow_port",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "ai-workflow-port.md"
+      "norm_label": "ai-workflow-port.md",
+      "_origin": "semantic",
+      "id": "docs_plans_ai_workflow_port"
     },
     {
       "label": "Strict TDD",
@@ -31968,10 +32109,11 @@
       "author": null,
       "contributor": null,
       "rationale": "RED before implementation; enforced by local guard and CI gate",
-      "id": "docs_ai_testing_strategy_strict_tdd",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "strict tdd"
+      "norm_label": "strict tdd",
+      "_origin": "semantic",
+      "id": "docs_ai_testing_strategy_strict_tdd"
     },
     {
       "label": "Live verification",
@@ -31982,10 +32124,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_testing_strategy_live_verification",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "live verification"
+      "norm_label": "live verification",
+      "_origin": "semantic",
+      "id": "docs_ai_testing_strategy_live_verification"
     },
     {
       "label": "Migration rules",
@@ -31997,10 +32140,11 @@
       "author": null,
       "contributor": null,
       "rationale": "Installed photobooths apply migrations unattended, so additive and reversible only",
-      "id": "docs_ai_planning_migration_rules",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "migration rules"
+      "norm_label": "migration rules",
+      "_origin": "semantic",
+      "id": "docs_ai_planning_migration_rules"
     },
     {
       "label": "Graphify discovery first",
@@ -32011,10 +32155,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_planning_graphify_discovery_first",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "graphify discovery first"
+      "norm_label": "graphify discovery first",
+      "_origin": "semantic",
+      "id": "docs_ai_planning_graphify_discovery_first"
     },
     {
       "label": "Worktree and branch isolation",
@@ -32025,10 +32170,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_execution_worktree_and_branch_isolation",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "worktree and branch isolation"
+      "norm_label": "worktree and branch isolation",
+      "_origin": "semantic",
+      "id": "docs_ai_execution_worktree_and_branch_isolation"
     },
     {
       "label": "Integration sequence",
@@ -32039,10 +32185,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_handoff_integration_sequence",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "integration sequence"
+      "norm_label": "integration sequence",
+      "_origin": "semantic",
+      "id": "docs_ai_handoff_integration_sequence"
     },
     {
       "label": "Completion Gate",
@@ -32053,10 +32200,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_handoff_completion_gate",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "completion gate"
+      "norm_label": "completion gate",
+      "_origin": "semantic",
+      "id": "docs_ai_handoff_completion_gate"
     },
     {
       "label": "Change Type evidence",
@@ -32067,10 +32215,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_pr_evidence_change_type_evidence",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "change type evidence"
+      "norm_label": "change type evidence",
+      "_origin": "semantic",
+      "id": "docs_ai_pr_evidence_change_type_evidence"
     },
     {
       "label": "SQLite and Alembic data model",
@@ -32081,10 +32230,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_contracts_db_contracts_sqlite_and_alembic_data_model",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "sqlite and alembic data model"
+      "norm_label": "sqlite and alembic data model",
+      "_origin": "semantic",
+      "id": "docs_ai_contracts_db_contracts_sqlite_and_alembic_data_model"
     },
     {
       "label": "No shared DEV server",
@@ -32096,10 +32246,11 @@
       "author": null,
       "contributor": null,
       "rationale": "Fork has no deployment; everything local in worktree",
-      "id": "docs_ai_dev_environment_no_shared_dev_server",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "no shared dev server"
+      "norm_label": "no shared dev server",
+      "_origin": "semantic",
+      "id": "docs_ai_dev_environment_no_shared_dev_server"
     },
     {
       "label": "Phase-stop rule",
@@ -32110,10 +32261,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_plan_template_phase_stop_rule",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "phase-stop rule"
+      "norm_label": "phase-stop rule",
+      "_origin": "semantic",
+      "id": "docs_ai_plan_template_phase_stop_rule"
     },
     {
       "label": "Port decisions D1-D5",
@@ -32124,10 +32276,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_plans_ai_workflow_port_port_decisions_d1_d5",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "port decisions d1-d5"
+      "norm_label": "port decisions d1-d5",
+      "_origin": "semantic",
+      "id": "docs_plans_ai_workflow_port_port_decisions_d1_d5"
     },
     {
       "label": "Task classification routing",
@@ -32138,10 +32291,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_task_router_task_classification_routing",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "task classification routing"
+      "norm_label": "task classification routing",
+      "_origin": "semantic",
+      "id": "docs_ai_task_router_task_classification_routing"
     },
     {
       "label": "Unauthenticated api surface risk",
@@ -32152,10 +32306,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_risk_register_unauthenticated_api_surface_risk",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "unauthenticated api surface risk"
+      "norm_label": "unauthenticated api surface risk",
+      "_origin": "semantic",
+      "id": "docs_ai_risk_register_unauthenticated_api_surface_risk"
     },
     {
       "label": "Maps are not proof; code wins",
@@ -32166,10 +32321,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_ai_entry_point_maps_are_not_proof;_code_wins",
       "community": 20,
       "community_name": "AI Workflow Phase Docs",
-      "norm_label": "maps are not proof; code wins"
+      "norm_label": "maps are not proof; code wins",
+      "_origin": "semantic",
+      "id": "docs_ai_entry_point_maps_are_not_proof;_code_wins"
     }
   ],
   "links": [
@@ -35875,7 +36031,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/tests/test_doc_links.py",
-      "source_location": "L21",
+      "source_location": "L34",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_tests_test_doc_links",
@@ -35886,7 +36042,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/tests/test_doc_links.py",
-      "source_location": "L51",
+      "source_location": "L64",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_tests_test_doc_links",
@@ -35897,7 +36053,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/tests/test_doc_links.py",
-      "source_location": "L40",
+      "source_location": "L53",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_tests_test_doc_links",
@@ -35908,7 +36064,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/tests/test_doc_links.py",
-      "source_location": "L34",
+      "source_location": "L47",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_tests_test_doc_links",
@@ -35919,7 +36075,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/tests/test_doc_links.py",
-      "source_location": "L56",
+      "source_location": "L69",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_tests_test_doc_links",
@@ -35931,7 +36087,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "scripts/tests/test_doc_links.py",
-      "source_location": "L21",
+      "source_location": "L34",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_tests_test_doc_links_cited_paths",
@@ -35943,7 +36099,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/tests/test_doc_links.py",
-      "source_location": "L45",
+      "source_location": "L58",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_tests_test_doc_links_test_edge_no_cited_path_dangles",
@@ -96660,6 +96816,7 @@
       "source_file": ".ai-engineering/SETUP.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_SETUP",
       "target": "ai_engineering_agents_architect"
     },
@@ -96670,6 +96827,7 @@
       "source_file": ".ai-engineering/SETUP.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_SETUP",
       "target": "ai_engineering_agents_coordinator"
     },
@@ -96680,6 +96838,7 @@
       "source_file": ".ai-engineering/SETUP.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_SETUP",
       "target": "ai_engineering_agents_implementer"
     },
@@ -96690,6 +96849,7 @@
       "source_file": ".ai-engineering/SETUP.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_SETUP",
       "target": "ai_engineering_agents_product_manager"
     },
@@ -96700,6 +96860,7 @@
       "source_file": ".ai-engineering/SETUP.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_SETUP",
       "target": "ai_engineering_agents_qa"
     },
@@ -96710,6 +96871,7 @@
       "source_file": ".ai-engineering/SETUP.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_SETUP",
       "target": "ai_engineering_agents_reporter"
     },
@@ -96720,6 +96882,7 @@
       "source_file": ".ai-engineering/SETUP.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_SETUP",
       "target": "ai_engineering_agents_reviewer"
     },
@@ -96730,6 +96893,7 @@
       "source_file": ".ai-engineering/SETUP.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_SETUP",
       "target": "ai_engineering_config_autonomous_engineering"
     },
@@ -96740,6 +96904,7 @@
       "source_file": ".ai-engineering/SETUP.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_SETUP",
       "target": "ai_engineering_core_autonomy_levels"
     },
@@ -96750,6 +96915,7 @@
       "source_file": ".ai-engineering/SETUP.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_SETUP",
       "target": "ai_engineering_core_engineering_rules"
     },
@@ -96760,6 +96926,7 @@
       "source_file": ".ai-engineering/SETUP.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_SETUP",
       "target": "ai_engineering_core_evidence_policy"
     },
@@ -96770,6 +96937,7 @@
       "source_file": ".ai-engineering/SETUP.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_SETUP",
       "target": "ai_engineering_core_operating_model"
     },
@@ -96780,6 +96948,7 @@
       "source_file": ".ai-engineering/SETUP.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_SETUP",
       "target": "ai_engineering_core_safety"
     },
@@ -96790,6 +96959,7 @@
       "source_file": ".ai-engineering/SETUP.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_SETUP",
       "target": "ai_engineering_core_task_lifecycle"
     },
@@ -96800,6 +96970,7 @@
       "source_file": ".ai-engineering/SETUP.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_SETUP",
       "target": "ai_engineering_core_task_state_machine"
     },
@@ -96810,6 +96981,7 @@
       "source_file": ".ai-engineering/SETUP.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_SETUP",
       "target": "ai_engineering_memory_architecture_decisions"
     },
@@ -96820,6 +96992,7 @@
       "source_file": ".ai-engineering/core/operating-model.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_operating_model_primary_loop",
       "target": "ai_engineering_agents_architect"
     },
@@ -96830,6 +97003,7 @@
       "source_file": ".ai-engineering/agents/coordinator.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_agents_coordinator",
       "target": "ai_engineering_config_autonomous_engineering"
     },
@@ -96840,6 +97014,7 @@
       "source_file": ".ai-engineering/agents/coordinator.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_agents_coordinator",
       "target": "ai_engineering_config_autonomous_engineering_pilot_frozen"
     },
@@ -96850,6 +97025,7 @@
       "source_file": ".ai-engineering/agents/coordinator.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_agents_coordinator",
       "target": "ai_engineering_core_task_state_machine_skipped_already_implemented"
     },
@@ -96860,6 +97036,7 @@
       "source_file": ".ai-engineering/core/operating-model.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_operating_model_primary_loop",
       "target": "ai_engineering_agents_coordinator"
     },
@@ -96870,6 +97047,7 @@
       "source_file": ".ai-engineering/agents/implementer.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_agents_implementer",
       "target": "ai_engineering_core_engineering_rules"
     },
@@ -96880,6 +97058,7 @@
       "source_file": ".ai-engineering/agents/implementer.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_agents_implementer",
       "target": "ai_engineering_core_engineering_rules_strict_tdd_red_first"
     },
@@ -96890,6 +97069,7 @@
       "source_file": ".ai-engineering/agents/implementer.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_agents_implementer",
       "target": "ai_engineering_core_safety_isolated_worktrees"
     },
@@ -96900,6 +97080,7 @@
       "source_file": ".ai-engineering/core/operating-model.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_operating_model_primary_loop",
       "target": "ai_engineering_agents_implementer"
     },
@@ -96910,6 +97091,7 @@
       "source_file": ".ai-engineering/core/operating-model.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_operating_model_primary_loop",
       "target": "ai_engineering_agents_product_manager"
     },
@@ -96920,6 +97102,7 @@
       "source_file": ".ai-engineering/agents/qa.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_agents_qa",
       "target": "ai_engineering_core_evidence_policy"
     },
@@ -96930,6 +97113,7 @@
       "source_file": ".ai-engineering/core/operating-model.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_operating_model_primary_loop",
       "target": "ai_engineering_agents_qa"
     },
@@ -96940,6 +97124,7 @@
       "source_file": ".ai-engineering/agents/reporter.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_agents_reporter",
       "target": "ai_engineering_core_evidence_policy"
     },
@@ -96950,6 +97135,7 @@
       "source_file": ".ai-engineering/core/operating-model.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_operating_model_primary_loop",
       "target": "ai_engineering_agents_reporter"
     },
@@ -96960,6 +97146,7 @@
       "source_file": ".ai-engineering/agents/reviewer.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_agents_reviewer",
       "target": "ai_engineering_core_evidence_policy"
     },
@@ -96970,6 +97157,7 @@
       "source_file": ".ai-engineering/core/operating-model.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_operating_model_primary_loop",
       "target": "ai_engineering_agents_reviewer"
     },
@@ -96980,6 +97168,7 @@
       "source_file": ".ai-engineering/config/autonomous-engineering.yaml",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_config_autonomous_engineering",
       "target": "ai_engineering_config_autonomous_engineering_pilot_frozen"
     },
@@ -96990,6 +97179,7 @@
       "source_file": ".ai-engineering/config/autonomous-engineering.yaml",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_config_autonomous_engineering",
       "target": "ai_engineering_core_autonomy_levels_level_2"
     },
@@ -97000,6 +97190,7 @@
       "source_file": ".ai-engineering/core/autonomy-levels.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_autonomy_levels",
       "target": "ai_engineering_config_autonomous_engineering"
     },
@@ -97010,6 +97201,7 @@
       "source_file": ".ai-engineering/core/autonomy-levels.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_autonomy_levels",
       "target": "ai_engineering_config_autonomous_engineering_pilot_frozen"
     },
@@ -97020,6 +97212,7 @@
       "source_file": ".ai-engineering/core/autonomy-levels.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_autonomy_levels",
       "target": "ai_engineering_core_autonomy_levels_level_2"
     },
@@ -97030,6 +97223,7 @@
       "source_file": ".ai-engineering/core/autonomy-levels.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_autonomy_levels",
       "target": "ai_engineering_core_safety"
     },
@@ -97040,6 +97234,7 @@
       "source_file": ".ai-engineering/core/constitution.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_constitution",
       "target": "ai_engineering_core_constitution_principles"
     },
@@ -97050,6 +97245,7 @@
       "source_file": ".ai-engineering/core/constitution.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_constitution",
       "target": "ai_engineering_core_decision_framework"
     },
@@ -97060,6 +97256,7 @@
       "source_file": ".ai-engineering/core/constitution.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_constitution",
       "target": "ai_engineering_core_safety"
     },
@@ -97070,6 +97267,7 @@
       "source_file": ".ai-engineering/core/decision-framework.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_decision_framework",
       "target": "ai_engineering_core_decision_framework_priority_order"
     },
@@ -97080,6 +97278,7 @@
       "source_file": ".ai-engineering/core/engineering-rules.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_engineering_rules",
       "target": "ai_engineering_core_engineering_rules_strict_tdd_red_first"
     },
@@ -97090,6 +97289,7 @@
       "source_file": ".ai-engineering/core/evidence-policy.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_evidence_policy",
       "target": "ai_engineering_core_evidence_policy_evidence_required"
     },
@@ -97100,6 +97300,7 @@
       "source_file": ".ai-engineering/core/operating-model.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_operating_model",
       "target": "ai_engineering_core_operating_model_primary_loop"
     },
@@ -97110,6 +97311,7 @@
       "source_file": ".ai-engineering/core/safety.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_safety",
       "target": "ai_engineering_core_safety_isolated_worktrees"
     },
@@ -97120,6 +97322,7 @@
       "source_file": ".ai-engineering/core/task-lifecycle.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_task_lifecycle",
       "target": "ai_engineering_core_task_state_machine"
     },
@@ -97130,6 +97333,7 @@
       "source_file": ".ai-engineering/core/task-lifecycle.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_task_lifecycle",
       "target": "ai_engineering_core_task_state_machine_blocked_states"
     },
@@ -97140,6 +97344,7 @@
       "source_file": ".ai-engineering/core/task-lifecycle.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_task_lifecycle",
       "target": "ai_engineering_core_task_state_machine_canonical_transition"
     },
@@ -97150,6 +97355,7 @@
       "source_file": ".ai-engineering/core/task-lifecycle.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_task_lifecycle",
       "target": "ai_engineering_core_task_state_machine_skipped_already_implemented"
     },
@@ -97160,6 +97366,7 @@
       "source_file": ".ai-engineering/core/task-state-machine.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_task_state_machine",
       "target": "ai_engineering_core_task_state_machine_blocked_states"
     },
@@ -97170,6 +97377,7 @@
       "source_file": ".ai-engineering/core/task-state-machine.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_task_state_machine",
       "target": "ai_engineering_core_task_state_machine_canonical_transition"
     },
@@ -97180,6 +97388,7 @@
       "source_file": ".ai-engineering/core/task-state-machine.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_task_state_machine",
       "target": "ai_engineering_core_task_state_machine_skipped_already_implemented"
     },
@@ -97190,6 +97399,7 @@
       "source_file": ".ai-engineering/core/task-state-machine.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_task_state_machine",
       "target": "ai_engineering_core_task_state_machine_waiting_approval"
     },
@@ -97200,6 +97410,7 @@
       "source_file": ".ai-engineering/memory/architecture-decisions.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_memory_architecture_decisions",
       "target": "ai_engineering_memory_architecture_decisions_adr_0001"
     },
@@ -97210,6 +97421,7 @@
       "source_file": ".ai-engineering/core/task-state-machine.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_core_task_state_machine_waiting_approval",
       "target": "ai_engineering_config_autonomous_engineering_pilot_frozen"
     },
@@ -97220,6 +97432,7 @@
       "source_file": ".ai-engineering/memory/project-memory.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_memory_project_memory_doc",
       "target": "ai_engineering_memory_lessons_learned_doc"
     },
@@ -97230,6 +97443,7 @@
       "source_file": ".ai-engineering/memory/project-memory.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_memory_project_memory_doc",
       "target": "ai_engineering_memory_project_memory_pilot_frozen"
     },
@@ -97240,6 +97454,7 @@
       "source_file": ".ai-engineering/memory/project-memory.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_memory_project_memory_doc",
       "target": "ai_engineering_runtime_scheduler_autonomous_config"
     },
@@ -97250,6 +97465,7 @@
       "source_file": ".ai-engineering/memory/project-memory.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_memory_project_memory_doc",
       "target": "ai_engineering_tasks_tasks_autonomous_engineering_doc"
     },
@@ -97260,6 +97476,7 @@
       "source_file": ".ai-engineering/runtime/claude.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_runtime_claude_doc",
       "target": "ai_engineering_runtime_claude_tdd_red_guard"
     },
@@ -97270,6 +97487,7 @@
       "source_file": ".ai-engineering/runtime/claude.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_runtime_claude_doc",
       "target": "ai_engineering_runtime_codex_doc"
     },
@@ -97280,6 +97498,7 @@
       "source_file": ".ai-engineering/runtime/codex.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_runtime_codex_doc",
       "target": "ai_engineering_runtime_codex_poe_tdd_red"
     },
@@ -97290,6 +97509,7 @@
       "source_file": ".ai-engineering/runtime/codex.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_runtime_codex_doc",
       "target": "ai_engineering_runtime_codex_tdd_gate"
     },
@@ -97300,6 +97520,7 @@
       "source_file": ".ai-engineering/runtime/scheduler.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_runtime_scheduler_doc",
       "target": "ai_engineering_memory_project_memory_pilot_frozen"
     },
@@ -97310,6 +97531,7 @@
       "source_file": ".ai-engineering/runtime/scheduler.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_runtime_scheduler_doc",
       "target": "ai_engineering_runtime_scheduler_autonomous_config"
     },
@@ -97320,6 +97542,7 @@
       "source_file": ".ai-engineering/tasks/Tasks.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_tasks_tasks_doc",
       "target": "ai_engineering_memory_project_memory_pilot_frozen"
     },
@@ -97330,6 +97553,7 @@
       "source_file": ".ai-engineering/tasks/Tasks.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_tasks_tasks_doc",
       "target": "ai_engineering_tasks_tasks_autonomous_engineering_doc"
     },
@@ -97340,6 +97564,7 @@
       "source_file": ".ai-engineering/templates/task.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_templates_task_doc",
       "target": "ai_engineering_tasks_tasks_doc"
     },
@@ -97350,6 +97575,7 @@
       "source_file": ".ai-engineering/templates/adr.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_templates_adr_doc",
       "target": "ai_engineering_validation_agent_contract_tests_role_architect"
     },
@@ -97360,6 +97586,7 @@
       "source_file": ".ai-engineering/templates/pr-report.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_templates_pr_report_doc",
       "target": "ai_engineering_templates_eod_report_doc"
     },
@@ -97370,6 +97597,7 @@
       "source_file": ".ai-engineering/templates/execution-report.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_templates_execution_report_doc",
       "target": "ai_engineering_runtime_codex_poe_tdd_red"
     },
@@ -97380,6 +97608,7 @@
       "source_file": ".ai-engineering/templates/execution-report.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_templates_execution_report_doc",
       "target": "ai_engineering_validation_agent_contract_tests_role_implementer"
     },
@@ -97390,6 +97619,7 @@
       "source_file": ".ai-engineering/templates/plan.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_templates_plan_doc",
       "target": "ai_engineering_templates_plan_canonical_plan"
     },
@@ -97400,6 +97630,7 @@
       "source_file": ".ai-engineering/templates/plan.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_templates_plan_doc",
       "target": "ai_engineering_validation_agent_contract_tests_role_coordinator"
     },
@@ -97410,6 +97641,7 @@
       "source_file": ".ai-engineering/templates/qa-report.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_templates_qa_report_doc",
       "target": "ai_engineering_templates_review_report_doc"
     },
@@ -97420,6 +97652,7 @@
       "source_file": ".ai-engineering/templates/qa-report.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_templates_qa_report_doc",
       "target": "ai_engineering_validation_agent_contract_tests_role_qa"
     },
@@ -97430,6 +97663,7 @@
       "source_file": ".ai-engineering/templates/review-report.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_templates_review_report_doc",
       "target": "ai_engineering_validation_agent_contract_tests_role_reviewer"
     },
@@ -97440,6 +97674,7 @@
       "source_file": ".ai-engineering/validation/agent-contract-tests.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_validation_agent_contract_tests_doc",
       "target": "ai_engineering_validation_agent_contract_tests_agents_lint"
     },
@@ -97450,6 +97685,7 @@
       "source_file": ".ai-engineering/validation/agent-contract-tests.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_validation_agent_contract_tests_doc",
       "target": "ai_engineering_validation_agent_contract_tests_role_architect"
     },
@@ -97460,6 +97696,7 @@
       "source_file": ".ai-engineering/validation/agent-contract-tests.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_validation_agent_contract_tests_doc",
       "target": "ai_engineering_validation_agent_contract_tests_role_coordinator"
     },
@@ -97470,6 +97707,7 @@
       "source_file": ".ai-engineering/validation/agent-contract-tests.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_validation_agent_contract_tests_doc",
       "target": "ai_engineering_validation_agent_contract_tests_role_implementer"
     },
@@ -97480,6 +97718,7 @@
       "source_file": ".ai-engineering/validation/agent-contract-tests.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_validation_agent_contract_tests_doc",
       "target": "ai_engineering_validation_agent_contract_tests_role_product_manager"
     },
@@ -97490,6 +97729,7 @@
       "source_file": ".ai-engineering/validation/agent-contract-tests.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_validation_agent_contract_tests_doc",
       "target": "ai_engineering_validation_agent_contract_tests_role_qa"
     },
@@ -97500,6 +97740,7 @@
       "source_file": ".ai-engineering/validation/agent-contract-tests.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_validation_agent_contract_tests_doc",
       "target": "ai_engineering_validation_agent_contract_tests_role_reporter"
     },
@@ -97510,6 +97751,7 @@
       "source_file": ".ai-engineering/validation/agent-contract-tests.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_validation_agent_contract_tests_doc",
       "target": "ai_engineering_validation_agent_contract_tests_role_reviewer"
     },
@@ -97520,6 +97762,7 @@
       "source_file": ".ai-engineering/validation/auto-fix-prompt.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_validation_auto_fix_prompt_doc",
       "target": "ai_engineering_validation_bootstrap_check_doc"
     },
@@ -97530,6 +97773,7 @@
       "source_file": ".ai-engineering/validation/auto-fix-prompt.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_validation_auto_fix_prompt_doc",
       "target": "ai_engineering_validation_repair_loop_doc"
     },
@@ -97540,6 +97784,7 @@
       "source_file": ".ai-engineering/validation/bootstrap-check.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_validation_bootstrap_check_doc",
       "target": "ai_engineering_memory_project_memory_pilot_frozen"
     },
@@ -97550,6 +97795,7 @@
       "source_file": ".ai-engineering/validation/bootstrap-check.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_validation_bootstrap_check_doc",
       "target": "ai_engineering_runtime_scheduler_autonomous_config"
     },
@@ -97560,6 +97806,7 @@
       "source_file": ".ai-engineering/validation/bootstrap-check.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_validation_bootstrap_check_doc",
       "target": "ai_engineering_validation_bootstrap_check_test_scripts"
     },
@@ -97570,6 +97817,7 @@
       "source_file": ".ai-engineering/validation/bootstrap-check.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_validation_bootstrap_check_doc",
       "target": "ai_engineering_validation_workflow_tests_lifecycle_states"
     },
@@ -97580,6 +97828,7 @@
       "source_file": ".ai-engineering/validation/repair-loop.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_validation_repair_loop_doc",
       "target": "ai_engineering_validation_bootstrap_check_doc"
     },
@@ -97590,6 +97839,7 @@
       "source_file": ".ai-engineering/validation/repair-loop.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_validation_repair_loop_doc",
       "target": "ai_engineering_validation_repair_loop_blocked_human"
     },
@@ -97600,6 +97850,7 @@
       "source_file": ".ai-engineering/validation/workflow-tests.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_validation_workflow_tests_doc",
       "target": "ai_engineering_validation_workflow_tests_lifecycle_states"
     },
@@ -97610,6 +97861,7 @@
       "source_file": ".ai-engineering/runtime/claude.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_runtime_claude_tdd_red_guard",
       "target": "ai_engineering_runtime_codex_poe_tdd_red"
     },
@@ -97620,6 +97872,7 @@
       "source_file": ".ai-engineering/validation/agent-contract-tests.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_engineering_validation_agent_contract_tests_role_implementer",
       "target": "ai_engineering_runtime_codex_poe_tdd_red"
     },
@@ -97630,6 +97883,7 @@
       "source_file": ".ai-engineering/workflows/blocker-handling.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "_ai_engineering_workflows_blocker_handling",
       "target": "agents"
     },
@@ -97640,6 +97894,7 @@
       "source_file": ".ai-engineering/workflows/task-intake.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "_ai_engineering_workflows_task_intake",
       "target": "_ai_engineering_workflows_blocker_handling"
     },
@@ -97650,6 +97905,7 @@
       "source_file": ".ai-engineering/workflows/bug-fix.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "_ai_engineering_workflows_bug_fix",
       "target": "concept_strict_tdd"
     },
@@ -97660,6 +97916,7 @@
       "source_file": ".ai-engineering/workflows/daily-cycle.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "_ai_engineering_workflows_daily_cycle",
       "target": "concept_agent_roles"
     },
@@ -97670,6 +97927,7 @@
       "source_file": ".ai-engineering/workflows/daily-cycle.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "_ai_engineering_workflows_daily_cycle",
       "target": "concept_human_approval_gate"
     },
@@ -97680,6 +97938,7 @@
       "source_file": ".ai-engineering/workflows/feature-development.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "_ai_engineering_workflows_feature_development",
       "target": "concept_agent_roles"
     },
@@ -97690,6 +97949,7 @@
       "source_file": ".ai-engineering/workflows/feature-development.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "_ai_engineering_workflows_feature_development",
       "target": "concept_human_approval_gate"
     },
@@ -97700,6 +97960,7 @@
       "source_file": ".ai-engineering/workflows/feature-development.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "_ai_engineering_workflows_feature_development",
       "target": "concept_strict_tdd"
     },
@@ -97710,6 +97971,7 @@
       "source_file": ".ai-engineering/workflows/feature-development.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "_ai_engineering_workflows_feature_development",
       "target": "concept_task_state_machine"
     },
@@ -97720,6 +97982,7 @@
       "source_file": "AGENTS.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "concept_ai_engineering_layer",
       "target": "_ai_engineering_workflows_feature_development"
     },
@@ -97730,6 +97993,7 @@
       "source_file": ".ai-engineering/workflows/release-process.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "_ai_engineering_workflows_release_process",
       "target": "_ai_engineering_workflows_review_process"
     },
@@ -97740,6 +98004,7 @@
       "source_file": ".ai-engineering/workflows/release-process.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "_ai_engineering_workflows_release_process",
       "target": "concept_human_approval_gate"
     },
@@ -97750,6 +98015,7 @@
       "source_file": ".ai-engineering/workflows/review-process.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "_ai_engineering_workflows_review_process",
       "target": "concept_strict_tdd"
     },
@@ -97760,6 +98026,7 @@
       "source_file": ".github/dependabot.yml",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "_github_dependabot",
       "target": "_github_workflows_pytests"
     },
@@ -97770,6 +98037,7 @@
       "source_file": ".github/pull_request_template.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "_github_pull_request_template",
       "target": "_github_workflows_ai_gates"
     },
@@ -97780,6 +98048,7 @@
       "source_file": ".github/workflows/ai-gates.yml",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "_github_workflows_ai_gates",
       "target": "_github_workflows_pytests"
     },
@@ -97790,6 +98059,7 @@
       "source_file": ".github/workflows/ai-gates.yml",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "_github_workflows_ai_gates",
       "target": "concept_strict_tdd"
     },
@@ -97800,6 +98070,7 @@
       "source_file": ".github/workflows/ai-gates.yml",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "_github_workflows_ai_gates",
       "target": "concept_upstream_fork_sync"
     },
@@ -97810,6 +98081,7 @@
       "source_file": ".github/workflows/benchmarks.yml",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "_github_workflows_benchmarks",
       "target": "_github_workflows_pytests"
     },
@@ -97820,6 +98092,7 @@
       "source_file": ".github/workflows/cicd.yml",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "_github_workflows_cicd",
       "target": "concept_photobooth_app_fork"
     },
@@ -97830,6 +98103,7 @@
       "source_file": ".github/workflows/linter.yml",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "_github_workflows_linter",
       "target": "_github_workflows_pytests"
     },
@@ -97840,6 +98114,7 @@
       "source_file": "AGENTS.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "agents",
       "target": "claude"
     },
@@ -97850,6 +98125,7 @@
       "source_file": "AGENTS.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "agents",
       "target": "concept_ai_engineering_layer"
     },
@@ -97860,6 +98136,7 @@
       "source_file": "AGENTS.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "agents",
       "target": "concept_caveman_ultra_policy"
     },
@@ -97870,6 +98147,7 @@
       "source_file": "AGENTS.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "agents",
       "target": "concept_strict_tdd"
     },
@@ -97880,6 +98158,7 @@
       "source_file": "AI_WORKFLOW.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "ai_workflow",
       "target": "agents"
     },
@@ -97890,6 +98169,7 @@
       "source_file": "CLAUDE.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "claude",
       "target": "concept_photobooth_app_fork"
     },
@@ -97900,6 +98180,7 @@
       "source_file": "CLAUDE.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "concept_upstream_fork_sync",
       "target": "concept_photobooth_app_fork"
     },
@@ -97910,6 +98191,7 @@
       "source_file": "README.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "readme",
       "target": "contributing"
     },
@@ -97920,6 +98202,7 @@
       "source_file": "README.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "readme",
       "target": "license"
     },
@@ -97930,6 +98213,7 @@
       "source_file": "docs/ai/autonomous-engineering.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_autonomous_engineering",
       "target": "planning_standards"
     },
@@ -97940,6 +98224,7 @@
       "source_file": "PLANNING_STANDARDS.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "planning_standards",
       "target": "planning_evidence_gate"
     },
@@ -97950,6 +98235,7 @@
       "source_file": "PLANNING_STANDARDS.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "planning_standards",
       "target": "planning_graphify_gate"
     },
@@ -97960,6 +98246,7 @@
       "source_file": "docs/ai/agent-orchestration.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_agent_orchestration",
       "target": "agents_src_prompts_accessibility_auditor"
     },
@@ -97970,6 +98257,7 @@
       "source_file": "docs/ai/agent-orchestration.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_agent_orchestration",
       "target": "agents_src_prompts_code_reviewer"
     },
@@ -97980,6 +98268,7 @@
       "source_file": "docs/ai/agent-orchestration.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_agent_orchestration",
       "target": "agents_src_prompts_db_architect"
     },
@@ -97990,6 +98279,7 @@
       "source_file": "docs/ai/agent-orchestration.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "file_ownership_rule",
       "target": "agents_src_prompts_db_architect"
     },
@@ -98000,6 +98290,7 @@
       "source_file": "agents/src/prompts/fastapi-backend-dev.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "agents_src_prompts_fastapi_backend_dev",
       "target": "docs_ai_contracts_api_contracts"
     },
@@ -98010,6 +98301,7 @@
       "source_file": "docs/ai/agent-orchestration.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_agent_orchestration",
       "target": "agents_src_prompts_fastapi_backend_dev"
     },
@@ -98020,6 +98312,7 @@
       "source_file": "docs/ai/agent-orchestration.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "file_ownership_rule",
       "target": "agents_src_prompts_fastapi_backend_dev"
     },
@@ -98030,6 +98323,7 @@
       "source_file": "agents/src/prompts/project-manager.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "agents_src_prompts_project_manager",
       "target": "docs_ai_agent_orchestration"
     },
@@ -98040,6 +98334,7 @@
       "source_file": "agents/src/prompts/security-auditor.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "agents_src_prompts_security_auditor",
       "target": "api_auth_model"
     },
@@ -98050,6 +98345,7 @@
       "source_file": "docs/ai/agent-orchestration.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_agent_orchestration",
       "target": "agents_src_prompts_security_auditor"
     },
@@ -98060,6 +98356,7 @@
       "source_file": "agents/src/prompts/test-engineer.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "agents_src_prompts_test_engineer",
       "target": "strict_tdd_red_first"
     },
@@ -98070,6 +98367,7 @@
       "source_file": "docs/ai/agent-orchestration.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_agent_orchestration",
       "target": "agents_src_prompts_test_engineer"
     },
@@ -98080,6 +98378,7 @@
       "source_file": "docs/ai/agent-orchestration.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_agent_orchestration",
       "target": "agents_src_prompts_ui_ux_designer"
     },
@@ -98090,6 +98389,7 @@
       "source_file": "agents/src/prompts/web-frontend-dev.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "agents_src_prompts_web_frontend_dev",
       "target": "docs_ai_contracts_api_contracts"
     },
@@ -98100,6 +98400,7 @@
       "source_file": "docs/ai/agent-orchestration.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_agent_orchestration",
       "target": "agents_src_prompts_web_frontend_dev"
     },
@@ -98110,6 +98411,7 @@
       "source_file": "docs/ai/agent-orchestration.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "file_ownership_rule",
       "target": "agents_src_prompts_web_frontend_dev"
     },
@@ -98120,6 +98422,7 @@
       "source_file": "docs/ai/agent-orchestration.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_agent_orchestration",
       "target": "file_ownership_rule"
     },
@@ -98130,6 +98433,7 @@
       "source_file": "docs/ai/context-refresh.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_context_refresh",
       "target": "docs_ai_agent_orchestration"
     },
@@ -98140,6 +98444,7 @@
       "source_file": "docs/ai/context-refresh.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_context_refresh",
       "target": "docs_ai_architecture_manifest"
     },
@@ -98150,6 +98455,7 @@
       "source_file": "docs/ai/autonomous-engineering.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_autonomous_engineering",
       "target": "pilot_frozen_state"
     },
@@ -98160,6 +98466,7 @@
       "source_file": "docs/ai/autonomous-engineering.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_autonomous_engineering",
       "target": "work_order_schema"
     },
@@ -98170,6 +98477,7 @@
       "source_file": "docs/ai/context-refresh.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_context_refresh",
       "target": "docs_ai_autonomous_engineering"
     },
@@ -98180,6 +98488,7 @@
       "source_file": "docs/ai/context-refresh.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_context_refresh",
       "target": "docs_ai_contracts_api_contracts"
     },
@@ -98190,6 +98499,7 @@
       "source_file": "docs/ai/contracts/api-contracts.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_contracts_api_contracts",
       "target": "api_auth_model"
     },
@@ -98200,6 +98510,7 @@
       "source_file": "docs/ai/contracts/db-contracts.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_contracts_db_contracts",
       "target": "docs_ai_contracts_db_contracts_sqlite_and_alembic_data_model"
     },
@@ -98210,6 +98521,7 @@
       "source_file": "docs/ai/contracts/db-contracts.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_contracts_db_contracts",
       "target": "docs_ai_planning_migration_rules"
     },
@@ -98220,6 +98532,7 @@
       "source_file": "docs/ai/entry-point.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_entry_point",
       "target": "docs_ai_contracts_db_contracts"
     },
@@ -98230,6 +98543,7 @@
       "source_file": "docs/ai/dev-environment.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_dev_environment",
       "target": "docs_ai_dev_environment_no_shared_dev_server"
     },
@@ -98240,6 +98554,7 @@
       "source_file": "docs/ai/dev-environment.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_dev_environment",
       "target": "docs_ai_testing_strategy_live_verification"
     },
@@ -98250,6 +98565,7 @@
       "source_file": "docs/ai/entry-point.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_entry_point",
       "target": "docs_ai_entry_point_maps_are_not_proof;_code_wins"
     },
@@ -98260,6 +98576,7 @@
       "source_file": "docs/ai/entry-point.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_entry_point",
       "target": "docs_ai_execution"
     },
@@ -98270,6 +98587,7 @@
       "source_file": "docs/ai/entry-point.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_entry_point",
       "target": "docs_ai_file_index_repository_map"
     },
@@ -98280,6 +98598,7 @@
       "source_file": "docs/ai/entry-point.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_entry_point",
       "target": "docs_ai_handoff"
     },
@@ -98290,6 +98609,7 @@
       "source_file": "docs/ai/entry-point.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_entry_point",
       "target": "docs_ai_module_ownership_map"
     },
@@ -98300,6 +98620,7 @@
       "source_file": "docs/ai/entry-point.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_entry_point",
       "target": "docs_ai_planning"
     },
@@ -98310,6 +98631,7 @@
       "source_file": "docs/ai/entry-point.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_entry_point",
       "target": "docs_ai_risk_register"
     },
@@ -98320,6 +98642,7 @@
       "source_file": "docs/ai/entry-point.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_entry_point",
       "target": "docs_ai_task_router"
     },
@@ -98330,6 +98653,7 @@
       "source_file": "docs/ai/entry-point.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_entry_point",
       "target": "docs_ai_testing_strategy"
     },
@@ -98340,6 +98664,7 @@
       "source_file": "docs/ai/execution.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_execution",
       "target": "docs_ai_execution_worktree_and_branch_isolation"
     },
@@ -98350,6 +98675,7 @@
       "source_file": "docs/ai/execution.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_execution",
       "target": "docs_ai_testing_strategy"
     },
@@ -98360,6 +98686,7 @@
       "source_file": "docs/ai/operating-contract.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_operating_contract",
       "target": "docs_ai_execution"
     },
@@ -98370,6 +98697,7 @@
       "source_file": "docs/ai/testing-strategy.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_testing_strategy_strict_tdd",
       "target": "docs_ai_execution"
     },
@@ -98380,6 +98708,7 @@
       "source_file": "docs/plans/ai-workflow-port.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_plans_ai_workflow_port",
       "target": "docs_ai_execution"
     },
@@ -98390,6 +98719,7 @@
       "source_file": "docs/ai/handoff.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_handoff",
       "target": "docs_ai_handoff_completion_gate"
     },
@@ -98400,6 +98730,7 @@
       "source_file": "docs/ai/handoff.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_handoff",
       "target": "docs_ai_handoff_integration_sequence"
     },
@@ -98410,6 +98741,7 @@
       "source_file": "docs/ai/handoff.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_handoff",
       "target": "docs_ai_pr_evidence"
     },
@@ -98420,6 +98752,7 @@
       "source_file": "docs/ai/operating-contract.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_operating_contract",
       "target": "docs_ai_handoff"
     },
@@ -98430,6 +98763,7 @@
       "source_file": "docs/plans/ai-workflow-port.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_plans_ai_workflow_port",
       "target": "docs_ai_handoff"
     },
@@ -98440,6 +98774,7 @@
       "source_file": "docs/ai/module-ownership-map.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_module_ownership_map",
       "target": "docs_ai_task_router"
     },
@@ -98450,6 +98785,7 @@
       "source_file": "docs/ai/risk-register.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_risk_register",
       "target": "docs_ai_module_ownership_map"
     },
@@ -98460,6 +98796,7 @@
       "source_file": "docs/ai/operating-contract.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_operating_contract",
       "target": "docs_ai_plan_template"
     },
@@ -98470,6 +98807,7 @@
       "source_file": "docs/ai/operating-contract.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_operating_contract",
       "target": "docs_ai_planning"
     },
@@ -98480,6 +98818,7 @@
       "source_file": "docs/ai/operating-contract.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_operating_contract",
       "target": "docs_ai_task_router"
     },
@@ -98490,6 +98829,7 @@
       "source_file": "docs/ai/plan-template.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_plan_template",
       "target": "docs_ai_plan_template_phase_stop_rule"
     },
@@ -98500,6 +98840,7 @@
       "source_file": "docs/ai/plan-template.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_plan_template",
       "target": "docs_ai_planning"
     },
@@ -98510,6 +98851,7 @@
       "source_file": "docs/ai/prompts/bugfix-plan.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_prompts_bugfix_plan",
       "target": "docs_ai_plan_template"
     },
@@ -98520,6 +98862,7 @@
       "source_file": "docs/ai/prompts/feature-plan.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_prompts_feature_plan",
       "target": "docs_ai_plan_template"
     },
@@ -98530,6 +98873,7 @@
       "source_file": "docs/ai/prompts/refactor-plan.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_prompts_refactor_plan",
       "target": "docs_ai_plan_template"
     },
@@ -98540,6 +98884,7 @@
       "source_file": "docs/ai/planning.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_planning",
       "target": "docs_ai_planning_graphify_discovery_first"
     },
@@ -98550,6 +98895,7 @@
       "source_file": "docs/ai/planning.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_planning_migration_rules",
       "target": "docs_ai_planning"
     },
@@ -98560,6 +98906,7 @@
       "source_file": "docs/ai/prompts/bugfix-plan.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_prompts_bugfix_plan",
       "target": "docs_ai_planning"
     },
@@ -98570,6 +98917,7 @@
       "source_file": "docs/ai/prompts/feature-plan.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_prompts_feature_plan",
       "target": "docs_ai_planning"
     },
@@ -98580,6 +98928,7 @@
       "source_file": "docs/ai/prompts/refactor-plan.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_prompts_refactor_plan",
       "target": "docs_ai_planning"
     },
@@ -98590,6 +98939,7 @@
       "source_file": "docs/plans/ai-workflow-port.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_plans_ai_workflow_port",
       "target": "docs_ai_planning"
     },
@@ -98600,6 +98950,7 @@
       "source_file": "docs/ai/pr-evidence.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_pr_evidence",
       "target": "docs_ai_planning_migration_rules"
     },
@@ -98610,6 +98961,7 @@
       "source_file": "docs/ai/pr-evidence.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_pr_evidence",
       "target": "docs_ai_pr_evidence_change_type_evidence"
     },
@@ -98620,6 +98972,7 @@
       "source_file": "docs/ai/pr-evidence.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_pr_evidence",
       "target": "docs_ai_testing_strategy"
     },
@@ -98630,6 +98983,7 @@
       "source_file": "docs/ai/prompts/bugfix-plan.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_prompts_bugfix_plan",
       "target": "docs_ai_prompts_bugfix_rca"
     },
@@ -98640,6 +98994,7 @@
       "source_file": "docs/ai/prompts/bugfix-plan.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_prompts_bugfix_plan",
       "target": "docs_ai_testing_strategy"
     },
@@ -98650,6 +99005,7 @@
       "source_file": "docs/ai/task-router.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_task_router",
       "target": "docs_ai_prompts_bugfix_plan"
     },
@@ -98660,6 +99016,7 @@
       "source_file": "docs/ai/task-router.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_task_router",
       "target": "docs_ai_prompts_bugfix_rca"
     },
@@ -98670,6 +99027,7 @@
       "source_file": "docs/ai/prompts/feature-plan.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_prompts_feature_plan",
       "target": "docs_ai_planning_graphify_discovery_first"
     },
@@ -98680,6 +99038,7 @@
       "source_file": "docs/ai/task-router.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_task_router",
       "target": "docs_ai_prompts_feature_plan"
     },
@@ -98690,6 +99049,7 @@
       "source_file": "docs/ai/prompts/refactor-plan.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_prompts_refactor_plan",
       "target": "docs_ai_testing_strategy"
     },
@@ -98700,6 +99060,7 @@
       "source_file": "docs/ai/task-router.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_task_router",
       "target": "docs_ai_prompts_refactor_plan"
     },
@@ -98710,6 +99071,7 @@
       "source_file": "docs/ai/risk-register.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_risk_register",
       "target": "docs_ai_risk_register_unauthenticated_api_surface_risk"
     },
@@ -98720,6 +99082,7 @@
       "source_file": "docs/ai/task-router.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_task_router",
       "target": "docs_ai_risk_register"
     },
@@ -98730,6 +99093,7 @@
       "source_file": "docs/ai/task-router.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_task_router",
       "target": "docs_ai_task_router_task_classification_routing"
     },
@@ -98740,6 +99104,7 @@
       "source_file": "docs/plans/ai-workflow-port.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_plans_ai_workflow_port",
       "target": "docs_ai_task_router"
     },
@@ -98750,6 +99115,7 @@
       "source_file": "docs/ai/testing-strategy.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_testing_strategy",
       "target": "docs_ai_testing_strategy_live_verification"
     },
@@ -98760,6 +99126,7 @@
       "source_file": "docs/ai/testing-strategy.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_ai_testing_strategy",
       "target": "docs_ai_testing_strategy_strict_tdd"
     },
@@ -98770,6 +99137,7 @@
       "source_file": "docs/plans/ai-workflow-port.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_plans_ai_workflow_port",
       "target": "docs_ai_testing_strategy"
     },
@@ -98780,6 +99148,7 @@
       "source_file": "docs/plans/ai-workflow-port.md",
       "source_location": null,
       "weight": 1.0,
+      "_origin": "semantic",
       "source": "docs_plans_ai_workflow_port",
       "target": "docs_plans_ai_workflow_port_port_decisions_d1_d5"
     }
@@ -98943,5 +99312,5 @@
       "source_file": "docs/ai/task-router.md"
     }
   ],
-  "built_at_commit": "f401a413c3dbaa363a05b30560d52f3fdfffd8b7"
+  "built_at_commit": "a1ee8bbefc36e860420109f013095e7239a5a342"
 }

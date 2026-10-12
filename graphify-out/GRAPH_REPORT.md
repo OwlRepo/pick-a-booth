@@ -1,13 +1,18 @@
-# Graph Report - .  (2026-10-13)
+# Graph Report - infra-ai-workflow-port  (2026-10-13)
 
 ## Corpus Check
-- 356 files · ~101,720 words
+- 348 files · ~101,735 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
 - 2692 nodes · 5773 edges · 159 communities (140 shown, 19 thin omitted)
 - Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 330 edges (avg confidence: 0.61)
-- Token cost: 304,559 input · 0 output
+- Token cost: 0 input · 0 output
+
+## Graph Freshness
+- Built from commit: `a1ee8bbe`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - Plugin Hookspecs & Stats

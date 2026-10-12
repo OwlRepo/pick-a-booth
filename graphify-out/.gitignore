@@ -10,3 +10,4 @@ fragments/
 .graphify_ast.json
 .graphify_semantic.json
 .graphify_extract.json
+graph.html

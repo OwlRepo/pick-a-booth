@@ -1,0 +1,12 @@
+.graphify_python
+.graphify_root
+.vocab.txt
+cache/
+.graphify_analysis.json
+20[0-9][0-9]-[0-9][0-9]-[0-9][0-9]/
+*.sig
+fragments/
+.graphify_detect.json
+.graphify_ast.json
+.graphify_semantic.json
+.graphify_extract.json

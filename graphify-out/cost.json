@@ -1,0 +1,13 @@
+{
+  "runs": [
+    {
+      "date": "2026-10-12T19:21:26.817324+00:00",
+      "input_tokens": 304559,
+      "output_tokens": 0,
+      "files": 356,
+      "note": "subagent token counter is combined input+output (304,559 across 5 semantic agents); split unavailable"
+    }
+  ],
+  "total_input_tokens": 304559,
+  "total_output_tokens": 0
+}

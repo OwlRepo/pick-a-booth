@@ -1,0 +1,14 @@
+# Keep the knowledge graph to code and docs (docs/ai/planning.md "Mandatory Graphify phase", token efficiency).
+# Binary demo/test media and logos: no discovery value, would cost vision/transcription tokens.
+assets/
+src/photobooth/demoassets/
+src/photobooth/services/backends/assets/
+src/tests/assets/
+# Vendored build of photobooth-frontend (minified bundle).
+src/web/frontend/
+# Generated from agents/src/ (scripts/generate_agent_defs.py); indexing the source is enough.
+.claude/agents/
+.codex/agents/
+# Editor settings.
+.vscode/
+src/web/sharepage/

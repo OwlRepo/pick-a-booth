@@ -68,12 +68,7 @@ def run_script(script: str, cwd: str | Path, *args: str, env: dict[str, str] | N
 
 
 VAT_BUGGY = "def vat(amount: float) -> float:\n    return amount * 0.1\n"
-VAT_FIXED = (
-    "def vat(amount: float) -> float:\n"
-    "    if amount < 0:\n"
-    "        raise ValueError('negative')\n"
-    "    return round(amount * 0.13, 2)\n"
-)
+VAT_FIXED = "def vat(amount: float) -> float:\n    if amount < 0:\n        raise ValueError('negative')\n    return round(amount * 0.13, 2)\n"
 VAT_TEST = "\n".join(
     [
         "import pytest",

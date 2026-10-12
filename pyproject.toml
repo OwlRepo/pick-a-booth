@@ -106,6 +106,7 @@ venvPath = "."
 venv = ".venv"
 ignore = ["./experimental/"]
 typeCheckingMode = "standard"
+extraPaths = ["scripts", "scripts/ci"] # tooling scripts import each other flat (scripts/tests/conftest.py)
 
 
 [tool.ruff]
@@ -174,6 +175,12 @@ benchmark = [
   { cmd = "pytest --benchmark-only --benchmark-autosave --basetemp=./tests_tmp/ -v ./src/tests/benchmarks" },
 ]
 list_outdated = [{ cmd = "uv pip list --outdated" }]
+# AI engineering workflow: docs/ai/testing-strategy.md "Strict TDD", docs/ai/agent-orchestration.md
+"agents:generate" = { cmd = "python scripts/generate_agent_defs.py" }
+"agents:lint" = { cmd = "python scripts/generate_agent_defs.py --check" }
+"tdd:red" = { cmd = "python scripts/ci/tdd_red.py" }
+"tdd:gate" = { cmd = "python scripts/ci/tdd_gate.py" }
+"test:scripts" = { cmd = "pytest -q -p no:cacheprovider -o log_cli=false scripts" }
 
 
 [build-system]

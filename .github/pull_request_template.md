@@ -1,40 +1,50 @@
-# Contribution
+<!-- Plain language first: the reviewer may not be technical. English only. No emojis. -->
 
-## Motivation
+## Summary
 
-<!--
-Explain the purpose of this pull request and what it changes.
-Why is this change needed? What problem does it solve?
--->
+<!-- 2-4 plain sentences: what problem there was and what this change does. -->
 
-## Changes
+## What changes
 
-<!--
-- List the key modifications
-- Keep it short and clear
--->
+-
+
+## How to test
+
+1.
+
+<!-- Technical evidence below, per docs/ai/pr-evidence.md. CI (layer guard, TDD gate, script tests, agent lint, type-check, lint, unit tests, desktop OS matrix) runs on its own; this section covers what CI cannot see. -->
+
+## Change Type
+
+<!-- One or more: UI / user-facing · Backend / API · Database · Hardware · Bug fix · Refactor · Performance · Infrastructure -->
+
+-
+
+## Evidence
+
+<!-- What docs/ai/pr-evidence.md requires for the Change Type(s) above. -->
 
 ## Testing
 
-<!--
-Describe how you tested the changes or how reviewers can verify them.
--->
+- Commands executed:
+- Tests passed:
+- Manual verification performed (device / OS):
+- Important cases covered:
 
-## Checklist
+## TDD evidence
 
-- [ ] I have read the [contributing guidelines](https://github.com/photobooth-app/photobooth-app/blob/main/CONTRIBUTING.md).
-- [ ] Code follows project style guidelines
-- [ ] Tests added or updated
-- [ ] Documentation updated if needed
+- Test Matrix (layer | required / not required | file):
+- RED run (`uv run poe tdd:red` output from before implementing):
+- Waivers, one per line, only if used (the CI `tdd:gate` reads these lines):
+  <!-- TDD-Waiver: <reason> -->
+  <!-- Migration-Waiver: <reason> -->
 
-## Is there anything you'd like reviewers to focus on?
+## Risk
 
-<!--
-Please explain.
--->
+- Possible regressions:
+- Backward-compatibility concerns (API, config files, databases on installed copies):
+- Security impact:
 
-## AI used to create this Pull Request?
+## Rollback
 
-<!--
-please tell about the impact to submitted changes in detail.
--->
+- Exact steps to revert safely:

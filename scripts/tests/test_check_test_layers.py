@@ -1,8 +1,7 @@
 # Per-commit test-layer guard (optra's check-test-layers, ported): every commit that
 # changes app code carries the tests for the layers it touches.
-from repo_fixture import git, make_repo, run_script
-
 from check_test_layers import problems_for
+from repo_fixture import git, make_repo, run_script
 
 SCRIPT = "ci/check_test_layers.py"
 ZERO = "0" * 40

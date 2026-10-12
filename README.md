@@ -3,9 +3,7 @@
 Welcome to your brand-new open-source photobooth-app! Written in Python 🐍, coming along with a modern Vue3 frontend.
 
 [![PyPI](https://img.shields.io/pypi/v/photobooth-app)](https://pypi.org/project/photobooth-app/)
-[![lint](https://github.com/photobooth-app/photobooth-app/actions/workflows/linter.yml/badge.svg)](https://github.com/photobooth-app/photobooth-app/actions/workflows/linter.yml)
-[![pytest](https://github.com/photobooth-app/photobooth-app/actions/workflows/pytests.yml/badge.svg)](https://github.com/photobooth-app/photobooth-app/actions/workflows/pytests.yml)
-[![codecov](https://codecov.io/gh/photobooth-app/photobooth-app/branch/main/graph/badge.svg?token=SBB5DGX17V)](https://codecov.io/gh/photobooth-app/photobooth-app)
+[![CI](https://github.com/OwlRepo/pick-a-booth/actions/workflows/ci.yml/badge.svg)](https://github.com/OwlRepo/pick-a-booth/actions/workflows/ci.yml)
 [![crowdin](https://badges.crowdin.net/photobooth-app/localized.svg)](https://crowdin.com/project/photobooth-app)
 
 **[Installation](https://photobooth-app.org/setup/installation)** - **[Documentation](https://photobooth-app.org/)** - **[PyPI package](https://pypi.org/project/photobooth-app/)** - **[3d printed box](https://photobooth-app.org/3dprintedphotobooth/)**

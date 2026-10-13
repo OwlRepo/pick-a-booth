@@ -24,7 +24,7 @@ Python ≥3.11, FastAPI + uvicorn, pydantic v2 + pydantic-settings, SQLAlchemy 2
 | `src/web/` | vendored frontend bundle, sharepage, PHP shareondemand endpoint |
 | `src/tests/` | `tests/` (pytest suite) and `benchmarks/` |
 | `scripts/` | AI workflow tooling (TDD gate/guard, persona generator, worktree script) |
-| `.github/workflows/` | lint, tests, benchmarks, PyPI publish (upstream-only), `ai-gates` |
+| `.github/workflows/` | `ci.yml`: quality gate + desktop OS test matrix (no deploy) |
 
 ## Request and data flow
 
@@ -48,4 +48,4 @@ All runtime state lives in the working directory: `./config/` (JSON config), `./
 
 ## Deployment
 
-Users install from PyPI or run the `Dockerfile`; a systemd unit ships in `src/photobooth/scripts/systemservice/`. The fork itself publishes nothing (`.github/workflows/cicd.yml` is upstream-owner-gated).
+pick-a-booth is headed to a desktop app; packaging and installers are not built yet and nothing is published. Inherited from upstream and still present: the `Dockerfile` and a systemd unit in `src/photobooth/scripts/systemservice/`.

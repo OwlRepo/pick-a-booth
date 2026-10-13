@@ -181,6 +181,7 @@ list_outdated = [{ cmd = "uv pip list --outdated" }]
 "agents:lint" = { cmd = "python scripts/generate_agent_defs.py --check" }
 "tdd:red" = { cmd = "python scripts/ci/tdd_red.py" }
 "tdd:gate" = { cmd = "python scripts/ci/tdd_gate.py" }
+"ci:layers" = { cmd = "python scripts/ci/check_test_layers.py" }
 "test:scripts" = { cmd = "pytest -q -p no:cacheprovider -o log_cli=false scripts" }
 
 

@@ -1,0 +1,129 @@
+name: CI
+
+# Our own quality gate (pattern: optra's "Quality gate" job), replacing the CI
+# inherited from upstream photobooth-app. pick-a-booth ships as a desktop app,
+# so there is no deploy job: a green run means the commit is fit to merge.
+# Rules: docs/ai/testing-strategy.md "Strict TDD", docs/ai/handoff.md "Release flow".
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    name: Quality gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    # A superseded push should stop burning a runner.
+    concurrency:
+      group: ci-gate-${{ github.ref }}
+      cancel-in-progress: true
+    steps:
+      # Full history: the layer guard reads every commit in the push, and the
+      # TDD gate checks the PR's merge-base out in a throwaway worktree.
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      # First, because it is the cheapest failure: code that arrives without the
+      # tests for the layers it touches. A push to main checks what the push
+      # added; a branch or PR checks only its own commits from where it meets
+      # its target. SHAs are passed as env, never interpolated into the script.
+      - name: Tests required for every layer touched
+        env:
+          PUSH_BEFORE: ${{ github.event.before }}
+          TARGET_BRANCH: ${{ github.base_ref || 'main' }}
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = push ] && [ "$GITHUB_REF_NAME" = main ]; then
+            BASE_SHA="$PUSH_BEFORE"
+          else
+            BASE_SHA="$(git merge-base HEAD "origin/$TARGET_BRANCH" || true)"
+          fi
+          python3 scripts/ci/check_test_layers.py "$BASE_SHA" HEAD
+
+      - name: Set up Python and uv
+        uses: astral-sh/setup-uv@v8.2.0
+        with:
+          python-version: "3.14"
+          enable-cache: true
+
+      - name: Install system packages
+        run: |
+          sudo apt update
+          sudo apt -y install libturbojpeg python3-pip libgl1 git libcap-dev ffmpeg rclone
+
+      - name: Install the project
+        run: uv sync --all-extras --dev
+
+      # Failing test first, proven by the tools: the PR's changed tests must fail
+      # against the merge-base code. PR-only: a push has no base to diff against.
+      - name: TDD gate
+        if: github.event_name == 'pull_request'
+        env:
+          TDD_GATE_BASE: origin/${{ github.base_ref }}
+          TDD_GATE_HEAD_REF: ${{ github.head_ref }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: uv run poe tdd:gate
+
+      # The TDD tooling, the layer guard, the persona generator and doc links test themselves.
+      - name: Script tests
+        run: uv run poe test:scripts
+
+      # .claude/agents/*.md is generated from agents/src; drift and orphans fail here.
+      - name: Agent definitions lint
+        run: uv run poe agents:lint
+
+      - name: Type-check
+        run: uv run basedpyright
+
+      - name: Lint
+        run: |
+          uv run ruff check
+          uv run ruff format --check
+
+      - name: Unit tests
+        run: uv run poe test
+
+  desktop-tests:
+    name: Desktop tests (${{ matrix.os }}, py ${{ matrix.python }})
+    needs: gate
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    concurrency:
+      group: ci-desktop-${{ github.ref }}-${{ matrix.os }}-${{ matrix.python }}
+      cancel-in-progress: true
+    strategy:
+      fail-fast: false
+      # Lowest and highest Python per OS. The floors are the ones the upstream
+      # matrix proved per platform (Windows 3.12+, macOS 3.13+).
+      matrix:
+        include:
+          - { os: ubuntu-latest, python: "3.11" }
+          - { os: ubuntu-latest, python: "3.14" }
+          - { os: windows-latest, python: "3.12" }
+          - { os: windows-latest, python: "3.14" }
+          - { os: macos-latest, python: "3.13" }
+          - { os: macos-latest, python: "3.14" }
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Set up Python and uv
+        uses: astral-sh/setup-uv@v8.2.0
+        with:
+          python-version: ${{ matrix.python }}
+          enable-cache: true
+
+      - name: Install system packages
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt update
+          sudo apt -y install libturbojpeg python3-pip libgl1 git libcap-dev ffmpeg rclone
+
+      - name: Install the project
+        run: uv sync --all-extras --dev
+
+      - name: Unit tests
+        run: uv run pytest --basetemp=./tests_tmp/ src/tests/tests

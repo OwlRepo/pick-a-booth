@@ -18,14 +18,13 @@ Manual testing happens in the task worktree (`uv run photobooth`). From another 
 
 ## Release flow (task branch → main)
 
-The fork has one long-lived branch, `main` (`git ls-remote --heads origin`), and
-no deployment of its own: the PyPI publish job and the Raspberry Pi test runner
-only run for the upstream owner (`.github/workflows/cicd.yml`,
-`.github/workflows/pytests.yml`). So:
+The repository has one long-lived branch, `main` (`git ls-remote --heads origin`),
+and no deployment: pick-a-booth ships as a desktop app, and `.github/workflows/ci.yml`
+is a quality gate only. Desktop packaging and releases are a future task. So:
 
 1. One task branch, cut from `origin/main`, carrying only that task's commits.
 2. One PR `<branch>` → `main` on `OwlRepo/pick-a-booth`.
-3. CI green (`gh pr checks <number>`: `ai-gates`, `lint`, `tests`), then the repo owner merges with **"Create a merge commit"** — the RED `test(...)` commit stays visible ahead of the implementation in history.
+3. CI green (`gh pr checks <number>`: `Quality gate` and every `Desktop tests` job of `.github/workflows/ci.yml`), then the repo owner merges with **"Create a merge commit"** — the RED `test(...)` commit stays visible ahead of the implementation in history.
 
 Syncing upstream photobooth-app into the fork is its own PR whose head is
 `main` of the upstream; the TDD gate skips it (`scripts/ci/tdd_gate.py`

@@ -76,7 +76,8 @@ Format: `` `symbol` -> `path:line` — purpose ``.
 - `classify_changes` / `judge_red` / `find_bash_write_targets` -> `scripts/ci/tdd_lib.py` — TDD rules shared by gate, red and hook.
 - `run_test_files` -> `scripts/ci/tdd_runner.py` — pytest runner with junit parsing.
 - `main` -> `scripts/ci/tdd_red.py` — `uv run poe tdd:red`.
-- `main` -> `scripts/ci/tdd_gate.py` — `uv run poe tdd:gate` (CI `.github/workflows/ai-gates.yml`).
+- `main` -> `scripts/ci/tdd_gate.py` — `uv run poe tdd:gate` (CI `.github/workflows/ci.yml`).
+- `problems_for` / `main` -> `scripts/ci/check_test_layers.py` — per-commit test-layer guard, `uv run poe ci:layers`.
 - `main` -> `scripts/hooks/tdd_red_guard.py` — Claude PreToolUse hook (`.claude/settings.json`).
 - `GLOBAL_POLICY` / `check` -> `scripts/generate_agent_defs.py` — persona generator (Claude Code only) and `agents:lint`.
 - `scripts/new-task-worktree.sh` — fresh task worktree from `origin/main`.

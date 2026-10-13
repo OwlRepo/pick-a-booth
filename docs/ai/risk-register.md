@@ -18,8 +18,9 @@
 | Plugin hookspecs | Third-party plugins implement the specs in `src/photobooth/plugins/__init__.py`; user plugins load from `./plugins/`. | Deep | signature compatibility; plugin tests | load a bundled plugin | |
 | Share/sync credentials | Share-on-demand API key and rclone remotes; `src/web/shareondemand/api.php` ships the placeholder `changedefault!`. | Deep | never log or expose secrets; security-auditor | — | |
 | Import-time side effects | Importing `photobooth` creates folders and a link in the working directory (`src/photobooth/__init__.py`). | Standard | run tests from the repo root; do not add more side effects | — | |
-| CI gates | `.github/workflows/ai-gates.yml` (TDD gate, persona lint, tooling tests) can block every PR when broken. | Deep | `uv run poe test:scripts`; dry-run the gate locally | — | branch protection is off: checks are advisory unless read by hand |
-| Upstream sync | Edits to upstream files conflict on every photobooth-app merge. | Standard | prefer new files; keep upstream CI jobs untouched | — | |
+| CI gates | `.github/workflows/ci.yml` (layer guard, TDD gate, persona lint, tooling tests, type-check, lint, unit and desktop tests) can block every PR when broken. | Deep | `uv run poe test:scripts`; dry-run the gate locally | — | branch protection is off: checks are advisory unless read by hand |
+| Upstream sync | The fork diverges into our desktop app; merging upstream photobooth-app now conflicts with our CI and docs. | Standard | merge upstream only by choice, in its own PR; keep `.github/` ours | — | |
+| Dependency updates | Dependabot was removed with the upstream CI; nothing proposes dependency bumps. | Standard | check `uv run poe list_outdated` periodically; bump `uv.lock` in its own PR | — | |
 
 ## Default-Deep Rule
 
@@ -28,5 +29,3 @@ Touching any listed area defaults the task to Deep unless repository evidence pr
 ## Accepted / deferred risks
 
 Record accepted risks here with date, owner, and reason. None yet.
-
-- Known residual: `.github/dependabot.yml` targets a `dev` branch that does not exist on this fork, so dependency PRs will not open. Not changed by the AI workflow port (2026-10-13).

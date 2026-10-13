@@ -25,8 +25,8 @@ def test_get(client: TestClient):
 
 
 def test_get_file_from_demofolder(client: TestClient):
-    assert Path("userdata/demoassets/frames/frame_image_photobooth-app.png").is_file()
-    response = client.get("../userdata/demoassets/frames/frame_image_photobooth-app.png")
+    assert Path("userdata/demoassets/frames/pixabay-poster-2871536_1920.png").is_file()
+    response = client.get("../userdata/demoassets/frames/pixabay-poster-2871536_1920.png")
     assert response.status_code == 200
 
 

@@ -13,8 +13,15 @@
       "output_tokens": 0,
       "files": 16,
       "note": "incremental update after Codex removal; combined input+output subagent counter"
+    },
+    {
+      "date": "2026-10-13T07:43:51.369985+00:00",
+      "input_tokens": 126425,
+      "output_tokens": 0,
+      "files": 150,
+      "note": "estimate: combined subagent tokens, in/out split not exposed by runtime"
     }
   ],
-  "total_input_tokens": 384831,
+  "total_input_tokens": 511256,
   "total_output_tokens": 0
 }

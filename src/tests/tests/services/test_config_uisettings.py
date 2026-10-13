@@ -51,3 +51,13 @@ def test_happy_theme_palette_default_is_party():
 
 def test_happy_frontpage_text_default_is_plain_brand():
     assert GroupUiSettings().FRONTPAGE_TEXT == "Pick-a-Booth"
+
+
+def test_regression_config_without_theme_palette_gets_default():
+    assert GroupUiSettings.model_validate({"theme": "dark"}).model_dump(mode="json")["theme_palette"] == PARTY
+
+
+def test_regression_theme_palette_survives_persist_roundtrip():
+    saved = GroupUiSettings.model_validate({"theme_palette": ["red", "#fff", "rgb(0,0,255)", "#3d6bff", "#22d39a"]}).model_dump_json()
+    reloaded = GroupUiSettings.model_validate_json(saved)
+    assert reloaded.model_dump(mode="json")["theme_palette"] == ["#ff0000", "#ffffff", "#0000ff", "#3d6bff", "#22d39a"]

@@ -352,7 +352,7 @@ class GroupActions(BaseModel):
                     texts_enable=False,
                     texts=[
                         TextsConfig(
-                            text="Pick-a-Booth",  # use {date} and {time} to add dynamic texts; cannot use in default because tests will fail that compare images
+                            text="Pick-a-Booth",  # use {date} and {time} for dynamic texts; keep the default static so image-comparison tests stay stable
                             pos_x=1300,
                             pos_y=1250,
                             rotate=0,

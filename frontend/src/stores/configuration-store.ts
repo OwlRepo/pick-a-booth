@@ -24,9 +24,8 @@ export const useConfigurationStore = defineStore('configuration-store', {
       // apply theme settings
       setCssVar('primary', this.configuration.uisettings.PRIMARY_COLOR)
       setCssVar('secondary', this.configuration.uisettings.SECONDARY_COLOR)
-      // theme_palette is validated (and replaced by the default palette if invalid) inside applyPalette.
-      // The cast is needed until src/dto/api.ts is regenerated with uisettings.theme_palette (plan Phase 5 step 7).
-      applyPalette((this.configuration.uisettings as { theme_palette?: unknown }).theme_palette)
+      // invalid or missing palettes fall back to the default inside applyPalette
+      applyPalette(this.configuration.uisettings.theme_palette)
       const theme = this.configuration.uisettings.theme
       Dark.set(theme === 'system' ? 'auto' : theme === 'dark')
     },

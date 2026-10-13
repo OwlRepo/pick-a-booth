@@ -1052,8 +1052,7 @@ export interface components {
              *             "img_background_enable": true,
              *             "img_background_file": "userdata/demoassets/backgrounds/background.jpg",
              *             "img_frame": {
-             *               "enable": true,
-             *               "image": "userdata/demoassets/frames/frame_image_photobooth-app.png",
+             *               "enable": false,
              *               "mirror_effect": false
              *             },
              *             "remove_background": true,
@@ -1065,10 +1064,10 @@ export interface components {
              *                 "pos_x": 1300,
              *                 "pos_y": 1250,
              *                 "rotate": 0,
-             *                 "text": "Visit photobooth-app.org and build yours!"
+             *                 "text": "Pick-a-Booth"
              *               }
              *             ],
-             *             "texts_enable": true
+             *             "texts_enable": false
              *           },
              *           "trigger": {
              *             "gpio_trigger": {
@@ -1440,6 +1439,13 @@ export interface components {
              *       "PRIMARY_COLOR": "#196cb0",
              *       "SECONDARY_COLOR": "#4283b8",
              *       "theme": "system",
+             *       "theme_palette": [
+             *         "#ff4d2e",
+             *         "#ff3d9a",
+             *         "#ffc933",
+             *         "#3d6bff",
+             *         "#22d39a"
+             *       ],
              *       "show_gallery_on_frontpage": true,
              *       "show_admin_on_frontpage": true,
              *       "admin_button_invisible": false,
@@ -1452,11 +1458,10 @@ export interface components {
              *       "livestream_blurredbackground": true,
              *       "livestream_blurredbackground_high_framerate": false,
              *       "livestream_frameoverlay": {
-             *         "enable": true,
-             *         "image": "userdata/demoassets/frames/frame_image_photobooth-app.png",
+             *         "enable": false,
              *         "mirror_effect": true
              *       },
-             *       "FRONTPAGE_TEXT": "<div class=\"fixed-center text-h2 text-weight-bold text-center text-white\" style=\"text-shadow: 4px 4px 4px #666;\">Hey!<br>Let's take some pictures! <br>📷</div>",
+             *       "FRONTPAGE_TEXT": "Pick-a-Booth",
              *       "TAKEPIC_MSG_TIME": 0.5,
              *       "TAKEPIC_MSG_TEXT": "😃",
              *       "AUTOCLOSE_NEW_ITEM_ARRIVED": 30,
@@ -1853,8 +1858,7 @@ export interface components {
              *           "img_background_enable": true,
              *           "img_background_file": "userdata/demoassets/backgrounds/background.jpg",
              *           "img_frame": {
-             *             "enable": true,
-             *             "image": "userdata/demoassets/frames/frame_image_photobooth-app.png",
+             *             "enable": false,
              *             "mirror_effect": false
              *           },
              *           "remove_background": true,
@@ -1866,10 +1870,10 @@ export interface components {
              *               "pos_x": 1300,
              *               "pos_y": 1250,
              *               "rotate": 0,
-             *               "text": "Visit photobooth-app.org and build yours!"
+             *               "text": "Pick-a-Booth"
              *             }
              *           ],
-             *           "texts_enable": true
+             *           "texts_enable": false
              *         },
              *         "trigger": {
              *           "gpio_trigger": {
@@ -2971,6 +2975,11 @@ export interface components {
              */
             theme: "system" | "light" | "dark";
             /**
+             * Theme Palette
+             * @description Event palette (5 colors) for mode tiles, buttons and accents. Presets: Party #ff4d2e #ff3d9a #ffc933 #3d6bff #22d39a; Tropical #ff7a1a #ff4f8b #ffe14d #19c3e6 #3ddc84; Neon #b44dff #ff3dc8 #eaff4d #2ee6ff #4dff9e; Wedding #e0457b #f59fb4 #f2cf6b #5b8fd9 #86cba6.
+             */
+            theme_palette?: string[];
+            /**
              * Show Gallery On Frontpage
              * @description Show button to gallery on frontpage.
              * @default true
@@ -3040,16 +3049,15 @@ export interface components {
              * Livestream Frame Overlay
              * @description test
              * @default {
-             *       "enable": true,
-             *       "image": "userdata/demoassets/frames/frame_image_photobooth-app.png",
+             *       "enable": false,
              *       "mirror_effect": true
              *     }
              */
             livestream_frameoverlay: components["schemas"]["FrameOverlay"];
             /**
              * Frontpage Text
-             * @description Text/HTML displayed on frontpage.
-             * @default <div class="fixed-center text-h2 text-weight-bold text-center text-white" style="text-shadow: 4px 4px 4px #666;">Hey!<br>Let's take some pictures! <br>📷</div>
+             * @description Event name shown in the start screen top bar.
+             * @default Pick-a-Booth
              */
             FRONTPAGE_TEXT: string;
             /**

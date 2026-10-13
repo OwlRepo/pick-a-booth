@@ -345,14 +345,14 @@ class GroupActions(BaseModel):
                     img_background_enable=True,
                     img_background_file=Path("userdata/demoassets/backgrounds/background.jpg"),
                     img_frame=FrameOverlay(
-                        enable=True,
-                        image=Path("userdata/demoassets/frames/frame_image_photobooth-app.png"),
+                        enable=False,
+                        image=None,
                         mirror_effect=False,
                     ),
-                    texts_enable=True,
+                    texts_enable=False,
                     texts=[
                         TextsConfig(
-                            text="Visit photobooth-app.org and build yours!",  # use {date} and {time} to add dynamic texts; cannot use in default because tests will fail that compare images
+                            text="Pick-a-Booth",  # use {date} and {time} to add dynamic texts; cannot use in default because tests will fail that compare images
                             pos_x=1300,
                             pos_y=1250,
                             rotate=0,

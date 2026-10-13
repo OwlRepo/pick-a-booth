@@ -1,7 +1,6 @@
-from pathlib import Path
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_serializer
 from pydantic_extra_types.color import Color
 
 from ..models.frameoverlay import FrameOverlay
@@ -26,6 +25,19 @@ class GroupUiSettings(BaseModel):
         default="system",
         description="Specify the theme for the app. Set to system for automatic switching based on system/browser settings or force the light/dark theme.",
     )
+
+    theme_palette: list[Color] = Field(
+        default=["#ff4d2e", "#ff3d9a", "#ffc933", "#3d6bff", "#22d39a"],
+        min_length=5,
+        max_length=5,
+        validate_default=True,
+        description="Event palette (5 colors) for mode tiles, buttons and accents. Presets: Party #ff4d2e #ff3d9a #ffc933 #3d6bff #22d39a; Tropical #ff7a1a #ff4f8b #ffe14d #19c3e6 #3ddc84; Neon #b44dff #ff3dc8 #eaff4d #2ee6ff #4dff9e; Wedding #e0457b #f59fb4 #f2cf6b #5b8fd9 #86cba6.",
+    )
+
+    @field_serializer("theme_palette")
+    def _serialize_theme_palette(self, value: list[Color]) -> list[str]:
+        # frontend contrast math needs hex; Color.__str__ would emit CSS names like "red"
+        return [color.as_hex(format="long") for color in value]
 
     show_gallery_on_frontpage: bool = Field(
         default=True,
@@ -81,15 +93,15 @@ class GroupUiSettings(BaseModel):
         title="Livestream Frame Overlay",
         description="test",
         default=FrameOverlay(
-            enable=True,
-            image=Path("userdata/demoassets/frames/frame_image_photobooth-app.png"),
+            enable=False,
+            image=None,
             mirror_effect=True,
         ),
     )
 
     FRONTPAGE_TEXT: str = Field(
-        default='<div class="fixed-center text-h2 text-weight-bold text-center text-white" style="text-shadow: 4px 4px 4px #666;">Hey!<br>Let\'s take some pictures! <br>📷</div>',
-        description="Text/HTML displayed on frontpage.",
+        default="Pick-a-Booth",
+        description="Event name shown in the start screen top bar.",
     )
 
     TAKEPIC_MSG_TIME: float = Field(

@@ -289,7 +289,7 @@ class GroupCameraDigicamcontrol(BaseModelCamera):
 
     base_url: str = Field(
         default="http://127.0.0.1:5513",
-        description="Base URL used to connect to the host running the digicamcontrol software. Usually photobooth-app and digicamcontrol are on the same computer and no adjustmend needed.",
+        description="Base URL used to connect to the host running the digicamcontrol software. Usually Pick-a-Booth and digicamcontrol are on the same computer and no adjustmend needed.",
     )
 
 

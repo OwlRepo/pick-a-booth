@@ -197,29 +197,35 @@ from pydantic import BaseModel, ConfigDict, Field, field_serializer
 ```
 3. Same file. Old:
 ```python
-        default=FrameOverlay(
-            enable=True,
-            image=Path("userdata/demoassets/frames/frame_image_photobooth-app.png"),
-            mirror_effect=True,
-        ),
+default = (
+    FrameOverlay(
+        enable=True,
+        image=Path("userdata/demoassets/frames/frame_image_photobooth-app.png"),
+        mirror_effect=True,
+    ),
+)
 ```
    New:
 ```python
-        default=FrameOverlay(
-            enable=False,
-            image=None,
-            mirror_effect=True,
-        ),
+default = (
+    FrameOverlay(
+        enable=False,
+        image=None,
+        mirror_effect=True,
+    ),
+)
 ```
 4. Same file. Old:
 ```python
-        default='<div class="fixed-center text-h2 text-weight-bold text-center text-white" style="text-shadow: 4px 4px 4px #666;">Hey!<br>Let\'s take some pictures! <br>📷</div>',
-        description="Text/HTML displayed on frontpage.",
+default = (
+    '<div class="fixed-center text-h2 text-weight-bold text-center text-white" style="text-shadow: 4px 4px 4px #666;">Hey!<br>Let\'s take some pictures! <br>📷</div>',
+)
+description = ("Text/HTML displayed on frontpage.",)
 ```
    New:
 ```python
-        default="Pick-a-Booth",
-        description="Event name shown in the start screen top bar.",
+default = ("Pick-a-Booth",)
+description = ("Event name shown in the start screen top bar.",)
 ```
    After step 3 the file has no other `Path(` use (verified: L85 was the only one), so remove `from pathlib import Path` (ruff F401).
 5. `src/photobooth/services/config/groups/actions.py`. Old:

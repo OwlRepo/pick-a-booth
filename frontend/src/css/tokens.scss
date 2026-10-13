@@ -1,0 +1,64 @@
+// Pick-a-Booth v2 design tokens.
+// Source: docs/design/booth-redesign-v2/IMPLEMENTATION_PROMPT.md §1 (verbatim)
+// Keyframes: docs/design/booth-redesign-v2/Booth Redesign v2.dc.html L17-18
+// --t1..--t5 / --t1i..--t5i are overwritten at runtime by applyPalette() (src/theme/palette.ts).
+
+:root {
+  --pb-bg: #0a0b10;
+  --pb-canvas: #05060a;
+  --pb-surface-1: #12141c;
+  --pb-surface-2: #1a1d28;
+  --pb-surface-2-hover: #232736;
+  --pb-text: #f4f5f8;
+  --pb-muted: #9aa0b4;
+  --pb-muted-2: #c9cdd9;
+  --pb-line: 1px solid rgba(255, 255, 255, 0.1);
+  --pb-glass-bg: rgba(18, 20, 28, 0.62);
+  --pb-glass-blur: 18px;
+  --pb-glass-border: 1px solid rgba(255, 255, 255, 0.14);
+  --pb-danger-text: #ff7a8a;
+  --pb-live: #22d39a;
+  /* Event palette (theme) — t1..t5, plus readable ink per color */
+  --t1: #ff4d2e;
+  --t2: #ff3d9a;
+  --t3: #ffc933;
+  --t4: #3d6bff;
+  --t5: #22d39a;
+  --t1i: #0a0b10;
+  --t2i: #0a0b10;
+  --t3i: #0a0b10;
+  --t4i: #0a0b10; /* reference renders ink(#3d6bff), a near-tie that resolves to dark */
+  --t5i: #0a0b10;
+  --r-tile: 28px;
+  --r-tile-lg: 32px;
+  --r-card: 32px;
+  --r-card-sm: 28px;
+  --r-input: 22px;
+  --r-small: 14px;
+  --r-pill: 999px;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+@keyframes pbPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.55);
+    opacity: 0.35;
+  }
+}
+@keyframes pbBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}

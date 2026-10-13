@@ -1,24 +1,19 @@
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-  font-optical-sizing: auto;
-  src: url('./fonts/Inter-4.0/web/InterVariable.woff2') format('woff2-variations');
-}
-@font-face {
-  font-family: 'Inter';
-  font-style: italic;
-  font-weight: 100 900;
-  font-display: swap;
-  font-optical-sizing: auto;
-  src: url('./fonts/Inter-4.0/web/InterVariable-Italic.woff2') format('woff2-variations');
-}
+@use './tokens.scss';
+
+// Self-hosted fonts (kiosks may be offline): Sora for headings, Manrope for body/UI.
+@import '@fontsource/sora/500.css';
+@import '@fontsource/sora/600.css';
+@import '@fontsource/sora/700.css';
+@import '@fontsource/manrope/500.css';
+@import '@fontsource/manrope/600.css';
+@import '@fontsource/manrope/700.css';
+@import '@fontsource/manrope/800.css';
 
 // app global css in SCSS form
 body {
-  background: $grey-2;
-  background: linear-gradient(120deg, rgba(245, 245, 245, 1) 0%, rgb(227, 229, 240) 50%, rgb(245, 245, 245) 100%);
+  background: var(--pb-bg);
+  color: var(--pb-text);
+  font-family: 'Manrope', sans-serif;
 }
 
 h1,
@@ -34,45 +29,6 @@ h6 {
 #frontpage_text {
   pointer-events: none;
   user-select: none;
-}
-
-.action-button {
-  font-size: 1.6rem;
-
-  * > .q-icon {
-    font-size: 6.5rem;
-  }
-}
-
-.q-btn.glass-effect {
-  backdrop-filter: blur(10px);
-  &.bg-primary {
-    background: color-mix(in srgb, var(--q-primary) 40%, transparent) !important;
-  }
-
-  &.bg-secondary {
-    background: color-mix(in srgb, var(--q-secondary) 40%, transparent) !important;
-  }
-
-  &.bg-accent {
-    background: color-mix(in srgb, var(--q-accent) 40%, transparent) !important;
-  }
-
-  &.bg-positive {
-    background: color-mix(in srgb, var(--q-positive) 40%, transparent) !important;
-  }
-
-  &.bg-negative {
-    background: color-mix(in srgb, var(--q-negative) 40%, transparent) !important;
-  }
-
-  &.bg-grey {
-    background: color-mix(in srgb, var(--q-grey) 50%, transparent) !important;
-  }
-
-  &.bg-custom {
-    background: color-mix(in srgb, var(--bg-custom) 40%, transparent) !important;
-  }
 }
 
 .toolbar {

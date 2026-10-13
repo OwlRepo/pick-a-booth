@@ -1,0 +1,1 @@
+var e=/<br\s*\/?>/gi,t=e=>new DOMParser().parseFromString(e,`text/html`).body.textContent??``;function n(n,r=t){return n?r(n.replace(e,` `)).replace(/\s+/g,` `).trim():``}export{n as t};

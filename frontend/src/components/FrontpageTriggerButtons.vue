@@ -1,20 +1,18 @@
 <template>
-  <div class="row q-gutter-md action-buttons">
-    <div v-for="(trigger, index) in visibleTriggers" :key="index">
-      <q-btn
-        stack
-        :color="trigger.use_custom_color ? 'custom' : 'primary'"
-        no-caps
-        rounded
-        class="action-button col-auto glass-effect"
-        :class="['action-button-' + index]"
-        :style="{ '--bg-custom': trigger.use_custom_color ? trigger.custom_color : null }"
-        @click="triggerButtonClick(trigger)"
-      >
-        <q-icon v-if="!isEmpty(trigger.icon)" :name="`sym_o_${trigger.icon}`" />
-        <div style="white-space: nowrap" class="gt-sm">{{ trigger.title }}</div>
-      </q-btn>
-    </div>
+  <!-- mode tiles, dc.html L43-67 (landscape 6 cols x 196px) / L196-220 (portrait 3 x 2, 380px) -->
+  <div class="action-buttons frontpage-trigger-buttons">
+    <PbModeTile
+      v-for="(trigger, index) in visibleTriggers"
+      :key="index"
+      :class="['action-button-' + index]"
+      :bg="colors[index].bg"
+      :fg="colors[index].fg"
+      :icon="isEmpty(trigger.icon) ? undefined : trigger.icon"
+      :aria-label="trigger.title || trigger.icon"
+      @click="triggerButtonClick(trigger)"
+    >
+      {{ trigger.title }}
+    </PbModeTile>
   </div>
 </template>
 
@@ -22,6 +20,8 @@
 import { isEmpty } from 'lodash'
 import { computed } from 'vue'
 import type { TriggerSchema } from '@/types/trigger-schema'
+import PbModeTile from '@/components/pb/PbModeTile.vue'
+import { tileColor } from '@/theme/palette'
 
 const props = defineProps<{
   triggers: TriggerSchema[]
@@ -29,12 +29,33 @@ const props = defineProps<{
 
 const visibleTriggers = computed(() => props.triggers.filter(t => t.show_button && !(isEmpty(t.title) && isEmpty(t.icon))))
 
+// trigger.action is "actions/<group>" (e.g. "actions/multicamera"); tileColor matches on the bare group name
+const colors = computed(() =>
+  visibleTriggers.value.map((trigger, index) => tileColor({ ...trigger, action: trigger.action.replace(/^actions\//, '') }, index))
+)
+
 const emit = defineEmits<{
   triggerAction: [trigger: TriggerSchema]
 }>()
 
 function triggerButtonClick(trigger: TriggerSchema) {
-  // console.log(`trigger action ${action}, config_index ${config_index}`)
   emit('triggerAction', trigger)
 }
 </script>
+
+<style scoped>
+.frontpage-trigger-buttons {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-auto-rows: minmax(0, 1fr);
+  gap: 14px;
+  height: 196px;
+}
+
+@media (orientation: portrait) {
+  .frontpage-trigger-buttons {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    height: 380px;
+  }
+}
+</style>

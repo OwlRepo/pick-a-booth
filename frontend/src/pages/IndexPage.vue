@@ -1,38 +1,95 @@
 <template>
-  <q-page id="index-page" class="q-pa-none full-height">
-    <preview-stream
-      v-if="showPreviewThrottled"
-      :index_device="configurationStore.configuration.cameras.index_backend_video"
-      :frame-overlay="frameOverlay"
-      :fixed-size="fixedSize"
-      :enable-blurred-background-stream="configurationStore.configuration.uisettings.livestream_blurredbackground"
-      :enable-mirror-effect-stream="configurationStore.configuration.uisettings.livestream_mirror_effect"
-      :blurredbackground-high-framerate="configurationStore.configuration.uisettings.livestream_blurredbackground_high_framerate"
-    ></preview-stream>
+  <q-page id="index-page" class="pb-index">
+    <!--
+      one frame for all states so the camera card (and its PreviewStream) is never remounted:
+      idle = top bar / camera card / mode tiles (dc.html L37-67, L191-220);
+      countdown + recording = camera card inset 24 (dc.html L72, L108, L225)
+    -->
+    <div class="pb-index__frame" :class="{ 'pb-index__frame--idle': stateStore.isStateIdle }">
+      <div v-if="stateStore.isStateIdle" class="pb-index__topbar">
+        <div class="pb-index__title">
+          <!-- eslint-disable-next-line vue/no-v-html -->
+          <div id="frontpage_text" class="pb-index__event" v-html="configurationStore.configuration.uisettings.FRONTPAGE_TEXT"></div>
+          <div class="pb-index__subline">{{ $t("Pick a mode and tap — that's it.") }}</div>
+        </div>
+        <div class="pb-index__topbar-actions">
+          <PbPill
+            v-if="configurationStore.configuration.uisettings.show_gallery_on_frontpage"
+            id="frontpage-button-to-gallery"
+            :size="60"
+            icon="images"
+            @click="router.push('/gallery')"
+          >
+            {{ $t('BTN_LABEL_MAINPAGE_TO_GALLERY') }}
+          </PbPill>
+          <PbRoundButton
+            v-if="configurationStore.configuration.uisettings.show_admin_on_frontpage"
+            id="frontpage-button-to-admin"
+            :label="$t('BTN_LABEL_MAINPAGE_TO_ADMIN')"
+            icon="lock"
+            :size="60"
+            variant="muted"
+            :class="{ 'action-button-admin-invisible': adminButtonInvisible }"
+            @click="onBtnAdminClick"
+          />
+        </div>
+      </div>
 
-    <!-- layer display processing spinner grid to show user computer working hard -->
-    <div v-if="stateStore.isStateProcessing" class="full-height full-width column justify-center content-center" style="position: absolute">
-      <q-spinner-grid size="20em" />
+      <div class="pb-index__camera">
+        <preview-stream
+          v-if="showPreviewThrottled"
+          :index_device="configurationStore.configuration.cameras.index_backend_video"
+          :frame-overlay="frameOverlay"
+          :fixed-size="fixedSize"
+          :enable-blurred-background-stream="configurationStore.configuration.uisettings.livestream_blurredbackground"
+          :enable-mirror-effect-stream="configurationStore.configuration.uisettings.livestream_mirror_effect"
+          :blurredbackground-high-framerate="configurationStore.configuration.uisettings.livestream_blurredbackground_high_framerate"
+        ></preview-stream>
+
+        <div v-if="stateStore.isStateIdle && showPreviewThrottled" class="pb-index__live">
+          <PbPill tag="div" variant="glass" :size="40" dot="var(--pb-live)">{{ $t('Live') }}</PbPill>
+        </div>
+
+        <!-- layer display the countdown timer -->
+        <div v-if="stateStore.isStateCountdown" id="frontpage-countdown" class="pb-index__countdown">
+          <div class="pb-index__lookup">
+            <PbPill tag="div" variant="glass" :size="60" icon="arrow-up">{{ $t('Look up at the camera') }}</PbPill>
+          </div>
+          <countdown-timer
+            ref="countdowntimer"
+            :duration="stateStore.jobmodel.duration"
+            :message-duration="configurationStore.configuration.uisettings.TAKEPIC_MSG_TIME"
+            :message-text="configurationStore.configuration.uisettings.TAKEPIC_MSG_TEXT"
+            :steps-total="stateStore.jobmodel.total_captures_to_take"
+            :steps-done="stateStore.jobmodel.number_captures_taken"
+          ></countdown-timer>
+        </div>
+
+        <!-- video state controls, dc.html L109-110 -->
+        <div v-if="stateStore.isStateRecording" id="frontpage-indicator-recording" class="pb-index__rec">
+          <PbPill tag="div" variant="glass" :size="56" dot="var(--t1)" dot-blink>
+            <span class="pb-index__rec-label">{{ $t('REC') }} {{ recordingElapsedLabel }}</span>
+          </PbPill>
+        </div>
+        <div v-if="stateStore.isStateRecording" id="frontpage-indicator-stop-recording" class="pb-index__stop">
+          <PbBigButton :height="104" pill padding="0 48px" bg="var(--t1)" fg="var(--t1i)" :font-size="30" @click="stopRecordingVideo()">
+            <template #icon><PbStopSquare :size="35" /></template>
+            {{ $t('Stop recording') }}
+          </PbBigButton>
+        </div>
+      </div>
+
+      <FrontpageTriggerButtons v-if="stateStore.isStateIdle" :triggers="triggerButtons" @trigger-action="invokeAction"></FrontpageTriggerButtons>
     </div>
 
-    <!-- layer display the countdown timer -->
-    <div
-      v-if="stateStore.isStateCountdown"
-      id="frontpage-countdown"
-      class="full-height full-width column justify-center content-center"
-      style="position: absolute"
-    >
-      <countdown-timer
-        ref="countdowntimer"
-        :duration="stateStore.jobmodel.duration"
-        :message-duration="configurationStore.configuration.uisettings.TAKEPIC_MSG_TIME"
-        :message-text="configurationStore.configuration.uisettings.TAKEPIC_MSG_TEXT"
-      ></countdown-timer>
+    <!-- layer display processing spinner grid to show user computer working hard, dc.html L92 / L235 -->
+    <div v-if="stateStore.isStateProcessing" class="pb-index__processing" role="status">
+      <PbSpinner />
+      <div class="pb-index__processing-text">
+        <div class="pb-index__processing-title">{{ $t('Almost there…') }}</div>
+        <div class="pb-index__processing-sub">{{ $t('Your photo is being made. It will pop up right here.') }}</div>
+      </div>
     </div>
-
-    <!-- layer display the front page text -->
-    <!-- eslint-disable-next-line vue/no-v-html -->
-    <div v-if="stateStore.isStateIdle" id="frontpage_text" v-html="configurationStore.configuration.uisettings.FRONTPAGE_TEXT"></div>
 
     <!-- dialog for approval -->
     <div v-if="stateStore.isStateApproval && stateStore.jobmodel.approval_id">
@@ -43,69 +100,13 @@
       >
       </MediaItemApprovalViewer>
     </div>
-
-    <q-page-sticky position="bottom" class="q-mb-lg">
-      <div v-if="stateStore.isStateIdle">
-        <FrontpageTriggerButtons :triggers="triggerButtons" @trigger-action="invokeAction"></FrontpageTriggerButtons>
-      </div>
-    </q-page-sticky>
-
-    <q-page-sticky position="top-left" class="q-ma-lg">
-      <div v-if="stateStore.isStateIdle">
-        <div class="q-gutter-md">
-          <q-btn
-            v-if="configurationStore.configuration.uisettings.show_gallery_on_frontpage"
-            id="frontpage-button-to-gallery"
-            color="primary"
-            no-caps
-            rounded
-            to="/gallery"
-            class="action-button glass-effect"
-          >
-            <q-icon left name="sym_o_photo_library" />
-            <div class="gt-sm">{{ $t('BTN_LABEL_MAINPAGE_TO_GALLERY') }}</div>
-          </q-btn>
-        </div>
-      </div>
-    </q-page-sticky>
-
-    <q-page-sticky position="top-right" class="q-ma-lg">
-      <div v-if="stateStore.isStateIdle">
-        <div class="q-gutter-md">
-          <q-btn
-            v-if="configurationStore.configuration.uisettings.show_admin_on_frontpage"
-            id="frontpage-button-to-admin"
-            rounded
-            color="transparent"
-            no-caps
-            class="action-button action-button-admin glass-effect"
-            :class="{ 'action-button-admin-invisible': adminButtonInvisible }"
-            @click="onBtnAdminClick"
-          >
-            <q-icon left name="sym_o_admin_panel_settings" />
-            <div class="gt-sm">{{ $t('BTN_LABEL_MAINPAGE_TO_ADMIN') }}</div>
-          </q-btn>
-        </div>
-      </div>
-    </q-page-sticky>
-
-    <!-- video state controls -->
-    <q-page-sticky v-if="stateStore.isStateRecording" id="frontpage-indicator-recording" position="top-right" :offset="[25, 25]" align="center">
-      <q-spinner-puff color="red" size="12em" thickness="20" />
-    </q-page-sticky>
-    <q-page-sticky v-if="stateStore.isStateRecording" id="frontpage-indicator-stop-recording" position="bottom" :offset="[0, 25]" align="center">
-      <q-btn stack rounded no-caps color="negative" class="action-button glass-effect" @click="stopRecordingVideo()">
-        <q-icon name="sym_o_stop_circle" />
-        <div>{{ $t('Stop recording') }}</div>
-      </q-btn>
-    </q-page-sticky>
   </q-page>
 </template>
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 import { watchDebounced, refThrottled } from '@vueuse/core'
-import { computed, ref } from 'vue'
+import { computed, onBeforeUnmount, ref, watch } from 'vue'
 import { remoteProcedureCall } from '@/util/fetch_api.js'
 import { useMainStore } from '@/stores/main-store'
 import { useStateStore } from '@/stores/state-store'
@@ -114,8 +115,12 @@ import CountdownTimer from '@/components/CountdownTimer.vue'
 import type { TriggerSchema } from '@/types/trigger-schema'
 import { default as FrontpageTriggerButtons } from '@/components/FrontpageTriggerButtons.vue'
 import { default as PreviewStream } from '@/components/PreviewStream.vue'
-import _ from 'lodash'
 import MediaItemApprovalViewer from '@/components/MediaItemApprovalViewer.vue'
+import PbBigButton from '@/components/pb/PbBigButton.vue'
+import PbPill from '@/components/pb/PbPill.vue'
+import PbRoundButton from '@/components/pb/PbRoundButton.vue'
+import PbSpinner from '@/components/pb/PbSpinner.vue'
+import PbStopSquare from '@/components/pb/PbStopSquare.vue'
 import type { components } from '@/dto/api'
 import type { Size2D } from '@/util/streamRenderer.ts'
 const mainStore = useMainStore()
@@ -205,6 +210,33 @@ const frameOverlay = computed((): components['schemas']['UiFrameOverlay'] | null
   }
 })
 
+// REC timer: display-only client clock, starts when isStateRecording turns true
+const recordingElapsedSeconds = ref(0)
+let recordingTimerId: number | undefined
+const stopRecordingClock = () => {
+  window.clearInterval(recordingTimerId)
+  recordingTimerId = undefined
+}
+watch(
+  () => stateStore.isStateRecording,
+  recording => {
+    stopRecordingClock()
+    recordingElapsedSeconds.value = 0
+    if (recording) {
+      const startedAt = Date.now()
+      recordingTimerId = window.setInterval(() => {
+        recordingElapsedSeconds.value = Math.floor((Date.now() - startedAt) / 1000)
+      }, 250)
+    }
+  },
+  { immediate: true }
+)
+onBeforeUnmount(stopRecordingClock)
+const recordingElapsedLabel = computed(() => {
+  const seconds = recordingElapsedSeconds.value
+  return `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`
+})
+
 const onBtnAdminClick = () => {
   if (adminButtonInvisible.value) {
     btnAdminClickCounter.value++
@@ -227,4 +259,168 @@ const stopRecordingVideo = () => {
 .action-button-admin-invisible
   opacity: 0.0
   cursor: default
+</style>
+
+<style scoped>
+.pb-index {
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--pb-bg);
+  color: var(--pb-text);
+}
+
+.pb-index__frame {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  gap: 18px;
+  padding: 24px;
+}
+
+.pb-index__frame--idle {
+  grid-template-rows: 64px minmax(0, 1fr) 196px;
+}
+
+.pb-index__topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 4px;
+}
+
+.pb-index__title {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.pb-index__event {
+  font-family: 'Sora', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-size: 34px;
+  line-height: 1.05;
+}
+
+.pb-index__subline {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--pb-muted);
+}
+
+.pb-index__topbar-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.pb-index__camera {
+  position: relative;
+  border-radius: 32px;
+  overflow: hidden;
+  background: var(--pb-surface-1);
+}
+
+.pb-index__live {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+}
+
+.pb-index__countdown {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 11, 16, 0.25);
+}
+
+.pb-index__lookup {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.pb-index__rec {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+.pb-index__rec-label {
+  font-weight: 800;
+  font-size: 20px;
+  font-variant-numeric: tabular-nums;
+}
+
+.pb-index__stop {
+  position: absolute;
+  bottom: 28px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.pb-index__stop > * {
+  pointer-events: auto;
+}
+
+.pb-index__processing {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--pb-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 44px;
+  text-align: center;
+  padding: 40px;
+}
+
+.pb-index__processing-text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.pb-index__processing-title {
+  font-family: 'Sora', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-size: 84px;
+  line-height: 1;
+}
+
+.pb-index__processing-sub {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--pb-muted);
+  max-width: 520px;
+  text-wrap: pretty;
+}
+
+@media (orientation: portrait) {
+  .pb-index__frame--idle {
+    grid-template-rows: auto minmax(0, 1fr) 380px;
+  }
+
+  .pb-index__event {
+    font-size: 36px;
+  }
+
+  .pb-index__processing-title {
+    font-size: 76px;
+  }
+}
 </style>

@@ -28,7 +28,7 @@ const props = defineProps<{
   fixedSize: Size2D | null
 }>()
 
-// fixes https://github.com/photobooth-app/photobooth-app/issues/613, relative ws URLs seem to be an addition in 2024,
+// relative ws URLs are only supported by browsers since 2024 (upstream issue #613),
 // so we generate the absolute URL to connect to
 // const websocketStreamUrl = `${location.protocol === 'https:' ? 'wss' : 'ws'}://${location.host}/api/aquisition/stream?index_device=${props.index_device}&index_subdevice=0`
 const websocketStreamUrl = computed(
@@ -162,9 +162,11 @@ onUnmounted(() => {
 
 <style lang="scss">
 .canvas-stack {
-  position: fixed;
-  height: 100%;
-  width: 100%;
+  // fills the positioned camera card it is placed in (IndexPage); z-index 0 keeps the canvas z-indexes
+  // inside this stack so card overlays (countdown, REC, Live pill) paint above the stream
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 
   /* Prevent interaction */
   pointer-events: none;

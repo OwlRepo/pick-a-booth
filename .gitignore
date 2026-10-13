@@ -45,3 +45,8 @@ openapi.json
 # Claude Code: task worktrees and per-user settings (docs/ai/execution.md)
 .claude/worktrees/
 .claude/settings.local.json
+
+# vendored frontend source
+/frontend/node_modules/
+/frontend/dist/
+/frontend/.quasar/

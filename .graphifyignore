@@ -11,3 +11,11 @@ src/web/frontend/
 # Editor settings.
 .vscode/
 src/web/sharepage/
+
+# vendored frontend: deps, build cache, generated types, locales
+frontend/node_modules/
+frontend/.quasar/
+frontend/src/dto/api.ts
+frontend/src/i18n/locales/
+# design reference (large inline-styled HTML)
+docs/design/

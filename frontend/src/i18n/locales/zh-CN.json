@@ -122,7 +122,6 @@
   "Learn how to help translating the app": "学习如何帮助翻译应用程序",
   "Browsers preferred languages": "浏览器首选语言",
   "Check which languages are supported by the app.": "检查应用支持哪种语言。",
-  "Translate in context using Crowdin": "使用 Crowdin 翻译上下文文件",
   "Yes, delete": "是，删除",
   "Reload services on save to apply settings. Reloading might take some time.": "保存时重新加载服务以应用设置。重新加载可能需要一些时间。",
   "Apply": "应用",

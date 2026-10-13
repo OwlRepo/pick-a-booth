@@ -122,7 +122,6 @@
   "Learn how to help translating the app": "Opi miten auttaa sovelluksen kääntämisessä",
   "Browsers preferred languages": "Selaimet ensisijaiset kielet",
   "Check which languages are supported by the app.": "Tarkista, mitkä kielet ovat sovelluksen tukemia.",
-  "Translate in context using Crowdin": "Käännä yhteydessä käyttäen Crowdinia",
   "Yes, delete": "Kyllä, poista",
   "Reload services on save to apply settings. Reloading might take some time.": "Lataa palvelut tallennettaessa asetuksia uudelleen. Uudelleenlataaminen saattaa kestää jonkin aikaa.",
   "Apply": "Käytä",

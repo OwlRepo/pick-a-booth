@@ -6,11 +6,12 @@
     subtitle?: string            muted 15px line, e.g. uisettings.qrcode_text_below (or #subtitle slot)
     orientation?: 'auto' | 'landscape' | 'portrait' = 'auto'
                                  white QR plate 118px (landscape) / 120px (portrait); 'auto' follows the media query
+  The QR plate is role="img" labelled by `title` (the slot content cannot label it; pass `title` for a11y).
   Card: surface-2, radius 24, padding 18, line border; plate radius 16, padding 8.
 -->
 <template>
   <div class="pb-qr-card">
-    <div class="pb-qr-card__plate" :style="{ width: `${plate}px`, height: `${plate}px` }">
+    <div class="pb-qr-card__plate" role="img" :aria-label="title" :style="{ width: `${plate}px`, height: `${plate}px` }">
       <qrcode-vue class="pb-qr-card__code" :value="value" :size="plate - 16" :margin="2" level="L" render-as="svg" />
     </div>
     <div class="pb-qr-card__text">

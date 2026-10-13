@@ -13,8 +13,7 @@
 
     <div class="pb-slideshow__bar">
       <div class="pb-slideshow__text">
-        <!-- eslint-disable-next-line vue/no-v-html -->
-        <span class="pb-slideshow__name" v-html="configurationStore.configuration.uisettings.FRONTPAGE_TEXT"></span>
+        <span class="pb-slideshow__name">{{ frontpageText }}</span>
         <span class="pb-slideshow__sub">{{ $t('The booth is open — come say cheese.') }}</span>
       </div>
       <PbBigButton
@@ -36,7 +35,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount, ref } from 'vue'
+import { computed, onMounted, onBeforeUnmount, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useConfigurationStore } from '@/stores/configuration-store'
 import { useMediacollectionStore } from '@/stores/mediacollection-store'
@@ -44,6 +43,7 @@ import { default as MediaItemPreviewViewer } from '@/components/MediaItemPreview
 import ItemNotAvailableError from '@/components/ItemNotAvailableError.vue'
 import PbBigButton from '@/components/pb/PbBigButton.vue'
 import { useReturnButtonSlot } from '@/components/ReturnButton.vue'
+import { plainText } from '@/theme/text'
 
 const route = useRoute()
 const router = useRouter()
@@ -51,6 +51,7 @@ const configurationStore = useConfigurationStore()
 const mediacollectionStore = useMediacollectionStore()
 const nextMediaitemTimeout = 5_000
 const currentMediaitemIndex = ref(0)
+const frontpageText = computed(() => plainText(configurationStore.configuration.uisettings.FRONTPAGE_TEXT))
 
 useReturnButtonSlot(() => ({ hidden: true }))
 
@@ -120,6 +121,9 @@ onBeforeUnmount(() => {
   letter-spacing: -0.02em;
   font-size: 36px;
   line-height: 1.05;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .pb-slideshow__sub {

@@ -5,6 +5,7 @@
     color?: string = 'var(--t3)' fill colour, any CSS value
     left?: string                left caption, e.g. "Photo 12 of 48" (or #left slot)
     right?: string               right caption, e.g. "Back to start in 14s" (or #right slot)
+    ariaLabel?: string           accessible name of the progressbar, e.g. the right caption
   Captions: 14px / 600 / muted. Track: 6px, rgba(255,255,255,.1).
 -->
 <template>
@@ -17,7 +18,7 @@
         ><slot name="right">{{ right }}</slot></span
       >
     </div>
-    <div class="pb-auto-return-bar__track" role="progressbar" aria-valuemin="0" aria-valuemax="100" :aria-valuenow="percent">
+    <div class="pb-auto-return-bar__track" role="progressbar" aria-valuemin="0" aria-valuemax="100" :aria-valuenow="percent" :aria-label="ariaLabel">
       <div class="pb-auto-return-bar__fill" :style="{ width: `${percent}%`, background: color }" />
     </div>
   </div>
@@ -31,11 +32,13 @@ const {
   color = 'var(--t3)',
   left,
   right,
+  ariaLabel,
 } = defineProps<{
   progress: number
   color?: string
   left?: string
   right?: string
+  ariaLabel?: string
 }>()
 
 const percent = computed(() => Math.round(Math.min(1, Math.max(0, Number.isFinite(progress) ? progress : 0)) * 100))

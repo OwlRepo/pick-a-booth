@@ -20,7 +20,7 @@
         <tbody>
           <tr v-for="(record, idx) in store.logrecords as any[]" :key="idx">
             <td>
-              <span class="logs-level" :style="{ background: debugLevelColor(record.level) }">{{ record.level }}</span>
+              <span class="logs-level" :style="levelBadgeStyle(record.level)">{{ record.level }}</span>
             </td>
             <td>{{ record.time }}</td>
             <td>{{ record.message }}</td>
@@ -41,14 +41,14 @@ import { QBtn } from 'quasar'
 const store = useMainStore()
 
 // level badge background (palette tokens; ink stays dark on all of them)
-const debugLevelColor = (level: string) => {
-  if (level == 'DEBUG') return 'var(--t4)'
-  if (level == 'INFO') return 'var(--t4)'
-  if (level == 'WARNING') return 'var(--t3)'
-  if (level == 'ERROR') return 'var(--pb-danger-text)'
-  if (level == 'CRITICAL') return 'var(--pb-danger-text)'
+// palette slots carry their own runtime ink (--tNi, see src/theme/palette.ts); the fixed light
+// danger / muted tokens pair with the dark page background as ink
+const levelBadgeStyle = (level: string) => {
+  if (level == 'DEBUG' || level == 'INFO') return { background: 'var(--t4)', color: 'var(--t4i)' }
+  if (level == 'WARNING') return { background: 'var(--t3)', color: 'var(--t3i)' }
+  if (level == 'ERROR' || level == 'CRITICAL') return { background: 'var(--pb-danger-text)', color: 'var(--pb-bg)' }
 
-  return 'var(--pb-muted)'
+  return { background: 'var(--pb-muted)', color: 'var(--pb-bg)' }
 }
 </script>
 
@@ -84,7 +84,6 @@ const debugLevelColor = (level: string) => {
   display: inline-block;
   padding: 2px 10px;
   border-radius: 999px;
-  color: var(--pb-bg);
   font-size: 12px;
   font-weight: 700;
 }

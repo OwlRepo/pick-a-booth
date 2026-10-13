@@ -8,8 +8,7 @@
     <div class="pb-index__frame" :class="{ 'pb-index__frame--idle': stateStore.isStateIdle }">
       <div v-if="stateStore.isStateIdle" class="pb-index__topbar">
         <div class="pb-index__title">
-          <!-- eslint-disable-next-line vue/no-v-html -->
-          <div id="frontpage_text" class="pb-index__event" v-html="configurationStore.configuration.uisettings.FRONTPAGE_TEXT"></div>
+          <div id="frontpage_text" class="pb-index__event">{{ frontpageText }}</div>
           <div class="pb-index__subline">{{ $t("Pick a mode and tap — that's it.") }}</div>
         </div>
         <div class="pb-index__topbar-actions">
@@ -29,7 +28,9 @@
             icon="lock"
             :size="60"
             variant="muted"
+            class="action-button-admin"
             :class="{ 'action-button-admin-invisible': adminButtonInvisible }"
+            :invisible="adminButtonInvisible"
             @click="onBtnAdminClick"
           />
         </div>
@@ -123,6 +124,7 @@ import PbSpinner from '@/components/pb/PbSpinner.vue'
 import PbStopSquare from '@/components/pb/PbStopSquare.vue'
 import type { components } from '@/dto/api'
 import type { Size2D } from '@/util/streamRenderer.ts'
+import { plainText } from '@/theme/text'
 const mainStore = useMainStore()
 const stateStore = useStateStore()
 const configurationStore = useConfigurationStore()
@@ -160,6 +162,8 @@ const triggerButtons = computed(() => {
 
   return result
 })
+
+const frontpageText = computed(() => plainText(configurationStore.configuration.uisettings.FRONTPAGE_TEXT))
 
 const adminButtonInvisible = computed(() => {
   return configurationStore.configuration.uisettings.admin_button_invisible
@@ -253,14 +257,6 @@ const stopRecordingVideo = () => {
 }
 </script>
 
-<style lang="sass">
-
-// if button shall be invisible, set it to transparent and on mouseover use default cursor, no pointer
-.action-button-admin-invisible
-  opacity: 0.0
-  cursor: default
-</style>
-
 <style scoped>
 .pb-index {
   position: relative;
@@ -305,6 +301,9 @@ const stopRecordingVideo = () => {
   letter-spacing: -0.02em;
   font-size: 34px;
   line-height: 1.05;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .pb-index__subline {

@@ -16,7 +16,12 @@
     </div>
 
     <div v-if="stepsTotal > 1" class="countdown-timer__steps">
-      <PbStepDots :total="stepsTotal" :value="stepsActive" :color="showMessage ? 'var(--t2)' : 'var(--t1)'" />
+      <PbStepDots
+        :total="stepsTotal"
+        :value="stepsActive"
+        :color="showMessage ? 'var(--t2)' : 'var(--t1)'"
+        :aria-label="$t('Shot {no} of {total}', { no: stepsActive, total: stepsTotal })"
+      />
     </div>
   </div>
 </template>

@@ -12,6 +12,7 @@
     bg?: string / fg?: string         override background / text colour (any CSS value, e.g. 'var(--t1)')
     tag?: 'button' | 'div' = 'button' use 'div' for non-interactive pills (Live, REC); no hover/active then
     disabled?: boolean
+  Tap area: interactive pills get an invisible ::after that grows the hit target to >= 88px tall.
   Slots: default = label, icon = custom icon.
   Native listeners (@click) fall through to the root element.
 -->
@@ -120,6 +121,24 @@ const rootStyle = computed(() => ({
 
 .pb-pill--interactive {
   cursor: pointer;
+}
+
+/*
+ * Invisible tap area of at least 88px tall around an interactive pill (guest touch target); vertical only,
+ * the pill is already wide enough. :where() keeps `position: relative` at zero specificity so a consumer
+ * can still place the pill with position: absolute. Non-interactive pills (tag 'div') get none.
+ */
+:where(.pb-pill--interactive) {
+  position: relative;
+}
+
+.pb-pill--interactive::after {
+  content: '';
+  position: absolute;
+  top: min(0px, calc((100% - 88px) / 2));
+  bottom: min(0px, calc((100% - 88px) / 2));
+  left: 0;
+  right: 0;
 }
 
 .pb-pill--interactive:hover:not(:disabled) {

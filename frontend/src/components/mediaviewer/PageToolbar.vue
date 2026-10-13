@@ -46,7 +46,7 @@
     <PbBigButton
       v-if="lastActionTriggerButton"
       block
-      class="pb-toolbar__again"
+      class="action-button pb-toolbar__again"
       :height="isPortrait ? 112 : 108"
       :icon-size="isPortrait ? 37 : 35"
       :font-size="isPortrait ? 32 : 30"

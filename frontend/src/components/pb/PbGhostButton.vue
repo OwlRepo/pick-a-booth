@@ -5,6 +5,7 @@
     orientation?: 'auto' | 'landscape' | 'portrait' = 'auto'
                                  height 72 (landscape) / 88 (portrait); 'auto' follows the orientation media query
     disabled?: boolean
+  Tap area: an invisible ::after grows the hit target to >= 88px around the 72px visual height.
   Slots: default = label (Manrope 700 19px), icon = custom icon.
   Native listeners (@click) fall through to the <button>.
 -->
@@ -51,6 +52,25 @@ const isPortrait = useIsPortrait(() => orientation)
   gap: 10px;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+}
+
+/*
+ * Invisible tap area of at least 88px around a smaller visual button (guest touch target).
+ * :where() keeps `position: relative` at zero specificity so a consumer can still place the
+ * button with position: absolute (still a containing block for the pseudo-element).
+ * At 88px or taller the insets resolve to 0 and the tap area equals the visual box.
+ */
+:where(.pb-ghost-button) {
+  position: relative;
+}
+
+.pb-ghost-button::after {
+  content: '';
+  position: absolute;
+  top: min(0px, calc((100% - 88px) / 2));
+  bottom: min(0px, calc((100% - 88px) / 2));
+  left: min(0px, calc((100% - 88px) / 2));
+  right: min(0px, calc((100% - 88px) / 2));
 }
 
 .pb-ghost-button--portrait {

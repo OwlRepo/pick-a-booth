@@ -4,6 +4,7 @@
     <PbModeTile
       v-for="(trigger, index) in visibleTriggers"
       :key="index"
+      class="action-button"
       :class="['action-button-' + index]"
       :bg="colors[index].bg"
       :fg="colors[index].fg"

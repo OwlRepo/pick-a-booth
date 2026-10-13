@@ -11,12 +11,14 @@
     id="gallery-linear-progress-bar"
     :progress="props.duration > 0 ? remainingSeconds / props.duration : 0"
     :left="props.left"
-    :right="$t('Back to start in {s}s', { s: Math.max(0, Math.ceil(remainingSeconds)) })"
+    :right="returnCaption"
+    :aria-label="returnCaption"
   />
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { computed, ref, onMounted, onBeforeUnmount } from 'vue'
+import { useI18n } from 'vue-i18n'
 import PbAutoReturnBar from '@/components/pb/PbAutoReturnBar.vue'
 
 const props = defineProps<{
@@ -24,7 +26,9 @@ const props = defineProps<{
   left?: string
 }>()
 
+const { t } = useI18n()
 const remainingSeconds = ref(0)
+const returnCaption = computed(() => t('Back to start in {s}s', { s: Math.max(0, Math.ceil(remainingSeconds.value)) }))
 let intervalTimerId: number
 
 const emit = defineEmits<{

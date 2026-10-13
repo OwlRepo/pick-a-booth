@@ -8,8 +8,7 @@
         :draggable="false"
         loading="eager"
         :src="`/api/processing/approval/${approval_id}`"
-        fit="cover"
-        position="50% 40%"
+        fit="contain"
         @error="showImage = false"
         loading-show-delay="800"
       />
@@ -27,7 +26,12 @@
       <div class="approval__head">
         <div class="approval__progress">
           <div class="approval__shot">{{ $t('Shot {no} of {total}', { no: number_captures_taken, total: total_captures_to_take }) }}</div>
-          <PbStepDots :total="total_captures_to_take" :value="number_captures_taken" color="var(--t2)" />
+          <PbStepDots
+            :total="total_captures_to_take"
+            :value="number_captures_taken"
+            color="var(--t2)"
+            :aria-label="$t('Shot {no} of {total}', { no: number_captures_taken, total: total_captures_to_take })"
+          />
         </div>
         <div class="approval__title">{{ $t('Keep this one?') }}</div>
       </div>
@@ -37,6 +41,7 @@
       <div class="approval__actions">
         <PbBigButton
           id="item-approval-button-reject"
+          class="action-button"
           :height="isPortrait ? 120 : 96"
           bordered
           icon="rotate-ccw"
@@ -49,6 +54,7 @@
         </PbBigButton>
         <PbBigButton
           id="item-approval-button-approve"
+          class="action-button"
           :height="isPortrait ? 120 : 124"
           bg="var(--t5)"
           fg="var(--t5i)"

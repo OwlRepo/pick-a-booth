@@ -512,3 +512,4 @@ Commit `chore(frontend): remove upstream links, Crowdin and branding`.
 `origin/main` (`444086c7`) does not contain PR#2 (desktop CI): it merged into `infra/no-ticket-ai-workflow-port` after PR#1 landed. So `.github/workflows/ci.yml`, `scripts/ci/check_test_layers.py` and the new PR template are absent on main. Owner chose to proceed on current main:
 - Phase 6 step 2: the frontend CI job goes in a new `.github/workflows/frontend.yml` (same steps), not `ci.yml`.
 - Phase 2 step 8: no `Test-Layers-Skip` trailer (the guard does not exist on main).
+- Phase 3: `ink('#3d6bff')` returns `#0a0b10` (contrast 4.434 vs 4.427 for white). The design renders `--t4i` through `ink()`, so the reference wins over handoff §1's `--t4i:#ffffff`; `tokens.scss` uses `#0a0b10`. Upstream oxlint error in `frontend/src/router/index.ts:37` (unused `_`) is fixed so the new frontend CI passes.

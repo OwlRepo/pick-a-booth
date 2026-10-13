@@ -19,3 +19,4 @@ frontend/src/dto/api.ts
 frontend/src/i18n/locales/
 # design reference (large inline-styled HTML)
 docs/design/
+frontend/public/

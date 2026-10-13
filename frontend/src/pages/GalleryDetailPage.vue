@@ -1,43 +1,34 @@
+<!--
+  GalleryDetailPage — result screen (itemPresenterMode, dc.html L115-125 / L250-258) and gallery detail (dc.html L163-173).
+  Landscape: photo card + 460px side panel (PageToolbar). Portrait: panel below the photo.
+  The Back / Done pill is the layout's ReturnButton, hosted in the panel header via useReturnButtonSlot.
+-->
 <template>
   <q-layout view="hhh Lpr ffr" @click="headercountdowntimer = false">
-    <div v-if="currentMediaitem" class="fixed-full">
+    <div v-if="currentMediaitem" class="fixed-full pb-detail">
       <!-- v-if above is guard to hide all content that would fail if no currentMediaitem is avail -->
-      <q-header class="bg-primary text-white">
-        <HeaderCountdownTimer
-          v-if="headercountdowntimer"
-          :duration="configurationStore.configuration.uisettings.AUTOCLOSE_NEW_ITEM_ARRIVED"
-          @trigger-timeout="$router.push({ path: '/' })"
-        ></HeaderCountdownTimer>
-        <HeaderProcessing v-if="displayIndeterminateProgressbar"></HeaderProcessing>
-      </q-header>
+      <HeaderProcessing v-if="displayIndeterminateProgressbar"></HeaderProcessing>
 
-      <q-dialog v-if="showFilter" v-model="openFilterDialog">
-        <q-card style="min-width: 550px; min-height: 400px; max-width: 90vw; max-height: 90vh" flat>
-          <!-- TOP BAR -->
-          <q-card-section class="row items-center q-pb-none">
-            <q-space />
-            <div class="text-h6">{{ $t('Choose your filter') }}</div>
-            <q-space />
-            <q-btn icon="sym_o_close" flat round v-close-popup />
-          </q-card-section>
-
-          <!-- MAIN Q-CARD TO LAYOUT THE FILTER DIALOG -->
-          <q-card-section>
-            <!-- FILTER DIALOG CONTENT -->
-            <FilterCards
-              v-if="openFilterDialog"
-              :id="currentMediaitem.id"
-              :available-filter="available_filter"
-              @trigger-apply-filter="doApplyFilter"
-            ></FilterCards>
-          </q-card-section>
-        </q-card>
+      <q-dialog v-if="showFilter" v-model="openFilterDialog" class="pb-dialog" backdrop-filter="blur(6px)">
+        <div class="pb-detail__filter-dialog">
+          <div class="pb-detail__dialog-head">
+            <span class="pb-detail__dialog-title">{{ $t('Choose your filter') }}</span>
+            <PbRoundButton v-close-popup :size="56" icon="x" :label="$t('BTN_LABEL_CANCEL')" />
+          </div>
+          <!-- FILTER DIALOG CONTENT -->
+          <FilterCards
+            v-if="openFilterDialog"
+            :id="currentMediaitem.id"
+            :available-filter="available_filter"
+            @trigger-apply-filter="doApplyFilter"
+          ></FilterCards>
+        </div>
       </q-dialog>
 
-      <q-page-container class="q-pa-none galleryimagedetail full-height">
-        <q-page class="full-height">
+      <div class="pb-detail__grid">
+        <div class="pb-detail__photo">
           <template v-if="itemPresenterMode">
-            <MediaItemPreviewViewer :item="currentMediaitem" style="user-select: none" />
+            <MediaItemPreviewViewer :item="currentMediaitem" class="pb-detail__preview" style="user-select: none" />
           </template>
           <template v-else>
             <PageCarouselView
@@ -46,58 +37,67 @@
               @trigger-changed-item="onCarouselTransition"
             />
           </template>
+        </div>
 
-          <q-page-sticky position="top-right" class="q-ma-lg" v-if="configurationStore.configuration.uisettings.gallery_show_qrcode">
-            <PageQrCode
-              :urls="qrShareUrls"
-              :text-above="configurationStore.configuration.uisettings.qrcode_text_above"
-              :text-below="configurationStore.configuration.uisettings.qrcode_text_below"
-              :linkQrCodes="configurationStore.configuration.uisettings.qrcode_link_codes"
-            />
-          </q-page-sticky>
+        <PageToolbar
+          :item="currentMediaitem"
+          :show-filter="configurationStore.configuration.uisettings.gallery_show_filter"
+          :enable-filter="filterEnabled(currentMediaitem.media_type)"
+          :show-share="configurationStore.configuration.uisettings.gallery_show_shareprint && configurationStore.configuration.share.sharing_enabled"
+          :share-buttons="shareButtons"
+          :show-delete="props.itemPresenterMode || configurationStore.configuration.uisettings.gallery_show_delete"
+          :show-download="configurationStore.configuration.uisettings.gallery_show_download"
+          :image_number="itemPresenterMode ? undefined : currentMediaitemNumber"
+          :images_total="itemPresenterMode ? undefined : mediacollectionStore.collection_number_of_items"
+          :last-action-trigger-button="
+            itemPresenterMode && configurationStore.configuration.uisettings.itempresenter_show_trigger_last_action_again
+              ? lastActionTriggerButton
+              : null
+          "
+          @trigger-toggle-display-filter="openFilterDialog = !openFilterDialog"
+          @trigger-delete-mediaitem="doDeleteItem"
+          @trigger-share-action="doShareAction"
+          @trigger-action="invokeAction"
+        >
+          <template #head>
+            <span v-if="itemPresenterMode" class="pb-detail__title">{{ $t('Looking good!') }}</span>
+            <div ref="returnSlot" class="pb-detail__return" />
+          </template>
 
-          <PageToolbar
-            :item="currentMediaitem"
-            :show-filter="configurationStore.configuration.uisettings.gallery_show_filter"
-            :enable-filter="filterEnabled(currentMediaitem.media_type)"
-            :show-share="
-              configurationStore.configuration.uisettings.gallery_show_shareprint && configurationStore.configuration.share.sharing_enabled
-            "
-            :share-buttons="shareButtons"
-            :show-delete="props.itemPresenterMode || configurationStore.configuration.uisettings.gallery_show_delete"
-            :show-download="configurationStore.configuration.uisettings.gallery_show_download"
-            :image_number="currentMediaitemNumber"
-            :images_total="mediacollectionStore.collection_number_of_items"
-            :last-action-trigger-button="
-              itemPresenterMode && configurationStore.configuration.uisettings.itempresenter_show_trigger_last_action_again
-                ? lastActionTriggerButton
-                : null
-            "
-            @trigger-toggle-display-filter="openFilterDialog = !openFilterDialog"
-            @trigger-delete-mediaitem="doDeleteItem"
-            @trigger-share-action="doShareAction"
-            @trigger-action="invokeAction"
-          ></PageToolbar>
+          <HeaderCountdownTimer
+            v-if="headercountdowntimer"
+            :duration="configurationStore.configuration.uisettings.AUTOCLOSE_NEW_ITEM_ARRIVED"
+            :left="$t('Photo {no} of {total}', { no: currentMediaitemNumber, total: mediacollectionStore.collection_number_of_items })"
+            @trigger-timeout="$router.push({ path: '/' })"
+          ></HeaderCountdownTimer>
 
-          <q-dialog v-model="showDialogShareActionWithParameters">
-            <PageShareParameters
-              :parameters="configurationStore.configuration.share.actions[shareActionWithParametersConfigIndex].processing.parameters"
-              :parameters_dialog_caption="
-                configurationStore.configuration.share.actions[shareActionWithParametersConfigIndex].processing.parameters_dialog_caption
-              "
-              :parameters_dialog_action_icon="
-                configurationStore.configuration.share.actions[shareActionWithParametersConfigIndex].processing.parameters_dialog_action_icon
-              "
-              :parameters_dialog_action_label="
-                configurationStore.configuration.share.actions[shareActionWithParametersConfigIndex].processing.parameters_dialog_action_label
-              "
-              :config_index="shareActionWithParametersConfigIndex"
-              @trigger-share-action-with-parameters="doShareActionWithParameters"
-            >
-            </PageShareParameters>
-          </q-dialog>
-        </q-page>
-      </q-page-container>
+          <PageQrCode
+            v-if="configurationStore.configuration.uisettings.gallery_show_qrcode"
+            :urls="qrShareUrls"
+            :text-above="configurationStore.configuration.uisettings.qrcode_text_above"
+            :text-below="configurationStore.configuration.uisettings.qrcode_text_below"
+            :linkQrCodes="configurationStore.configuration.uisettings.qrcode_link_codes"
+          />
+        </PageToolbar>
+      </div>
+
+      <q-dialog v-model="showDialogShareActionWithParameters" class="pb-dialog" backdrop-filter="blur(6px)">
+        <PageShareParameters
+          :parameters="configurationStore.configuration.share.actions[shareActionWithParametersConfigIndex].processing.parameters"
+          :parameters_dialog_caption="
+            configurationStore.configuration.share.actions[shareActionWithParametersConfigIndex].processing.parameters_dialog_caption
+          "
+          :parameters_dialog_action_icon="
+            configurationStore.configuration.share.actions[shareActionWithParametersConfigIndex].processing.parameters_dialog_action_icon
+          "
+          :parameters_dialog_action_label="
+            configurationStore.configuration.share.actions[shareActionWithParametersConfigIndex].processing.parameters_dialog_action_label
+          "
+          :config_index="shareActionWithParametersConfigIndex"
+          @trigger-share-action-with-parameters="doShareActionWithParameters"
+        >
+        </PageShareParameters>
+      </q-dialog>
     </div>
     <div v-else>
       <!-- usually not visible but if page is called with wrong id or the page was not closed after an item is deleted -->
@@ -130,6 +130,8 @@ import { type ShareSchema } from '@/components/ShareTriggerButtons.vue'
 import { remoteProcedureCall, _fetch } from '@/util/fetch_api.js'
 import { watchDebounced } from '@vueuse/core'
 import { default as MediaItemPreviewViewer } from '@/components/MediaItemPreviewViewer.vue'
+import PbRoundButton from '@/components/pb/PbRoundButton.vue'
+import { useReturnButtonSlot } from '@/components/ReturnButton.vue'
 
 const { t } = useI18n()
 const $q = useQuasar()
@@ -150,6 +152,9 @@ const props = defineProps<{
   startTimer: boolean
   itemPresenterMode?: boolean
 }>()
+
+// result screen: "Done" with a check (dc.html L117); gallery detail: "Back" (dc.html L166). Same layout behaviour.
+const returnSlot = useReturnButtonSlot(() => (props.itemPresenterMode ? { size: 52, label: t('Done'), icon: 'check' } : { size: 52 }))
 
 onBeforeMount(() => {
   selectedMediaitemId.value = route.params.id as string
@@ -279,6 +284,8 @@ const doShareAction = (config_index: number) => {
   }
 }
 const doShareActionWithParameters = async (config_index: number, input_data: unknown) => {
+  // close only after the form validated and emitted (was v-close-popup on the submit button, which also closed on invalid input)
+  showDialogShareActionWithParameters.value = false
   console.warn(selectedMediaitemId.value, config_index, input_data)
   console.log(JSON.stringify(input_data))
   try {
@@ -305,3 +312,109 @@ const invokeAction = (trigger: TriggerSchema) => {
   remoteProcedureCall(`/api/${trigger.action}/${trigger.config_index}`)
 }
 </script>
+
+<style scoped>
+.pb-detail {
+  background: var(--pb-bg);
+  color: var(--pb-text);
+}
+
+.pb-detail__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 460px;
+  gap: 20px;
+  height: 100%;
+  padding: 24px;
+}
+
+.pb-detail__photo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 0;
+  padding: 20px;
+  overflow: hidden;
+  border-radius: 32px;
+  background: var(--pb-surface-1);
+}
+
+.pb-detail__photo :deep(.q-img),
+.pb-detail__photo :deep(video) {
+  border-radius: 20px;
+}
+
+.pb-detail__title {
+  font-family: 'Sora', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-size: 30px;
+  line-height: 1.1;
+}
+
+.pb-detail__return {
+  display: flex;
+  flex: none;
+}
+
+.pb-detail__return:empty {
+  display: none;
+}
+
+.pb-detail__filter-dialog {
+  width: 620px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 32px;
+  border-radius: 36px;
+  background: var(--pb-surface-1);
+  border: var(--pb-line);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+  color: var(--pb-text);
+}
+
+.pb-detail__dialog-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.pb-detail__dialog-title {
+  font-family: 'Sora', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-size: 30px;
+  line-height: 1.1;
+}
+
+@media (orientation: portrait) {
+  .pb-detail__grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: 18px;
+  }
+
+  .pb-detail__photo {
+    padding: 18px;
+  }
+
+  .pb-detail__filter-dialog {
+    width: 680px;
+  }
+}
+</style>
+
+<style>
+/* q-dialog backdrop + width for the v2 dialogs (share parameters, filter, delete confirm); dc.html L142-143 / L273-274 */
+.pb-dialog .q-dialog__backdrop {
+  background: rgba(5, 6, 10, 0.72);
+}
+
+.pb-dialog .q-dialog__inner--minimized > div {
+  max-width: 100%;
+}
+</style>

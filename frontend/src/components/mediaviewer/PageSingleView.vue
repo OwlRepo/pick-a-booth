@@ -1,7 +1,7 @@
 <template>
-  <q-card class="column no-wrap flex-center full-height q-pa-sm">
+  <div class="pb-single-view column no-wrap flex-center full-height">
     <MediaItemPreviewViewer :item="item" />
-  </q-card>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -12,3 +12,11 @@ defineProps<{
   item: components['schemas']['MediaitemPublic']
 }>()
 </script>
+
+<style scoped>
+.pb-single-view {
+  padding: 20px;
+  border-radius: 32px;
+  background: var(--pb-surface-1);
+}
+</style>

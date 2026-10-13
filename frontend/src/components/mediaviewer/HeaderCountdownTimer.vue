@@ -1,20 +1,27 @@
+<!--
+  HeaderCountdownTimer — auto-return countdown, rendered as the v2 auto-return bar (PbAutoReturnBar, dc.html L118 / L253).
+  Props:
+    duration: number    seconds until `triggerTimeout`
+    left?: string       left caption, e.g. "Photo 12 of 48"
+  Emits: triggerTimeout (once, when the countdown reaches 0). Ticks every 100ms; fill = remaining / duration.
+-->
 <template>
-  <!-- progress bar to timeout and close -->
-  <q-linear-progress
+  <PbAutoReturnBar
     v-if="remainingSeconds >= 0"
     id="gallery-linear-progress-bar"
-    class="absolute"
-    :value="remainingSeconds / props.duration"
-    animation-speed="200"
-    color="grey"
+    :progress="props.duration > 0 ? remainingSeconds / props.duration : 0"
+    :left="props.left"
+    :right="$t('Back to start in {s}s', { s: Math.max(0, Math.ceil(remainingSeconds)) })"
   />
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from 'vue'
+import PbAutoReturnBar from '@/components/pb/PbAutoReturnBar.vue'
 
 const props = defineProps<{
   duration: number
+  left?: string
 }>()
 
 const remainingSeconds = ref(0)

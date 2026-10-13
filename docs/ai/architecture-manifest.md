@@ -21,10 +21,11 @@ Python ≥3.11, FastAPI + uvicorn, pydantic v2 + pydantic-settings, SQLAlchemy 2
 | `src/photobooth/plugins/` | pluggy hookspecs and bundled plugins (commander, filter_pilgram2, gpio_lights, synchronizer, wled) |
 | `src/photobooth/database/` | engine + migration runner, models, Pydantic schemas, `alembic/` |
 | `src/photobooth/utils/` | shared helpers (resizing, encoding, timers, resilient services, rembg, calibration) |
-| `src/web/` | vendored frontend bundle, sharepage, PHP shareondemand endpoint |
+| `frontend/` | kiosk/admin UI source (Vue3/Quasar/TypeScript, npm), git subtree of photobooth-frontend; builds into `src/web/frontend/` |
+| `src/web/` | frontend build output, sharepage, PHP shareondemand endpoint |
 | `src/tests/` | `tests/` (pytest suite) and `benchmarks/` |
 | `scripts/` | AI workflow tooling (TDD gate/guard, persona generator, worktree script) |
-| `.github/workflows/` | lint, tests, benchmarks, PyPI publish (upstream-only), `ai-gates` |
+| `.github/workflows/` | lint, tests, benchmarks, PyPI publish (upstream-only), `ai-gates`, `frontend` |
 
 ## Request and data flow
 

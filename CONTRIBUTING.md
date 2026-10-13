@@ -90,7 +90,17 @@ uv run photobooth
 ```
 
 - The app reloads on each run.  
-- For front-end changes, follow the [frontend setup instructions](https://github.com/photobooth-app/photobooth-frontend).  
+- For front-end changes, edit the source in `frontend/` (a git subtree of [photobooth-frontend](https://github.com/photobooth-app/photobooth-frontend)):  
+
+```bash
+cd frontend
+npm ci                             # Node 22 or newer
+npm run dev                        # dev server; proxies the API to 127.0.0.1:8000, so keep `uv run photobooth` running
+npm run lint:check && npm run typecheck && npm run test
+npm run build                      # writes the bundle into src/web/frontend/; commit it with your UI change
+```
+
+- Never hand-edit the hashed files in `src/web/frontend/assets/`; rebuild instead.  
 
 ### Submitting a Pull Request
 

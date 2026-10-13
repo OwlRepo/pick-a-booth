@@ -71,6 +71,12 @@ Format: `` `symbol` -> `path:line` — purpose ``.
 - `client` -> `src/tests/tests/conftest.py:23` — TestClient on `/api/` with the container started.
 - `client_authenticated` -> `src/tests/tests/conftest.py:34` — client with an admin bearer token.
 
+## Frontend
+
+- `frontend/` — kiosk/admin UI source (Vue3/Quasar/TypeScript, npm), git subtree of upstream photobooth-frontend; `npm run build` writes `src/web/frontend/` (`docs/ai/dev-environment.md` "Frontend (Node)").
+- `frontend/src/theme/palette.ts` — event colour palette helpers (`uisettings.theme_palette`, ink contrast, tile colour by index).
+- `frontend/src/components/pb/` — shared v2 UI components (buttons, tiles, chrome) used by the re-skinned screens.
+
 ## Workflow & Agent Tooling
 
 - `classify_changes` / `judge_red` / `find_bash_write_targets` -> `scripts/ci/tdd_lib.py` — TDD rules shared by gate, red and hook.
@@ -80,6 +86,7 @@ Format: `` `symbol` -> `path:line` — purpose ``.
 - `main` -> `scripts/hooks/tdd_red_guard.py` — Claude PreToolUse hook (`.claude/settings.json`).
 - `GLOBAL_POLICY` / `check` -> `scripts/generate_agent_defs.py` — persona generator (Claude Code only) and `agents:lint`.
 - `scripts/new-task-worktree.sh` — fresh task worktree from `origin/main`.
+- `.github/workflows/frontend.yml` — CI for `frontend/`: lint, typecheck, vitest, build.
 - `graphify-out/graph.json` — the knowledge graph used for discovery (flow node K).
 
 ## Maintenance Rules

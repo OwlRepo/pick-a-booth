@@ -16,7 +16,7 @@ This is a reviewer-facing tag on the diff, distinct from the routing `Classifica
 
 ### 1. UI / user-facing
 
-Triggers: a new frontend bundle, sharepage changes, or backend changes with visible effect in the kiosk/admin UI.
+Triggers: changes under `frontend/` or a rebuilt `src/web/frontend/` bundle, sharepage changes, or backend changes with visible effect in the kiosk/admin UI.
 
 Attach a short screen recording of the live flow (`docs/ai/testing-strategy.md` "Live verification"): starting state, user actions, completed result, and relevant error states. GitHub has no API to attach a video to a PR body; hand the file to the repo owner to attach and open the PR as a draft (`gh pr create --draft`) until it is attached, stating the exact file path.
 

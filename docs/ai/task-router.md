@@ -39,7 +39,7 @@ When intent is unclear, pick the safest lane. Anything touching admin auth, the 
 
 ## Polyglot Note
 
-This repo is not Python-only: the Python app PLUS a vendored, prebuilt JS bundle (`src/web/frontend/`, source in photobooth-frontend) PLUS a PHP share endpoint (`src/web/shareondemand/api.php`) PLUS GitHub Actions workflows. Route and verify for the language and runtime actually involved.
+This repo is not Python-only: the Python app PLUS a Vue3/Quasar/TypeScript frontend (source in `frontend/`, a git subtree of photobooth-frontend, built with npm into `src/web/frontend/`) PLUS a PHP share endpoint (`src/web/shareondemand/api.php`) PLUS GitHub Actions workflows. Route and verify for the language and runtime actually involved.
 
 ## Mandatory Classification Output
 

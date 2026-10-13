@@ -4,7 +4,7 @@ assets/
 src/photobooth/demoassets/
 src/photobooth/services/backends/assets/
 src/tests/assets/
-# Vendored build of photobooth-frontend (minified bundle).
+# Build output of frontend/ (minified bundle).
 src/web/frontend/
 # Generated from agents/src/ (scripts/generate_agent_defs.py); indexing the source is enough.
 .claude/agents/

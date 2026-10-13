@@ -12,7 +12,7 @@ All nine personas use the Claude `sonnet` alias. Model selection lives only in `
 
 For one feature dispatch, `fastapi-backend-dev` and `web-frontend-dev` work in the SAME worktree. To prevent concurrent writes to the same file:
 
-1. **web-frontend-dev** may create or edit: `src/web/frontend/**`, `src/web/sharepage/**`, `src/web/shareondemand/**`. It consumes the backend only through the locked `/api` contract and never edits Python.
+1. **web-frontend-dev** may create or edit: `frontend/**`, `src/web/frontend/**`, `src/web/sharepage/**`, `src/web/shareondemand/**`. It consumes the backend only through the locked `/api` contract and never edits Python.
 2. **fastapi-backend-dev** may create or edit: `src/photobooth/routers/**`, `src/photobooth/services/**`, `src/photobooth/plugins/**`, `src/photobooth/utils/**`, and `src/photobooth/database/schemas.py`. It NEVER touches the SQLAlchemy models or Alembic migrations.
 3. **db-architect** owns `src/photobooth/database/models.py` and `src/photobooth/database/alembic/versions/*.py`. It runs ALONE, sequentially, before the contract is locked — never as part of the concurrent pair.
 4. **Shared/boundary files:** the Pydantic request/response models consumed by both sides are owned by fastapi-backend-dev, since it owns the locked contract. web-frontend-dev never edits them; a shape change goes through `project-manager`, which re-issues the contract lock.
@@ -39,7 +39,7 @@ pluggy hookspecs in `src/photobooth/plugins/__init__.py`; bundled plugins regist
 SQLite via SQLAlchemy 2; Alembic runs unattended at every app start on every installed photobooth. Additive, reversible migrations only (`docs/ai/planning.md` "Migrations"). Deep by default.
 
 ### web
-`src/web/frontend/` is a vendored build of photobooth-frontend; replace it from a build, never hand-edit. `src/web/shareondemand/api.php` is deployed by users on their own web hosting.
+The UI source is `frontend/` (git subtree of upstream photobooth-frontend; Vue3/Quasar/TypeScript, npm). `src/web/frontend/` is its build output: rebuild with `cd frontend && npm run build`, never hand-edit. Frontend unit tests are vitest (`frontend/src/**/*.spec.ts`); the TDD gate does not cover them, so prove UI behaviour live in Brave. `src/web/shareondemand/api.php` is deployed by users on their own web hosting.
 
 If a spec touches an area not listed here, do not invent a briefing — escalate to the repo owner instead.
 

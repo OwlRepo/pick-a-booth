@@ -17,10 +17,12 @@ stills, animated GIFs, collages, boomerang/video and 3D wigglegrams from DSLR
 live preview, printing, sharing and WLED/GPIO hardware integration
 (`README.md` "Features"). It runs on Linux, Raspberry Pi and Windows.
 
-The kiosk and admin UI is a **prebuilt Vue3 bundle** in `src/web/frontend/`; its
-source lives in the separate photobooth-frontend repository
-(`CONTRIBUTING.md` "Running & Testing Locally"). There is no JS/TS source and no
-Node tooling in this repository.
+The kiosk and admin UI is a Vue3/Quasar/TypeScript app whose source lives in
+`frontend/`, a git subtree of upstream photobooth-frontend (npm, Node ≥22).
+`cd frontend && npm run build` writes the bundle into `src/web/frontend/`, which
+the app serves at `/`. Pull upstream with
+`git subtree pull --prefix=frontend https://github.com/photobooth-app/photobooth-frontend.git main --squash`
+(`docs/ai/dev-environment.md` "Frontend (Node)").
 
 Upstream sync matters: keep additive changes in new files where possible so
 merging upstream `main` stays conflict-free.
@@ -83,7 +85,7 @@ merging upstream `main` stays conflict-free.
 
 - Don't add dependencies without approval; never regenerate `uv.lock` from scratch.
 - Don't add import-time side effects or new global singletons.
-- Don't hand-edit the hashed files in `src/web/frontend/assets/`; replace the bundle from a photobooth-frontend build.
+- Don't hand-edit the hashed files in `src/web/frontend/assets/`; change `frontend/` and rebuild with `cd frontend && npm run build`.
 - Don't commit credentials: `.env*` is gitignored, `src/web/shareondemand/api.php` ships a placeholder key, and `.vscode/sftp.json` must never gain secrets.
 - Don't edit the upstream-owner-gated CI jobs (PyPI publish, Raspberry Pi runner, codecov) — they are inert on this fork and conflict on upstream sync.
 - Don't reimplement helpers that exist in `src/photobooth/utils/` or a service — search with graphify first (`/graphify query`), grep only if graphify cannot answer.

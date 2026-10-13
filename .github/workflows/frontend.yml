@@ -1,0 +1,62 @@
+name: frontend
+
+# Kiosk/admin UI source vendored at frontend/ (git subtree of upstream
+# photobooth-frontend). Separate file so upstream syncs of the photobooth-app
+# workflows stay conflict-free.
+#
+# No bundle-freshness diff against src/web/frontend/: quasar.config.ts defines
+# BUILD_DATE as new Date().toISOString(), so every build differs and a diff
+# would always fail. The PR checklist covers "bundle rebuilt in this PR".
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "frontend/**"
+      - ".github/workflows/frontend.yml"
+  pull_request:
+    paths:
+      - "frontend/**"
+      - ".github/workflows/frontend.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: frontend-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  frontend:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint:check
+
+      - name: Type check
+        run: npm run typecheck
+
+      # Vitest unit tests (frontend/src/**/*.spec.ts).
+      - name: Unit tests
+        run: npm run test
+
+      # Writes into src/web/frontend/; proves the bundle builds, not that the
+      # committed bundle is fresh (see top comment).
+      - name: Build
+        run: npm run build

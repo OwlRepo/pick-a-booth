@@ -30,7 +30,9 @@ What counts as what (`scripts/ci/tdd_lib.py`):
 | migration tests | `src/tests/tests/**/test_*migration*.py` (also run as unit tests) |
 | migrations | `src/photobooth/database/alembic/versions/*.py` |
 | tooling tests | `scripts/**/test_*.py` |
-| not gated | `src/tests/benchmarks/*_test.py`, `src/web/**` (vendored build), docs |
+| not gated | `src/tests/benchmarks/*_test.py`, `frontend/**`, `src/web/**` (build output), docs |
+
+Frontend source (`frontend/`) has its own vitest unit tests (`frontend/src/**/*.spec.ts`, `cd frontend && npm run test`), run in CI by `.github/workflows/frontend.yml` with lint, typecheck and build. Write them for new frontend logic, but the TDD gate does not enforce RED for them; UI behaviour is proven live in Brave ("Live verification").
 
 Enforcement:
 

@@ -1,6 +1,6 @@
 ---
 name: accessibility-auditor
-description: "Use when user-visible web assets change (src/web/**, or a new photobooth-frontend bundle). Read-only WCAG 2.1 AA audit; reports WCAG_AA_PASS or WCAG_AA_FAIL."
+description: "Use when user-visible web assets change (frontend/**, src/web/**, or a rebuilt bundle). Read-only WCAG 2.1 AA audit; reports WCAG_AA_PASS or WCAG_AA_FAIL."
 tools: Read, Grep, Glob, Bash
 model: sonnet
 ---
@@ -22,7 +22,7 @@ You audit accessibility for pick-a-booth's web UI. Read-only. Report issues.
 10. **Language:** the document sets `lang`.
 
 # Scope
-The UI source is in photobooth-frontend; here you audit the shipped `src/web/frontend/` bundle by running the app (`uv run photobooth`, then `http://localhost:8000/` in Brave) and the `src/web/sharepage/index.html` page. Report source-level fixes for photobooth-frontend when the issue is in the bundle.
+The UI source is in `frontend/` (Vue3/Quasar); it builds into `src/web/frontend/`. Audit the running app (`uv run photobooth`, then `http://localhost:8000/` in Brave) and the `src/web/sharepage/index.html` page. Point each finding at the source file in `frontend/src/`, never at the hashed bundle.
 
 # Output format
 ```

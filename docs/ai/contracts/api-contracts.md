@@ -36,7 +36,7 @@
 
 ## Contract rules
 
-- Response models are part of the contract: a field rename or removal breaks the vendored frontend bundle and third-party callers. Additive changes only, unless the plan coordinates a new frontend bundle.
+- Response models are part of the contract: a field rename or removal breaks the frontend (`frontend/`, regenerate `frontend/src/dto/api.ts` with `npm run generate-types`) and third-party callers. Additive changes only, unless the plan coordinates the frontend change and a rebuilt bundle.
 - The path prefix `/api/aquisition` is misspelled upstream; it is part of the contract — do not "fix" it.
 - New destructive, config-changing, or system-level routes go under `/api/admin`.
 - SSE event shapes (`src/photobooth/services/sse/sse_.py`) are consumed by the frontend; treat them like response models.

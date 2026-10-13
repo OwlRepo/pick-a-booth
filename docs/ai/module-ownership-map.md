@@ -20,7 +20,7 @@
 | `database` | `src/photobooth/database/` | db-architect (models, migrations), fastapi-backend-dev (`schemas.py`) | `src/tests/tests/services/test_collection.py` | Deep | migrations run unattended at start |
 | `app-core` | `src/photobooth/application.py`, `src/photobooth/container.py`, `src/photobooth/__init__.py`, `src/photobooth/__main__.py` | assigned at contract lock | `src/tests/tests/test_application.py`, `src/tests/tests/test_container.py`, `src/tests/tests/test_init.py`, `src/tests/tests/test_main.py` | Deep | startup, import side effects |
 | `utils` | `src/photobooth/utils/` | fastapi-backend-dev | `src/tests/tests/utils/` | Standard | shared helpers |
-| `web` | `src/web/frontend/`, `src/web/sharepage/` | web-frontend-dev | live verification | Standard | vendored build of photobooth-frontend |
+| `web` | `frontend/`, `src/web/frontend/`, `src/web/sharepage/` | web-frontend-dev | `frontend/src/**/*.spec.ts` (vitest) + live verification | Standard | `frontend/` is a git subtree of photobooth-frontend; `src/web/frontend/` is its build output |
 | `tooling` | `scripts/`, `agents/src/`, `.github/workflows/`, `docs/ai/`, `.ai-engineering/` | assigned at contract lock | `scripts/tests/` | Standard; Deep for CI gates | AI workflow layer |
 
 ## Default Deep Domains

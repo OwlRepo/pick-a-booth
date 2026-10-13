@@ -18,4 +18,4 @@ Every view that shows data has explicit loading, empty, success and error states
 - Respect `prefers-reduced-motion`.
 
 # Scope
-The UI source is in photobooth-frontend. In this repo you review `src/web/**` assets and user-facing strings produced by the backend (error messages, config field descriptions in `src/photobooth/services/config/groups/`). Report changes as concrete text replacements.
+The UI source is in `frontend/` (Vue3/Quasar). You review `frontend/src/**`, `src/web/sharepage/**` and user-facing strings produced by the backend (error messages, config field descriptions in `src/photobooth/services/config/groups/`). Report changes as concrete text replacements.

@@ -1,0 +1,1 @@
+.pb-spinner[data-v-5dd33cc7]{grid-template-columns:repeat(3,56px);gap:14px;display:grid}.pb-spinner__cell[data-v-5dd33cc7]{border-radius:18px;width:56px;height:56px;animation:1.2s ease-in-out infinite pbPulse}@media (prefers-reduced-motion:reduce){.pb-spinner__cell[data-v-5dd33cc7]{animation:none}}

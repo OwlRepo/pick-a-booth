@@ -8,31 +8,30 @@
     </q-breadcrumbs>
 
     <q-dialog v-model="dialog_create_new_folder">
-      <q-card style="min-width: 350px" flat>
-        <q-card-section>
-          <div class="text-h6">{{ $t('TITLE_FILES_NEW_FOLDER_DIALOG') }}</div>
-        </q-card-section>
+      <div class="pb-dialog">
+        <div class="pb-dialog__title">{{ $t('TITLE_FILES_NEW_FOLDER_DIALOG') }}</div>
 
-        <q-card-section class="q-pt-none">
-          <q-input v-model="new_folder_name" dense autofocus @keyup.enter="[createNewFolder(new_folder_name), (dialog_create_new_folder = false)]" />
-        </q-card-section>
+        <q-input v-model="new_folder_name" dense autofocus @keyup.enter="[createNewFolder(new_folder_name), (dialog_create_new_folder = false)]" />
 
-        <q-card-actions align="right" class="text-primary">
-          <q-btn no-caps v-close-popup flat :label="$t('BTN_LABEL_CANCEL')" />
-          <q-btn no-caps v-close-popup flat :label="$t('BTN_LABEL_FILES_CREATE_NEW_FOLDER')" @click="createNewFolder(new_folder_name)" />
-        </q-card-actions>
-      </q-card>
+        <div class="pb-dialog__actions">
+          <q-btn no-caps unelevated v-close-popup class="pb-admin-btn" :label="$t('BTN_LABEL_CANCEL')" />
+          <q-btn
+            no-caps
+            unelevated
+            v-close-popup
+            class="pb-admin-btn pb-admin-btn--primary"
+            :label="$t('BTN_LABEL_FILES_CREATE_NEW_FOLDER')"
+            @click="createNewFolder(new_folder_name)"
+          />
+        </div>
+      </div>
     </q-dialog>
 
     <q-dialog v-model="dialog_upload_files">
-      <q-card style="min-width: 350px" flat>
-        <q-card-section>
-          <div class="text-h6">
-            {{ $t('TITLE_FILES_UPLOAD_FILES_DIALOG') }}
-          </div>
-        </q-card-section>
+      <div class="pb-dialog">
+        <div class="pb-dialog__title">{{ $t('TITLE_FILES_UPLOAD_FILES_DIALOG') }}</div>
 
-        <q-card-section class="q-pt-none">
+        <div>
           <q-uploader
             flat
             label="Upload Files"
@@ -46,17 +45,17 @@
             @uploaded="dialog_upload_files = false"
             style="width: 100%"
           />
-        </q-card-section>
+        </div>
 
-        <q-card-actions align="right" class="text-primary">
-          <q-btn no-caps v-close-popup flat label="Cancel" />
-        </q-card-actions>
-      </q-card>
+        <div class="pb-dialog__actions">
+          <q-btn no-caps unelevated v-close-popup class="pb-admin-btn" label="Cancel" />
+        </div>
+      </div>
     </q-dialog>
 
     <q-table
       v-model:selected="selected"
-      class="full-height"
+      class="full-height files-table"
       flat
       title="File Browser"
       :pagination="pagination"
@@ -86,26 +85,54 @@
 
       <template #top-left>
         <q-dialog v-model="confirm_delete">
-          <q-card class="q-pa-sm" style="min-width: 350px" flat>
-            <q-card-section class="row items-center" style="flex-wrap: nowrap">
-              <q-avatar icon="sym_o_delete" color="negative" text-color="white" />
-              <span class="q-ml-sm">{{ $t('Are you sure you want to delete the selected files and subfolders?') }}</span>
-            </q-card-section>
+          <div class="pb-dialog">
+            <div class="pb-dialog__body">
+              <span class="pb-dialog__icon pb-dialog__icon--danger"><q-icon name="sym_o_delete" size="24px" /></span>
+              <span>{{ $t('Are you sure you want to delete the selected files and subfolders?') }}</span>
+            </div>
 
-            <q-card-actions align="right">
-              <q-btn no-caps v-close-popup flat :label="$t('BTN_LABEL_CANCEL')" color="primary" />
-              <q-btn no-caps v-close-popup :label="$t('Yes, delete')" color="negative" @click="deleteItems(selected)" />
-            </q-card-actions>
-          </q-card>
+            <div class="pb-dialog__actions">
+              <q-btn no-caps unelevated v-close-popup class="pb-admin-btn" :label="$t('BTN_LABEL_CANCEL')" />
+              <q-btn
+                no-caps
+                unelevated
+                v-close-popup
+                class="pb-admin-btn pb-admin-btn--danger"
+                :label="$t('Yes, delete')"
+                @click="deleteItems(selected)"
+              />
+            </div>
+          </div>
         </q-dialog>
-        <div>
-          <q-btn no-caps :disable="folder_loading" :label="$t('BTN_LABEL_FILES_NEW_FOLDER')" @click="dialog_create_new_folder = true" />
-          <q-btn no-caps class="q-ml-sm" :disable="folder_loading" :label="$t('BTN_LABEL_FILES_UPLOAD_FILE')" @click="dialog_upload_files = true" />
-          <q-btn no-caps class="q-ml-sm" :disable="selected.length == 0" :label="$t('BTN_LABEL_FILES_DOWNLOAD_ZIP')" @click="getZip(selected)" />
+        <div class="files-actions">
           <q-btn
             no-caps
-            class="q-ml-sm"
-            color="negative"
+            unelevated
+            class="pb-admin-btn"
+            :disable="folder_loading"
+            :label="$t('BTN_LABEL_FILES_NEW_FOLDER')"
+            @click="dialog_create_new_folder = true"
+          />
+          <q-btn
+            no-caps
+            unelevated
+            class="pb-admin-btn"
+            :disable="folder_loading"
+            :label="$t('BTN_LABEL_FILES_UPLOAD_FILE')"
+            @click="dialog_upload_files = true"
+          />
+          <q-btn
+            no-caps
+            unelevated
+            class="pb-admin-btn"
+            :disable="selected.length == 0"
+            :label="$t('BTN_LABEL_FILES_DOWNLOAD_ZIP')"
+            @click="getZip(selected)"
+          />
+          <q-btn
+            no-caps
+            unelevated
+            class="pb-admin-btn pb-admin-btn--danger"
             :disable="selected.length == 0"
             :label="$t('BTN_LABEL_FILES_DELETE_SELECTED')"
             @click="confirm_delete = true"
@@ -377,3 +404,29 @@ const formatBytes = (bytes: number, decimals = 2) => {
   return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`
 }
 </script>
+
+<style scoped>
+.files-table {
+  border-radius: 28px;
+  background: var(--pb-surface-1);
+  border: var(--pb-line);
+  color: var(--pb-text);
+}
+
+.files-table :deep(.q-table__title) {
+  font-family: 'Sora', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.files-table :deep(th),
+.files-table :deep(td) {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.files-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+</style>

@@ -1,15 +1,15 @@
 <template>
   <control-wrapper v-bind="controlWrapper" :styles="styles" :is-focused="isFocused" :applied-options="appliedOptions">
-    <q-toggle
+    <toggle-switch
       :id="control.id + '-input'"
-      :model-value="control.data"
+      :model-value="!!control.data"
       :class="styles.control.input"
-      :disable="!control.enabled"
+      :disabled="!control.enabled"
       :autofocus="appliedOptions.focus"
       @update:model-value="onChange"
       @focus="isFocused = true"
       @blur="isFocused = false"
-    ></q-toggle>
+    ></toggle-switch>
   </control-wrapper>
 </template>
 
@@ -18,11 +18,12 @@ import type { ControlElement } from '@jsonforms/core'
 import { defineComponent } from 'vue'
 import { rendererProps, useJsonFormsControl, type RendererProps } from '@jsonforms/vue'
 import { default as ControlWrapper } from './ControlWrapper.vue'
+import { default as ToggleSwitch } from './ToggleSwitch.vue'
 import { useQuasarControl } from '../util'
 
 export default defineComponent({
   name: 'BooleanToggleControlRenderer',
-  components: { ControlWrapper },
+  components: { ControlWrapper, ToggleSwitch },
   props: {
     ...rendererProps<ControlElement>(),
   },

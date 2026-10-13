@@ -54,8 +54,8 @@ export const useQuasarBasicControl = <I extends { control: any }>(input: I) => {
   const computedLabel = useComputedLabel(input, appliedOptions)
 
   const controlWrapper = computed(() => {
-    const { id, description, errors, label, visible, required } = input.control.value
-    return { id, description, errors, label, visible, required }
+    const { id, description, errors, label, visible, required, path } = input.control.value
+    return { id, description, errors, label, visible, required, path }
   })
 
   const styles = useStyles(input.control.value.uischema)

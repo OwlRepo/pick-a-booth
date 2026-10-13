@@ -1,69 +1,110 @@
 <template>
+  <!-- 22 AdminConfigPage (dc.html L331-337): section nav card left, form card right -->
   <q-page id="config-page" padding>
-    <q-tabs no-caps mobile-arrows dense align="left">
-      <q-route-tab
-        v-for="(element, index) in configurables"
-        :key="index"
-        :to="{ name: 'config', params: { section: element } }"
-        :label="element.replace(/_/g, ' ').split('.').pop()"
-        replace
-        style="text-transform: capitalize"
-      />
-    </q-tabs>
-    <json-forms
-      v-if="!isLoadingState"
-      :data="configuration"
-      :ajv="ajv"
-      :renderers="renderers"
-      :schema="schema"
-      :uischema="cuischema"
-      @change="onChange"
-    />
+    <div class="config-layout">
+      <nav class="config-nav" :aria-label="$t('TAB_LABEL_CONFIG')">
+        <button
+          v-for="(label, index) in navLabels"
+          :key="`${selected_configuration}-${index}`"
+          type="button"
+          class="config-nav__item"
+          :class="{ 'config-nav__item--active': index == navActive }"
+          :aria-current="index == navActive ? 'true' : undefined"
+          @click="navActive = index"
+        >
+          {{ categoryTitle(label) }}
+        </button>
 
-    <div v-else class="q-pa-md flex flex-center">
-      <div>
-        <q-spinner-gears size="xl" color="primary" />
-      </div>
+        <template v-if="configurables.length > 1">
+          <div class="config-nav__heading">{{ $t('TAB_LABEL_CONFIG') }}</div>
+          <router-link
+            v-for="(element, index) in configurables"
+            :key="index"
+            v-slot="{ href, navigate }"
+            :to="{ name: 'config', params: { section: element } }"
+            replace
+            custom
+          >
+            <a
+              :href="href"
+              class="config-nav__item"
+              :class="{ 'config-nav__item--current': element == selected_configuration }"
+              :aria-current="element == selected_configuration ? 'page' : undefined"
+              @click="navigate"
+              >{{ categoryTitle(element.split('.').pop()) }}</a
+            >
+          </router-link>
+        </template>
+      </nav>
+
+      <section class="config-card">
+        <header class="config-card__head">
+          <h2 class="config-card__title">{{ categoryTitle(navLabels[navActive] ?? selected_configuration) }}</h2>
+          <div class="config-card__actions">
+            <PbPill @click="confirm_reset_config = true">{{ $t('BTN_LABEL_RESET_CONFIG') }}</PbPill>
+            <PbPill @click="updateFormSchema()">{{ $t('BTN_LABEL_RELOAD_CONFIG') }}</PbPill>
+            <label class="config-card__apply">
+              <ToggleSwitch v-model="autoReloadServicesOnSave" />
+              {{ $t('Apply') }}
+              <q-tooltip>{{ $t('Reload services on save to apply settings. Reloading might take some time.') }} </q-tooltip>
+            </label>
+            <PbBigButton
+              :height="52"
+              pill
+              padding="0 24px"
+              bg="var(--t1)"
+              fg="var(--t1i)"
+              icon="check"
+              :icon-size="20"
+              :font-size="17"
+              @click="saveConfig()"
+            >
+              {{ $t('BTN_LABEL_PERSIST_CONFIG') }}
+            </PbBigButton>
+          </div>
+        </header>
+
+        <div class="config-card__body">
+          <json-forms
+            v-if="!isLoadingState"
+            :data="configuration"
+            :ajv="ajv"
+            :renderers="renderers"
+            :schema="schema"
+            :uischema="cuischema"
+            @change="onChange"
+          />
+
+          <div v-else class="config-card__loading">
+            <PbSpinner />
+          </div>
+        </div>
+      </section>
     </div>
 
-    <q-page-sticky position="bottom-right" class="q-ma-lg">
-      <div class="row self-end items-end">
-        <!-- linter error, see open issue: https://github.com/intlify/vue-i18n-next/issues/1403-->
-        <q-btn no-caps class="q-ml-sm" :label="$t('BTN_LABEL_RESET_CONFIG')" @click="confirm_reset_config = true" />
-        <q-btn no-caps class="q-ml-sm" :label="$t('BTN_LABEL_RELOAD_CONFIG')" @click="updateFormSchema()" />
-        <div class="q-ml-sm column">
-          <q-toggle v-model="autoReloadServicesOnSave" :label="$t('Apply')">
-            <q-tooltip>{{ $t('Reload services on save to apply settings. Reloading might take some time.') }} </q-tooltip>
-          </q-toggle>
-          <q-btn no-caps color="primary" :label="$t('BTN_LABEL_PERSIST_CONFIG')" @click="saveConfig()" />
-        </div>
-      </div>
-    </q-page-sticky>
-
     <q-dialog v-model="confirm_reset_config">
-      <q-card class="q-pa-sm" style="min-width: 350px" flat>
-        <q-card-section class="row items-center" style="flex-wrap: nowrap">
-          <q-avatar icon="sym_o_delete" color="negative" text-color="white" />
-          <p class="q-ml-sm">
+      <div class="pb-dialog">
+        <div class="pb-dialog__body">
+          <span class="pb-dialog__icon pb-dialog__icon--danger"><PbIcon name="delete" :size="24" /></span>
+          <span>
             {{
               $t('Are you sure that you want to delete the configuration for {selected_configuration} and reset to the defaults?', {
                 selected_configuration: selected_configuration,
               })
             }}
-          </p>
-        </q-card-section>
-
-        <q-card-actions align="right">
-          <q-btn no-caps v-close-popup flat :label="$t('BTN_LABEL_CANCEL')" color="primary" />
-          <q-btn
-            no-caps
+          </span>
+        </div>
+        <div class="pb-dialog__actions">
+          <PbPill v-close-popup>{{ $t('BTN_LABEL_CANCEL') }}</PbPill>
+          <PbPill
             v-close-popup
-            :label="$t('yes, reset')"
-            color="negative"
+            bg="var(--pb-danger-text)"
+            fg="var(--pb-bg)"
             @click="[remoteProcedureCall(`/api/admin/config/${selected_configuration}`, 'DELETE'), updateFormSchema()]"
-          />
-        </q-card-actions>
-      </q-card>
+            >{{ $t('yes, reset') }}</PbPill
+          >
+        </div>
+      </div>
     </q-dialog>
   </q-page>
 </template>
@@ -71,7 +112,12 @@
 import { ref, provide, onBeforeMount, watch } from 'vue'
 import { JsonForms, type JsonFormsChangeEvent } from '@jsonforms/vue'
 import { generateDefaultUISchema } from '@jsonforms/core'
-import { defaultStyles, mergeStyles, createAjv, quasarRenderers } from '@/components/form'
+import { defaultStyles, mergeStyles, createAjv, quasarRenderers, CONFIG_NAV_KEY, createConfigNavState, categoryTitle } from '@/components/form'
+import ToggleSwitch from '@/components/form/controls/ToggleSwitch.vue'
+import PbBigButton from '@/components/pb/PbBigButton.vue'
+import PbIcon from '@/components/pb/PbIcon.vue'
+import PbPill from '@/components/pb/PbPill.vue'
+import PbSpinner from '@/components/pb/PbSpinner.vue'
 import { remoteProcedureCall, _fetch } from '@/util/fetch_api'
 import { useConfigurationStore } from '@/stores/configuration-store'
 import { Notify } from 'quasar'
@@ -103,6 +149,10 @@ const ajv = createAjv({
 const renderers = Object.freeze([...quasarRenderers])
 const myStyles = mergeStyles(defaultStyles, { control: { label: 'q-label' } })
 provide('styles', myStyles)
+// section nav state shared with TopLevelNavigationRenderer (it publishes the schema categories)
+const configNav = createConfigNavState()
+provide(CONFIG_NAV_KEY, configNav)
+const { labels: navLabels, active: navActive } = configNav
 
 onBeforeMount(() => {
   const section = (route.params.section as string) || 'app'
@@ -152,6 +202,8 @@ const getSchema = async () => {
 const updateFormSchema = async () => {
   //loadscreen on
   isLoadingState.value = true
+  // the form remounts with its first category, as before
+  navActive.value = 0
 
   schema.value = await getSchema()
   cuischema.value = generateDefaultUISchema(schema.value, 'TopLevelNavigation')
@@ -277,14 +329,164 @@ const saveConfig = async () => {
   }
 }
 </script>
-<style lang="scss">
-.control-wrapper {
-  margin-bottom: 10px;
-  grid-gap: 10px;
+<style scoped>
+.config-layout {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  gap: 16px;
+  /* viewport minus the admin header (24 + 64), the 20px gap and the 24px bottom padding */
+  height: calc(100vh - 132px);
+  min-height: 480px;
 }
 
-.control-wrapper .control-description-wrapper,
-.array-list-description {
-  color: $grey;
+.config-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 0;
+  padding: 12px;
+  border-radius: 28px;
+  background: var(--pb-surface-1);
+  border: var(--pb-line);
+  overflow-y: auto;
+}
+
+.config-nav__item {
+  appearance: none;
+  position: relative;
+  flex: none;
+  margin: 0;
+  padding: 13px 16px;
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  color: var(--pb-muted);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: left;
+  text-decoration: none;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+/* ~46px row, 52px hit target */
+.config-nav__item::before {
+  content: '';
+  position: absolute;
+  inset: -3px 0;
+}
+
+.config-nav__item:hover,
+.config-nav__item--current {
+  color: var(--pb-text);
+}
+
+.config-nav__item--active {
+  background: var(--pb-surface-2);
+  color: var(--pb-text);
+}
+
+.config-nav__item:focus-visible {
+  outline: 3px solid var(--pb-text);
+  outline-offset: -3px;
+}
+
+.config-nav__heading {
+  margin: 14px 16px 4px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--pb-muted);
+}
+
+.config-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  padding: 8px 32px 20px;
+  border-radius: 28px;
+  background: var(--pb-surface-1);
+  border: var(--pb-line);
+  overflow: hidden;
+}
+
+.config-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px 0;
+}
+
+.config-card__title {
+  margin: 0;
+  font-family: 'Sora', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-size: 26px;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.config-card__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.config-card__apply {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--pb-muted);
+  cursor: pointer;
+}
+
+.config-card__body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.config-card__loading {
+  display: flex;
+  justify-content: center;
+  padding: 64px 0;
+}
+
+/* no portrait artboard: nav stacks above the form and wraps */
+@media (orientation: portrait) {
+  .config-layout {
+    grid-template-columns: minmax(0, 1fr);
+    height: auto;
+    min-height: 0;
+  }
+
+  .config-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .config-nav__heading {
+    flex-basis: 100%;
+  }
+
+  .config-card__body {
+    overflow-y: visible;
+  }
+}
+</style>
+
+<style lang="scss">
+#config-page .array-list-description {
+  color: var(--pb-muted);
 }
 </style>

@@ -3,7 +3,6 @@ import { default as messages } from '@/i18n'
 import { usePreferredLanguages } from '@vueuse/core'
 
 const preferredLanguages = usePreferredLanguages()
-const incontextLanguageCodeSpecial = 'lol-US'
 const i18n = createI18n({
   locale: resolvePreferredLocale(preferredLanguages.value[0]),
   fallbackLocale: 'en-US',
@@ -12,31 +11,6 @@ const i18n = createI18n({
   missingWarn: false,
   messages,
 })
-
-const script = '//cdn.crowdin.com/jipt/jipt.js'
-function enableInContextTranslation() {
-  console.log('enable crowdin in context translation')
-
-  const { locale } = i18n.global
-  locale.value = incontextLanguageCodeSpecial
-
-  let el = document.head.querySelector(`[src="${script}"`)
-  if (!el) {
-    el = document.createElement('script')
-    el.setAttribute('src', script)
-    el.setAttribute('type', 'text/javascript')
-    document.head.appendChild(el)
-  }
-}
-function disableInContextTranslation() {
-  let el = document.head.querySelector(`[src="${script}"`)
-  if (el) {
-    el.remove()
-    // removing does not exit the incontext translation unfortunately.
-    // chose the hard way, just reload the page, next time without translator because locale stored is changed
-    location.reload()
-  }
-}
 
 const getLanguageName = locale => {
   const localeName = new Intl.DisplayNames([locale], {
@@ -66,4 +40,4 @@ export default ({ app }) => {
   // Tell app to use the I18n instance
   app.use(i18n)
 }
-export { enableInContextTranslation, disableInContextTranslation, getLanguageName, preferredLanguages }
+export { getLanguageName, preferredLanguages }

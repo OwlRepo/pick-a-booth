@@ -1,42 +1,27 @@
 <template>
-  <q-card flat class="q-mr-md q-mb-md">
-    <q-card-section>
-      <q-list>
-        <q-item-label header>{{ stats.name }} {{ $t('(Plugin)') }}</q-item-label>
+  <!-- plugin stats card: same card pattern as the dashboard artboard (dc.html L320-322) -->
+  <section class="pb-admin-card">
+    <div class="pb-admin-card__eyebrow"
+      ><span class="pb-admin-card__dot" style="background: var(--t1)"></span>{{ stats.name }} {{ $t('(Plugin)') }}</div
+    >
 
-        <div class="q-gutter-y-sm">
-          <template v-for="(stat, index) in stats.stats" :key="index">
-            <!-- SubStats -->
-            <q-item flat bordered v-if="isSubStats(stat)">
-              <DashboardGenericItemSection :substats="stat"></DashboardGenericItemSection>
-            </q-item>
+    <template v-for="(stat, index) in stats.stats" :key="index">
+      <!-- SubStats -->
+      <DashboardGenericItemSection v-if="isSubStats(stat)" :substats="stat"></DashboardGenericItemSection>
 
-            <!-- SubList -->
-            <div v-else>
-              <q-item>
-                <q-item-section>
-                  <q-item-label caption>{{ stat.name }} </q-item-label>
-                  <div class="row">
-                    <q-item v-for="(sub, i) in stat.val" :key="i">
-                      <DashboardGenericItemSection :substats="sub"></DashboardGenericItemSection>
-                    </q-item>
-                  </div>
-                </q-item-section>
-              </q-item>
-            </div>
-          </template>
-        </div>
+      <!-- SubList -->
+      <template v-else>
+        <div class="pb-admin-card__eyebrow stats-sublist">{{ stat.name }}</div>
+        <DashboardGenericItemSection v-for="(sub, i) in stat.val" :key="i" :substats="sub"></DashboardGenericItemSection>
+      </template>
+    </template>
 
-        <q-separator v-if="stats.actions && stats.actions.length" />
-
-        <q-card-actions v-if="stats.actions && stats.actions.length" align="right">
-          <div v-for="(action, index) in stats.actions" :key="index">
-            <q-btn no-caps flat color="green" :label="action" @click="actionButtonClick(action)" />
-          </div>
-        </q-card-actions>
-      </q-list>
-    </q-card-section>
-  </q-card>
+    <div v-if="stats.actions && stats.actions.length" class="pb-admin-actions stats-actions">
+      <button v-for="(action, index) in stats.actions" :key="index" type="button" class="pb-admin-action" @click="actionButtonClick(action)">
+        {{ action }}
+      </button>
+    </div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -63,3 +48,13 @@ const isSubStats = (stat: StatEntry): stat is SubStats => {
   return !Array.isArray(stat.val)
 }
 </script>
+
+<style scoped>
+.stats-sublist {
+  margin-top: 14px;
+}
+
+.stats-actions {
+  margin-top: 10px;
+}
+</style>

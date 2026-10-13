@@ -25,7 +25,7 @@ const routes: RouteRecordRaw[] = [
   },
   {
     // standby-path: used on the same device as the photobooth usually
-    // user will (only) interact with this page to stop the slideshow and resume normal photobooth-app use
+    // user will (only) interact with this page to stop the slideshow and resume normal booth use
     path: '/standby',
     meta: { standbyMode: true },
     component: () => import('@/layouts/MainLayout.vue'),

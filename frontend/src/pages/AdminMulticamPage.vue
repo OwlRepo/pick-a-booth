@@ -1,6 +1,6 @@
 <template>
   <q-page id="multicam-page" padding>
-    <q-card flat class="q-pa-md q-mb-md">
+    <q-card flat class="pb-admin-card multicam-card">
       <q-card-section>
         <div class="text-h5">{{ $t('Multicamera Tools') }}</div>
       </q-card-section>
@@ -8,32 +8,19 @@
         <p>{{ $t('adminmulticampage.intro') }}</p>
         <p>{{ $t('adminmulticampage.paragraph1') }}</p>
         <p>{{ $t('adminmulticampage.paragraph2') }}</p>
-
-        <div class="q-gutter-sm q-px-none">
-          <q-btn
-            outline
-            no-caps
-            color="green"
-            href="https://photobooth-app.org/wigglegramcamera/"
-            target="_blank"
-            icon-right="sym_o_open_in_new"
-            label="Learn more"
-          >
-          </q-btn>
-        </div>
       </q-card-section>
       <q-card-actions class="q-gutter-sm q-px-none" align="right">
         <q-btn
           no-caps
-          outline
-          color="red"
+          unelevated
+          class="pb-admin-btn pb-admin-btn--danger"
           :label="$t('Delete calibration data')"
           @click="remoteProcedureCall('/api/admin/multicamera/calibration', 'DELETE')"
         />
       </q-card-actions>
     </q-card>
     <div>
-      <q-card v-if="multicamNodes.length == 0" flat class="q-pa-md q-mb-md">
+      <q-card v-if="multicamNodes.length == 0" flat class="pb-admin-card multicam-card">
         <div class="text-h5">
           {{ $t('Calibrate') }}
           <q-badge color="negative" align="top"><q-icon name="sym_o_error" color="white" size="15px" /> </q-badge>
@@ -42,7 +29,7 @@
         <p>{{ $t('The tool is not available, because there is no multicamera enabled in the camera section.') }}</p>
       </q-card>
 
-      <q-stepper v-else v-model="step" vertical animated flat class="q-pa-md q-mb-md">
+      <q-stepper v-else v-model="step" vertical animated flat class="pb-admin-card multicam-card">
         <div class="text-h5">{{ $t('Calibrate') }}</div>
 
         <q-step :name="0" title="Set your calibration target" icon="sym_o_target" :done="step > 0">
@@ -69,10 +56,16 @@
           <q-stepper-navigation>
             <div class="row">
               <div class="col q-gutter-sm">
-                <q-btn color="accent" no-caps :label="$t('Generate your ChAruCo board')" @click="dialogCharucoGenerator = true" />
+                <q-btn
+                  unelevated
+                  class="pb-admin-btn pb-admin-btn--primary"
+                  no-caps
+                  :label="$t('Generate your ChAruCo board')"
+                  @click="dialogCharucoGenerator = true"
+                />
               </div>
               <div class="col q-gutter-sm" align="right">
-                <q-btn no-caps @click="step = 1" color="green" label="Start" icon-right="sym_o_arrow_right" />
+                <q-btn no-caps unelevated @click="step = 1" class="pb-admin-btn pb-admin-btn--primary" label="Start" icon-right="sym_o_arrow_right" />
               </div>
             </div>
           </q-stepper-navigation>
@@ -110,11 +103,25 @@
           <q-stepper-navigation>
             <div class="row">
               <div class="col q-gutter-sm">
-                <q-btn flat no-caps color="green" label="Configure backends" icon-right="sym_o_open_in_new" to="/admin/config" />
+                <q-btn
+                  flat
+                  no-caps
+                  class="pb-admin-btn pb-admin-btn--flat"
+                  label="Configure backends"
+                  icon-right="sym_o_open_in_new"
+                  to="/admin/config"
+                />
               </div>
               <div class="col q-gutter-sm" align="right">
-                <q-btn flat no-caps @click="step = 0" color="green" :label="$t('BTN_LABEL_BACK')" icon="sym_o_arrow_left" />
-                <q-btn no-caps @click="step = 2" color="green" :label="$t('Continue')" icon-right="sym_o_arrow_right" />
+                <q-btn flat no-caps @click="step = 0" class="pb-admin-btn pb-admin-btn--flat" :label="$t('BTN_LABEL_BACK')" icon="sym_o_arrow_left" />
+                <q-btn
+                  no-caps
+                  unelevated
+                  @click="step = 2"
+                  class="pb-admin-btn pb-admin-btn--primary"
+                  :label="$t('Continue')"
+                  icon-right="sym_o_arrow_right"
+                />
               </div>
             </div>
           </q-stepper-navigation>
@@ -124,7 +131,7 @@
           <p>{{ $t('adminmulticampage.step2.paragraph1') }}</p>
           <p>{{ $t('adminmulticampage.step2.paragraph2') }}</p>
 
-          <q-btn no-caps class="q-mb-md" @click="capture" color="accent" label="Capture" :loading="loading" />
+          <q-btn no-caps unelevated class="pb-admin-btn pb-admin-btn--primary q-mb-md" @click="capture" label="Capture" :loading="loading" />
 
           <div>
             <q-scroll-area class="q-mb-md" style="height: 220px; width: 100%" v-for="(node, node_idx) in multicamNodes" :key="node_idx">
@@ -149,7 +156,13 @@
                     <q-img loading="lazy" fit="contain" :src="`/api/aquisition/multicam/${image}`" />
 
                     <q-card-actions align="right">
-                      <q-btn flat round color="red" icon="sym_o_delete" @click="images[node_idx].splice(image_idx, 1)" />
+                      <q-btn
+                        flat
+                        round
+                        class="pb-admin-btn pb-admin-btn--round pb-admin-btn--flat pb-admin-btn--danger"
+                        icon="sym_o_delete"
+                        @click="images[node_idx].splice(image_idx, 1)"
+                      />
                       <q-btn flat round color="primary" icon="sym_o_download" :to="`/api/aquisition/multicam/${image}`" target="_blank" />
                     </q-card-actions>
                   </q-card>
@@ -161,11 +174,19 @@
           <q-stepper-navigation>
             <div class="row">
               <div class="col q-gutter-sm">
-                <q-btn no-caps @click="capture" color="accent" label="Capture" :loading="loading" />
+                <q-btn no-caps unelevated @click="capture" class="pb-admin-btn pb-admin-btn--primary" label="Capture" :loading="loading" />
               </div>
               <div class="col q-gutter-sm" align="right">
-                <q-btn flat no-caps @click="step = 1" color="green" :label="$t('BTN_LABEL_BACK')" icon="sym_o_arrow_left" />
-                <q-btn no-caps @click="step = 3" color="green" :label="$t('Continue')" :disable="images.length == 0" icon-right="sym_o_arrow_right" />
+                <q-btn flat no-caps @click="step = 1" class="pb-admin-btn pb-admin-btn--flat" :label="$t('BTN_LABEL_BACK')" icon="sym_o_arrow_left" />
+                <q-btn
+                  no-caps
+                  unelevated
+                  @click="step = 3"
+                  class="pb-admin-btn pb-admin-btn--primary"
+                  :label="$t('Continue')"
+                  :disable="images.length == 0"
+                  icon-right="sym_o_arrow_right"
+                />
               </div>
             </div>
           </q-stepper-navigation>
@@ -178,11 +199,26 @@
           <q-stepper-navigation>
             <div class="row">
               <div class="col q-gutter-sm">
-                <q-btn no-caps color="accent" :disable="images.length == 0" :label="$t('Calculate')" @click="postCalibration" :loading="loading" />
+                <q-btn
+                  no-caps
+                  unelevated
+                  class="pb-admin-btn pb-admin-btn--primary"
+                  :disable="images.length == 0"
+                  :label="$t('Calculate')"
+                  @click="postCalibration"
+                  :loading="loading"
+                />
               </div>
               <div class="col q-gutter-sm" align="right">
-                <q-btn no-caps flat @click="step = 2" color="green" :label="$t('BTN_LABEL_BACK')" icon="sym_o_arrow_left" />
-                <q-btn no-caps @click="step = 4" color="green" :label="$t('Continue')" icon-right="sym_o_arrow_right" />
+                <q-btn no-caps flat @click="step = 2" class="pb-admin-btn pb-admin-btn--flat" :label="$t('BTN_LABEL_BACK')" icon="sym_o_arrow_left" />
+                <q-btn
+                  no-caps
+                  unelevated
+                  @click="step = 4"
+                  class="pb-admin-btn pb-admin-btn--primary"
+                  :label="$t('Continue')"
+                  icon-right="sym_o_arrow_right"
+                />
               </div>
             </div>
           </q-stepper-navigation>
@@ -197,10 +233,17 @@
           <q-stepper-navigation>
             <div class="row">
               <div class="col q-gutter-sm">
-                <q-btn no-caps color="accent" :label="$t('Capture and create wigglegram')" @click="captureCreateWigglegram" :loading="loading" />
+                <q-btn
+                  no-caps
+                  unelevated
+                  class="pb-admin-btn pb-admin-btn--primary"
+                  :label="$t('Capture and create wigglegram')"
+                  @click="captureCreateWigglegram"
+                  :loading="loading"
+                />
               </div>
               <div class="col q-gutter-sm" align="right">
-                <q-btn no-caps flat @click="step = 3" color="green" :label="$t('BTN_LABEL_BACK')" icon="sym_o_arrow_left" />
+                <q-btn no-caps flat @click="step = 3" class="pb-admin-btn pb-admin-btn--flat" :label="$t('BTN_LABEL_BACK')" icon="sym_o_arrow_left" />
               </div>
             </div>
           </q-stepper-navigation>
@@ -345,3 +388,21 @@ const multicamNodes = computed<WigglecamNodes[]>(() => {
   return []
 })
 </script>
+
+<style scoped>
+.multicam-card {
+  margin-bottom: 16px;
+}
+
+.multicam-card :deep(.q-stepper__title),
+.multicam-card .text-h5 {
+  font-family: 'Sora', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.multicam-card :deep(.q-stepper__tab--active),
+.multicam-card :deep(.q-stepper__tab--done) {
+  color: var(--t1);
+}
+</style>

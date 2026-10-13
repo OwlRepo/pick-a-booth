@@ -37,17 +37,17 @@
     </q-tab-panels>
 
     <q-dialog v-model="dialog">
-      <q-card class="q-pa-sm" style="min-width: 350px" flat>
-        <q-card-section class="row items-center" style="flex-wrap: nowrap">
-          <q-avatar icon="sym_o_delete" color="green" text-color="white" />
-          <span class="q-ml-sm">{{ $t('The form is cleared when you switch the tab. Do you want to continue?') }}</span>
-        </q-card-section>
+      <div class="pb-dialog">
+        <div class="pb-dialog__body">
+          <span class="pb-dialog__icon pb-dialog__icon--danger"><q-icon name="sym_o_delete" size="24px" /></span>
+          <span>{{ $t('The form is cleared when you switch the tab. Do you want to continue?') }}</span>
+        </div>
 
-        <q-card-actions align="right">
-          <q-btn no-caps v-close-popup flat :label="$t('BTN_LABEL_CANCEL')" />
-          <q-btn no-caps v-close-popup :label="$t('Continue')" color="green" @click="confirm" />
-        </q-card-actions>
-      </q-card>
+        <div class="pb-dialog__actions">
+          <q-btn no-caps unelevated v-close-popup class="pb-admin-btn" :label="$t('BTN_LABEL_CANCEL')" />
+          <q-btn no-caps unelevated v-close-popup class="pb-admin-btn pb-admin-btn--primary" :label="$t('Continue')" @click="confirm" />
+        </div>
+      </div>
     </q-dialog>
   </div>
 </template>

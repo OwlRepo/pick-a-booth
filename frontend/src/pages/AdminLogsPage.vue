@@ -1,12 +1,12 @@
 <template>
   <q-page id="logs-page" padding>
-    <q-card class="q-pa-md" flat>
-      <div class="row q-gutter-sm">
-        <div class="text-h5">{{ $t('log messages') }}</div>
-        <q-btn no-caps outline color="primary" href="/api/debug/log/latest" target="_blank">{{ $t('download logs') }}</q-btn>
+    <section class="pb-admin-card">
+      <div class="logs-head">
+        <h2 class="pb-admin-card__title">{{ $t('log messages') }}</h2>
+        <q-btn no-caps unelevated class="pb-admin-btn" href="/api/debug/log/latest" target="_blank">{{ $t('download logs') }}</q-btn>
       </div>
 
-      <q-markup-table>
+      <q-markup-table flat class="logs-table">
         <thead>
           <tr class="text-left">
             <th>{{ $t('log level') }}</th>
@@ -20,9 +20,7 @@
         <tbody>
           <tr v-for="(record, idx) in store.logrecords as any[]" :key="idx">
             <td>
-              <q-badge :color="debugLevelColor(record.level)">
-                {{ record.level }}
-              </q-badge>
+              <span class="logs-level" :style="{ background: debugLevelColor(record.level) }">{{ record.level }}</span>
             </td>
             <td>{{ record.time }}</td>
             <td>{{ record.message }}</td>
@@ -32,7 +30,7 @@
           </tr>
         </tbody>
       </q-markup-table>
-    </q-card>
+    </section>
   </q-page>
 </template>
 
@@ -42,13 +40,52 @@ import { QBtn } from 'quasar'
 
 const store = useMainStore()
 
+// level badge background (palette tokens; ink stays dark on all of them)
 const debugLevelColor = (level: string) => {
-  if (level == 'DEBUG') return 'info'
-  if (level == 'INFO') return 'info'
-  if (level == 'WARNING') return 'warning'
-  if (level == 'ERROR') return 'negative'
-  if (level == 'CRITICAL') return 'negative'
+  if (level == 'DEBUG') return 'var(--t4)'
+  if (level == 'INFO') return 'var(--t4)'
+  if (level == 'WARNING') return 'var(--t3)'
+  if (level == 'ERROR') return 'var(--pb-danger-text)'
+  if (level == 'CRITICAL') return 'var(--pb-danger-text)'
 
-  return 'grey'
+  return 'var(--pb-muted)'
 }
 </script>
+
+<style scoped>
+.logs-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.logs-head .pb-admin-card__title {
+  margin: 0;
+}
+
+.logs-table {
+  background: transparent;
+  color: var(--pb-text);
+}
+
+.logs-table :deep(th),
+.logs-table :deep(td) {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.logs-table :deep(th) {
+  color: var(--pb-muted);
+  font-weight: 700;
+}
+
+.logs-level {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  color: var(--pb-bg);
+  font-size: 12px;
+  font-weight: 700;
+}
+</style>

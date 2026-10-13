@@ -1,0 +1,25 @@
+# Autonomy and activation for the repository-local AI engineering layer.
+# Semantics: docs/ai/autonomous-engineering.md. Changing `activation` requires
+# the repo owner's explicit command, recorded in .ai-engineering/memory/project-memory.md.
+autonomy_level: 2
+
+# PILOT_FROZEN: plan, implement, review, QA, open PRs and run CI; never merge or
+# release autonomously. ACTIVE allows Low/Medium autonomous release only after
+# `ACTIVATE LOW/MEDIUM AUTONOMOUS RELEASE`. RELEASE_FROZEN: no merge/release at all.
+activation: PILOT_FROZEN
+
+agents:
+  - coordinator
+  - product-manager
+  - architect
+  - implementer
+  - reviewer
+  - qa
+  - reporter
+
+# Scheduled runs are not configured (task source: repository markdown, manual runs).
+schedule: NONE
+
+approval:
+  production: required
+  destructive_actions: required

@@ -1,0 +1,8 @@
+name = "db-architect"
+file_prefix = "02"
+description = "Use for any SQLAlchemy model or Alembic migration change (SQLite at ./database/database.sqlite). Runs alone before the contract is locked. Never touches routers, services or Pydantic schemas."
+owned_globs = ["src/photobooth/database/alembic/versions/*.py", "src/photobooth/database/models.py"]
+
+[claude]
+tools = ["Read", "Grep", "Glob", "Edit", "Write", "Bash"]
+model = "sonnet"

@@ -1,0 +1,8 @@
+name = "code-reviewer"
+file_prefix = "05"
+description = "Use proactively before marking any feature as done. Read-only validator that checks spec compliance, code quality, and repository conventions (ruff, basedpyright, layering)."
+owned_globs = []
+
+[claude]
+tools = ["Read", "Grep", "Glob", "Bash"]
+model = "sonnet"

@@ -1,0 +1,8 @@
+name = "security-auditor"
+file_prefix = "06"
+description = "Use for every change touching auth, the admin API, config persistence, file serving, plugins, share/sync or anything reachable from the network. Read-only; reports SAFE_TO_MERGE or BLOCKED."
+owned_globs = []
+
+[claude]
+tools = ["Read", "Grep", "Glob", "Bash"]
+model = "sonnet"

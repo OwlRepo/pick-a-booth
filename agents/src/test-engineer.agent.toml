@@ -1,0 +1,8 @@
+name = "test-engineer"
+file_prefix = "07"
+description = "Runs the RED round: writes the plan Test Matrix as pytest cases ordered test_error_ > test_edge_ > test_regression_ > test_happy_, runs uv run poe tdd:red, commits them alone. Also joins the QA fan-out."
+owned_globs = []
+
+[claude]
+tools = ["Read", "Grep", "Glob", "Edit", "Write", "Bash"]
+model = "sonnet"

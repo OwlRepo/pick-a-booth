@@ -41,3 +41,7 @@ openapi.json
 # testing
 /experimental
 
+
+# Claude Code: task worktrees and per-user settings (docs/ai/execution.md)
+.claude/worktrees/
+.claude/settings.local.json

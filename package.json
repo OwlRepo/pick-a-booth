@@ -1,0 +1,63 @@
+{
+  "name": "photobooth-app",
+  "version": "2.0.0",
+  "private": true,
+  "description": "photobooth-app frontend",
+  "author": "michael <me@mgrl.de>",
+  "type": "module",
+  "scripts": {
+    "lint": "oxfmt && oxlint --fix",
+    "lint:check": "oxfmt --check && oxlint",
+    "typecheck": "vue-tsc --noEmit",
+    "format": "prettier --write \"**/*.{js,ts,vue,scss,html,md,json}\" --ignore-path .gitignore",
+    "generate-types": "openapi-typescript  http://localhost:8000/api/openapi.json --output ./src/dto/api.ts",
+    "check-types": "openapi-typescript  http://localhost:8000/api/openapi.json --output ./src/dto/api.ts --check",
+    "test": "echo \"No test specified\" && exit 0",
+    "dev": "quasar dev",
+    "build": "quasar build",
+    "postinstall": "quasar prepare"
+  },
+  "dependencies": {
+    "@jsonforms/core": "^3.8.0",
+    "@jsonforms/vue": "^3.8.0",
+    "@quasar/extras": "^2.0.4",
+    "@vueuse/core": "^14.4.0",
+    "@vueuse/integrations": "^14.4.0",
+    "pinia": "^4.0.3",
+    "qrcode.vue": "^3.10.0",
+    "quasar": "^2.25.1",
+    "vue": "^3.5.41",
+    "vue-i18n": "^11.4.8",
+    "vue-router": "^5.2.0"
+  },
+  "devDependencies": {
+    "@intlify/unplugin-vue-i18n": "^11.2.5",
+    "@quasar/app-vite": "^3.7.0",
+    "@types/lodash": "^4.17.25",
+    "autoprefixer": "^10.5.4",
+    "globals": "^17.11.0",
+    "openapi-typescript": "^7.13.0",
+    "oxfmt": "^0.60.0",
+    "oxlint": "^1.79.0",
+    "oxlint-tsgolint": "^7.0.2001",
+    "prettier": "^3.9.6",
+    "typescript": "^6.0.3",
+    "vite-plugin-checker": "^0.14.5",
+    "vue-tsc": "^3.3.10"
+  },
+  "overrides": {
+    "openapi-typescript": {
+      "typescript": "^6.0.0"
+    }
+  },
+  "engines": {
+    "node": "^28 || ^26 || ^24 || ^22 || ^20 || ^18",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
+  },
+  "allowScripts": {
+    "esbuild@0.25.12": true,
+    "@parcel/watcher@2.6.0": true
+  },
+  "productName": "Photobooth-App"
+}

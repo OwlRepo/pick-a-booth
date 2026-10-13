@@ -9,21 +9,21 @@ PARTY = ["#ff4d2e", "#ff3d9a", "#ffc933", "#3d6bff", "#22d39a"]
 
 def test_error_theme_palette_rejects_four_colors():
     with pytest.raises(ValidationError):
-        GroupUiSettings(theme_palette=PARTY[:4])
+        GroupUiSettings.model_validate({"theme_palette": PARTY[:4]})
 
 
 def test_error_theme_palette_rejects_six_colors():
     with pytest.raises(ValidationError):
-        GroupUiSettings(theme_palette=PARTY + ["#000000"])
+        GroupUiSettings.model_validate({"theme_palette": PARTY + ["#000000"]})
 
 
 def test_error_theme_palette_rejects_invalid_color():
     with pytest.raises(ValidationError):
-        GroupUiSettings(theme_palette=PARTY[:4] + ["not-a-color"])
+        GroupUiSettings.model_validate({"theme_palette": PARTY[:4] + ["not-a-color"]})
 
 
 def test_edge_theme_palette_named_and_rgb_colors_serialize_as_long_hex():
-    ui = GroupUiSettings(theme_palette=["red", "#fff", "rgb(0,0,255)", "#3d6bff", "#22d39a"])
+    ui = GroupUiSettings.model_validate({"theme_palette": ["red", "#fff", "rgb(0,0,255)", "#3d6bff", "#22d39a"]})
     assert ui.model_dump(mode="json")["theme_palette"] == ["#ff0000", "#ffffff", "#0000ff", "#3d6bff", "#22d39a"]
 
 
